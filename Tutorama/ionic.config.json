@@ -1,0 +1,7 @@
+{
+  "name": "Tutorama",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
