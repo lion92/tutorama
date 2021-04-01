@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SplashScreenComponent } from "../../splash-screen/splash-screen.component";
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.page.html',
@@ -10,6 +10,7 @@ export class CartPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
