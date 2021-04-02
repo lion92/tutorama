@@ -1,61 +1,126 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title class="ion-align-self-left" size="medium">Ajouté récemment</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <ion-row>
-      <ion-col size="6">
-         <div>
-           Nos formations sont souvent en promo !
-         </div>
+    <ion-row class="top-row">
+      <ion-col size="8"></ion-col>
+      <ion-col size="4">
+        
+        <ion-icon name="cart-outline" [routerLink]="['/cart']" class="cart-icon"></ion-icon>
       </ion-col>
     </ion-row>
+
+
     <ion-row>
-        <ion-scroll scrollX="true"  class="item">
-            <ion-row>
-                <ion-col width-25>
-                    Item 1 
-                </ion-col> 
-                <ion-col width-25>
-                    Item 1 
-                </ion-col> 
-                <ion-col width-25>
-                    Item 1 
-                </ion-col> 
-                <ion-col width-25>
-                    Item 1 
-                </ion-col> 
-                <ion-col width-25>
-                    Item 1 
-                </ion-col>  
-                <ion-col width-25>
-                    Item 1 
-                </ion-col> 
-                <ion-col width-25>
-                    Item 1 
-                </ion-col> 
-                <ion-col width-25>
-                    Item 1 
-                </ion-col> 
-                <ion-col width-25>
-                    Item 1 
-                </ion-col> 
-                <ion-col width-25>
-                    Item 1 
-                </ion-col> 
-            </ion-row>
-        </ion-scroll>
+      <ion-card class="card-home-top">
+        <ion-card-header>
+          <ion-card-title>Réalisez vos rêves !</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Reconversion professionnels, Améliorer ces skills.
+          Avec Tutorama vos objectifs seront atteints !
+        </ion-card-content>
+      </ion-card>
+      <ion-row class="row-free">
+        
+      </ion-row>
+      <ion-row class="row-star">
+        <ion-button class="btn-star" expand="full" color="black">
+          <span>Nos formations les mieux notées</span><ion-icon name="star-outline"></ion-icon>
+        </ion-button>
+      </ion-row>
     </ion-row>
-  </div>
+    <ion-row style="display: flex; align-items: stretch;">
+      <ion-col size="12">
+       
+
+        <div class="categorie-block">
+          <ion-row no-padding class="category-banner">
+            <ion-col text-left button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
+              <h2>Publié récemment</h2>
+            </ion-col>
+          </ion-row>
+          <ion-slides [options]="sliderConfig">
+            <ion-slide class="slide1">
+              <ion-card class="card-home">
+              <img src="../../../assets/img/home/hacking.jpg" class="img-card">
+              <ion-card-header class="card-body">
+                <h3>Formation de hacking</h3>
+                <span>Cyber sécurité</span>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row align-self-end>
+                  <cite>Bracq Florian</cite>
+                </ion-row>
+                <ion-row class="card-footer">
+                  
+                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-half-outline"></ion-icon>
+                    <span>110,00€</span>
+                  
+                </ion-row>
+                <ion-row>
+                  <span>Les avis(12)</span>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+            </ion-slide>
+            <ion-slide>
+              <ion-card class="card-home">
+                <img src="../../../assets/img/home/board.jpg" class="img-card">
+                <ion-card-header class="card-body">
+                  <h3>Devenez chef de projet</h3>
+                  <span>Gestion de projet, It</span>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-row text-center>
+                    <cite>Delacre Antoine</cite>
+                  </ion-row>
+                  <ion-row class="card-footer">
+                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-half-outline"></ion-icon>
+                    <ion-icon name="star-outline"></ion-icon>
+                    <ion-icon name="star-outline"></ion-icon>
+                    <span>55,00€</span>
+                  </ion-row>
+                  <ion-row>
+                    <span>Les avis(12)</span>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
+            </ion-slide>
+            <ion-slide>
+              <ion-card class="card-home">
+                <img src="../../../assets/img/home/social-media.jpg" class="img-card">
+                <ion-card-header class="card-body">
+                  <h3>Réseaux Sociaux</h3>
+                  <span>Communication</span>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-row text-center>
+                    <cite>Lemarchand Jerome</cite>
+                  </ion-row>
+                  <ion-row class="card-footer">
+                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-half-outline"></ion-icon>
+                    <span>89,00€</span>
+                  </ion-row>
+                  <ion-row>
+                    <span>Les avis(12)</span>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
+            </ion-slide>
+          </ion-slides>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    
 </ion-content>
