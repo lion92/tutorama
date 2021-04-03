@@ -19,11 +19,15 @@
       <ion-label>Mes tutos</ion-label>
       <ion-badge>4</ion-badge>
     </ion-tab-button>
-
-    <ion-tab-button tab="compte">
+    <ion-tab-button tab="register" [routerLink]="['/register']">
       <ion-icon name="person-outline"></ion-icon>
-      <ion-label>Compte</ion-label>
+      <ion-label>register</ion-label>
     </ion-tab-button>
-  </ion-tab-bar>
+ 
+      <ion-tab-button tab="compte">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Compte</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
 </ion-tabs>
 </ion-app>
