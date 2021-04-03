@@ -3,7 +3,18 @@
   <ion-router-outlet></ion-router-outlet>
   <ion-tabs>
   <ion-tab-bar slot="bottom">
-
+    <ion-tab-button tab="register" [routerLink]="['/register']">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>register</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="forgot" [routerLink]="['/forgotpassword']">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>forgot</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="login" [routerLink]="['/login']">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>login</ion-label>
+    </ion-tab-button>
     <ion-tab-button tab="home" [routerLink]="['/home']">
       <ion-icon name="home-outline"></ion-icon>
       <ion-label>Accueil</ion-label>
@@ -19,10 +30,7 @@
       <ion-label>Mes tutos</ion-label>
       <ion-badge>4</ion-badge>
     </ion-tab-button>
-    <ion-tab-button tab="register" [routerLink]="['/register']">
-      <ion-icon name="person-outline"></ion-icon>
-      <ion-label>register</ion-label>
-    </ion-tab-button>
+
  
       <ion-tab-button tab="compte">
         <ion-icon name="person-outline"></ion-icon>
