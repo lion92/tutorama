@@ -4,21 +4,23 @@ import { Routes, RouterModule } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [{
-  path: '',
-  component: TabsPage,
-  children: [{
-          path: 'home',
-          children: [{
-              path: '',
-              loadChildren: '../home/home.module#HomePageModule'
-          }],
-      }, 
-      {
-          path: '',
-          redirectTo: '/tabs/home',
-          pathMatch: 'full'
-      }
-  ]
+    path: '',
+    component: TabsPage,
+    children: [{
+            path: 'home',
+            children: [{
+                path: '',
+                data: { json: false },
+                loadChildren: '../home/home.module#HomePageModule'
+            }],
+            data: { json: false },
+        },
+        {
+            path: '',
+            redirectTo: '/tabs/home',
+            pathMatch: 'full'
+        }
+    ]
 }];
 
 @NgModule({
