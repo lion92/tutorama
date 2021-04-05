@@ -27,4 +27,11 @@ export class ProfilePage implements OnInit {
     return user.email;
   }
 
+  async logout(){
+
+    await localStorage.removeItem('user');
+    await localStorage.removeItem('token');
+    
+  }
+
 }
