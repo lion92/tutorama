@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
   async loginForm(){
     
       this.auth.login(this.email, this.user_password).then(async(user: any) => {
-        console.log(this.email)
+  
      
         if (this.platform.is("desktop")) {
           localStorage.setItem('token', user.token)

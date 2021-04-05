@@ -13,11 +13,39 @@
           <ion-col size="12">
             <ion-item>
               <ion-label position="floating">email</ion-label>
-              <ion-input type="email" [(ngModel)]="user.username"></ion-input>
+              <ion-input type="email" [(ngModel)]="user.email"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Password</ion-label>
-              <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+              <ion-input type="password" [(ngModel)]="user.user_password"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">avatar</ion-label>
+              <ion-input type="text" [(ngModel)]="user.avatar"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">age</ion-label>
+              <ion-input type="text" [(ngModel)]="user.age"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Tel</ion-label>
+              <ion-input type="text" [(ngModel)]="user.user_tel"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">N° rue</ion-label>
+              <ion-input type="text" [(ngModel)]="user.num_rue"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Batiment</ion-label>
+              <ion-input type="text" [(ngModel)]="user.batiment"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Code Postal</ion-label>
+              <ion-input type="text" [(ngModel)]="user.code_postal"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Libellé adresse</ion-label>
+              <ion-input type="text" [(ngModel)]="user.libelle_adresse"></ion-input>
             </ion-item>
               
           </ion-col>
@@ -25,5 +53,5 @@
               <ion-button (click)="register()" expand="full">Register</ion-button>
           </ion-col>
       </ion-row>
-      <p> <a routerLink="/login">You already have an account ? Login</a> </p>
+      <p> <a routerLink="/login">Vous êtes déjà inscrit ? Connectez-vous</a> </p>
   </ion-content>

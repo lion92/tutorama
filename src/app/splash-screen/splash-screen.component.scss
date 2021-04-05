@@ -1,5 +1,5 @@
 .app-splash-screen {
-  background: #68a691;
+  background: #eff1f3;
   position: fixed;
   top: 0;
   left: 0;
@@ -16,8 +16,8 @@
 
 .app-label {
   margin-top: 32px;
-  color: #b1ede8;
-  font-size: 1.5em;
+  color: #243b55;
+  font-size: 1.2rem;
   font-family: "Pacifico", cursive;
 }
 
@@ -29,14 +29,13 @@
 }
 
 .app-logo {
+  margin-left: 5.5rem;
   background: url("../../assets/img/tutorama.png");
   background-repeat: no-repeat;
-  max-width: 100%;
   background-position: center;
-  background-size: contain;
+ background-size: contain;
   width: 300px;
   height: 200px;
-  margin-left: -100px;
 }
 
 .app-loader {
