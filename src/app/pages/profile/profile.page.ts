@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -31,7 +31,7 @@ export class ProfilePage implements OnInit {
 
     await localStorage.removeItem('user');
     await localStorage.removeItem('token');
-    
+    this.router.navigateByUrl('/login', { replaceUrl:true });
   }
 
 }
