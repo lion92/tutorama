@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [{
     path: '',
-    redirectTo: 'cart',
+    redirectTo: 'profile',
     pathMatch: 'full'
   },
   {
@@ -17,7 +17,8 @@ const routes: Routes = [{
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
-  },  {
+  },
+  {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
