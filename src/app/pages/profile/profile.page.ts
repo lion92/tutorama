@@ -16,8 +16,8 @@ export class ProfilePage implements OnInit {
   getAvatar(){
     const user = JSON.parse(localStorage.getItem('user'));
     
-    const avatar = "https://robohash.org/765dac3458179212aa583b0733cc74b8?set=set4&bgset=&size=400x400";
-    return avatar;
+    
+    return user.avatar;
   }
 
   getProfile(){

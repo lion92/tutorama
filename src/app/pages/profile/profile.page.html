@@ -9,12 +9,11 @@
     <ion-row class="logo">
       <ion-col size="12" class="ion-align-self-center">
           <input type="button">
-          <ion-icon name="add-circle-outline"></ion-icon>
+          <ion-img [src]="getAvatar()" name="add-circle-outline"></ion-img>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12" class="row-top">
-        <ion-img [src]="user.avatar"></ion-img>
         <span>{{getProfile()}}</span>
       </ion-col>
     </ion-row>
