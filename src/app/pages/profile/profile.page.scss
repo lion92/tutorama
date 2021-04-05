@@ -1,0 +1,42 @@
+ion-content{
+    background-color: #eff1f3;
+    height: 20rem;
+}
+.logo {
+    margin-top: 2rem;
+    margin-bottom: 7rem;
+    ion-col {
+        text-align: center;
+        input {
+            padding: 15% 18%;
+            border-radius: 50%;
+        }
+        ion-icon {
+            color: white;
+            margin-top: 30%;
+            margin-left: -25%;
+            position: absolute;
+            border-radius: 50%;
+            font-size: xxx-large;
+            background: #f15152;
+        }
+    }
+}
+
+ion-row{
+    height: 4rem;
+    ion-icon{
+        margin-right: 0.6rem;
+        font-size: 1.2rem;
+    }
+    border-bottom: 1px solid #e7e7e7;
+}
+.row-top{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    border-bottom: none;
+}
