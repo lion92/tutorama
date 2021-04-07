@@ -8,15 +8,16 @@ import { UserRegister } from '../interfaces/user-register';
 })
 export class AuthService {
 
-  url: string = "http://localhost:3000/api";
+  url: string = "http://tutoramaflorian.krissdeveloppeur.com";
 
 
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string) {
     return new Promise((resolve, rejects) => {
-        this.http.post(this.url + '/login', { email: email, user_password: password }).subscribe((data: any) => {
+        this.http.post(this.url + '/login', { email: email, password: password }).subscribe((data: any) => {
             //(!data.success) ? rejects(false): resolve(data);
+           
            if(!data){
             rejects(false)
            }else{

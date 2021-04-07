@@ -40,16 +40,16 @@
             </ion-col>
           </ion-row>
           <ion-slides [options]="sliderConfig">
-            <ion-slide class="slide1">
+            <ion-slide class="slide1" *ngFor="let cour of cours">
               <ion-card class="card-home">
-              <img src="../../../assets/img/home/hacking.jpg" class="img-card">
+              <img [src]="cour.image" class="img-card">
               <ion-card-header class="card-body">
-                <h3>Formation de hacking</h3>
+                <h3>{{ cour.contenu }}</h3>
                 <span>Cyber sécurité</span>
               </ion-card-header>
               <ion-card-content>
                 <ion-row align-self-end>
-                  <cite>Bracq Florian</cite>
+                  <cite>{{ cour.auteur }}</cite>
                 </ion-row>
                 <ion-row class="card-footer">
                   
@@ -58,7 +58,7 @@
                     <ion-icon name="star-sharp"></ion-icon>
                     <ion-icon name="star-sharp"></ion-icon>
                     <ion-icon name="star-half-outline"></ion-icon>
-                    <span>110,00€</span>
+                    <span>{{ cour.prix }},00€</span>
                   
                 </ion-row>
                 <ion-row>
@@ -67,56 +67,7 @@
               </ion-card-content>
             </ion-card>
             </ion-slide>
-            <ion-slide>
-              <ion-card class="card-home">
-                <img src="../../../assets/img/home/board.jpg" class="img-card">
-                <ion-card-header class="card-body">
-                  <h3>Devenez chef de projet</h3>
-                  <span>Gestion de projet, It</span>
-                </ion-card-header>
-                <ion-card-content>
-                  <ion-row text-center>
-                    <cite>Delacre Antoine</cite>
-                  </ion-row>
-                  <ion-row class="card-footer">
-                    <ion-icon name="star-sharp"></ion-icon>
-                    <ion-icon name="star-sharp"></ion-icon>
-                    <ion-icon name="star-half-outline"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon>
-                    <span>55,00€</span>
-                  </ion-row>
-                  <ion-row>
-                    <span>Les avis(12)</span>
-                  </ion-row>
-                </ion-card-content>
-              </ion-card>
-            </ion-slide>
-            <ion-slide>
-              <ion-card class="card-home">
-                <img src="../../../assets/img/home/social-media.jpg" class="img-card">
-                <ion-card-header class="card-body">
-                  <h3>Réseaux Sociaux</h3>
-                  <span>Communication</span>
-                </ion-card-header>
-                <ion-card-content>
-                  <ion-row text-center>
-                    <cite>Lemarchand Jerome</cite>
-                  </ion-row>
-                  <ion-row class="card-footer">
-                    <ion-icon name="star-sharp"></ion-icon>
-                    <ion-icon name="star-sharp"></ion-icon>
-                    <ion-icon name="star-sharp"></ion-icon>
-                    <ion-icon name="star-sharp"></ion-icon>
-                    <ion-icon name="star-half-outline"></ion-icon>
-                    <span>89,00€</span>
-                  </ion-row>
-                  <ion-row>
-                    <span>Les avis(12)</span>
-                  </ion-row>
-                </ion-card-content>
-              </ion-card>
-            </ion-slide>
+            
           </ion-slides>
         </div>
 

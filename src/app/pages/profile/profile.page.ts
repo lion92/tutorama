@@ -14,17 +14,17 @@ export class ProfilePage implements OnInit {
   }
 
   getAvatar(){
-    const user = JSON.parse(localStorage.getItem('user'));
+    //const user = JSON.parse(localStorage.getItem('user'));
     
     
-    return user.avatar;
+   // return user.avatar;
   }
 
   getProfile(){
 
-    const user = JSON.parse(localStorage.getItem('user'));
-
-    return user.email;
+    const user = localStorage.getItem('user');
+    console.log(user)
+    return user;
   }
 
   async logout(){

@@ -15,14 +15,14 @@ export class RegisterPage implements OnInit {
   user: UserRegister = 
   { 
     email: '',
-    user_password: '',
-    avatar: '',
-    age: undefined,
-    user_tel: '',
-    num_rue: undefined,
-    batiment: '',
-    code_postal: '',
-    libelle_adresse: '',
+    password: '',
+    // avatar: '',
+    // age: undefined,
+    // user_tel: '',
+    // num_rue: undefined,
+    // batiment: '',
+    // code_postal: '',
+    // libelle_adresse: '',
   }
 
   constructor(

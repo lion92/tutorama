@@ -26,13 +26,13 @@ export class HomePage {
     console.log("ionViewWillEnter");
     this.router.events.subscribe(async(event) => {
       if (event instanceof NavigationEnd) {
-          this.cours = await this.cour.getData()
+         // this.cours = await this.cour.getData()
       }
   });
   }
 
   async ngOnInit(){
-    this.cours = await this.cour.getData();
+    //this.cours = await this.cour.getData();
     
   }
 }

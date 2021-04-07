@@ -14,7 +14,9 @@ import { AuthService } from '../../services/auth.service';
 export class LoginPage implements OnInit {
 
   email: string = '';
-  user_password: string = '';
+  password: string = '';
+  token: string = '';
+
 
   constructor(
     private auth: AuthService,
@@ -37,12 +39,14 @@ export class LoginPage implements OnInit {
 
   async loginForm(){
     
-      this.auth.login(this.email, this.user_password).then(async(user: any) => {
-  
+      this.auth.login(this.email, this.password).then(async(user: any) => {
+        
+        this.token = user.split('!')[1];
+        console.log(this.token)
      
         if (this.platform.is("desktop")) {
-          localStorage.setItem('token', user.token)
-          localStorage.setItem('user', JSON.stringify(user.data))
+          localStorage.setItem('token', this.token)
+          localStorage.setItem('user', this.email)
       } else {
           await this.storage.setItem('token', user.token)
           await this.storage.setItem('user', JSON.stringify(user.data))

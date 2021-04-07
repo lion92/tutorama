@@ -13,40 +13,42 @@ export class CoursService {
 
   constructor(private http: HttpClient) { }
 
-  getData(): Promise <Cour[]>{
+  // getData(): Promise <Cour[]>{
 
-    return new Promise((resolve, rejects) => {
+  //   return new Promise((resolve, rejects) => {
       
-      const httpOptions = {
-        headers: new HttpHeaders({
-            'Authorization': 'Bearer ' + localStorage.getItem("token")
-        })
-      };
-      this.http.request('GET', 'http://localhost:3000/api/cours/', { headers: httpOptions.headers, responseType: 'text' }).subscribe((data) => {
-        try{
+  //     const httpOptions = {
+  //       headers: new HttpHeaders({
+  //           'Authorization': 'Bearer ' + localStorage.getItem("token")
+  //       })
+  //     };
+  //     this.http.request('GET', 'http://localhost:3000/api/cours/', { headers: httpOptions.headers, responseType: 'text' }).subscribe((data) => {
+  //       try{
             
-            let cours: Cour[] = [];
-            let object = JSON.parse(data)
+  //           let cours: Cour[] = [];
+  //           let object = JSON.parse(data)
            
-            for(const item of object.data){
-              cours.push({
-                auteur: item.auteur,
-                etoile: item.etoile,
-                contenu: item.contenu,
-                prix: item.prix,
-                date: item.date
-              })
+  //           for(const item of object.data){
+  //             cours.push({
+  //               auteur: item.auteur,
+  //               image: item.image,
+  //               video: item.video,
+  //               etoile: item.etoile,
+  //               contenu: item.contenu,
+  //               prix: item.prix,
+  //               date: item.date
+  //             })
               
-              resolve(cours);
-            }
-          }catch(err){
+  //             resolve(cours);
+  //           }
+  //         }catch(err){
            
-            rejects(false)
-          }
-      })
-    })
+  //           rejects(false)
+  //         }
+  //     })
+  //   })
 
-  }
+  // }
 
 
 
