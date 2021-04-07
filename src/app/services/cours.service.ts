@@ -27,8 +27,8 @@ export class CoursService {
             
             let cours: Cour[] = [];
             let object = JSON.parse(data)
-            
-            for(const item of object){
+           
+            for(const item of object.data){
               cours.push({
                 auteur: item.auteur,
                 etoile: item.etoile,
@@ -36,9 +36,11 @@ export class CoursService {
                 prix: item.prix,
                 date: item.date
               })
+              
               resolve(cours);
             }
           }catch(err){
+           
             rejects(false)
           }
       })

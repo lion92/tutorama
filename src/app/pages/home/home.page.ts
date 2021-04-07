@@ -33,6 +33,6 @@ export class HomePage {
 
   async ngOnInit(){
     this.cours = await this.cour.getData();
-    console.log(this.cours)
+    
   }
 }
