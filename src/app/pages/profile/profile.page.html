@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="container">
+    <ion-row class="logo">
+      <ion-col size="12" class="ion-align-self-center">
+          <input type="button">
+          <ion-img [src]="getAvatar()" name="add-circle-outline"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="row-top">
+        <span>{{getProfile()}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="row-top">
+        <ion-icon name="book-outline"></ion-icon>
+        <span>Mes tutos</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="row-top">
+        <ion-icon name="card-outline"></ion-icon>
+        <span>Mes paiements</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="row-top">
+        <ion-icon name="help-outline"></ion-icon>
+        <span>FAQ</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="row-top">
+        <span>À propos de</span> 
+      </ion-col>
+    </ion-row>
+    <ion-row class="btn">
+      <ion-col size="12" class="row-top">
+        <ion-button (click)="logout()" color="danger">Déconnexion</ion-button>
+      </ion-col>
+    </ion-row>
+</ion-content>
