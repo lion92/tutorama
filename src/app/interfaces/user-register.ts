@@ -1,12 +1,14 @@
 export interface UserRegister {
     email: string;
+    nom: string;
+    prenom: string;
+    numeroTel: string;
+    numeroRue: number;
+    age: number;
+    batiment: string;
+    code_Postale: string;
+    libelle: string;
     password: string;
-    // avatar: string;
-    // age: number;
-    // user_tel: string;
-    // num_rue: number;
-    // batiment: string;
-    // code_postal: string;
-    // libelle_adresse: string;
+    avatar: string;
 }
 

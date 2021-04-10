@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
-import { UserRegister } from '../../interfaces/user-register';
+import { UserRegister } from './../../interfaces/user-register';
+
 
 @Component({
   selector: 'app-register',
@@ -15,14 +16,16 @@ export class RegisterPage implements OnInit {
   user: UserRegister = 
   { 
     email: '',
+    nom: '',
+    prenom: '',
+    numeroTel: '',
+    numeroRue: 1,
+    age: 2,
+    batiment: '',
+    code_Postale: '',
+    libelle: '',
     password: '',
-    // avatar: '',
-    // age: undefined,
-    // user_tel: '',
-    // num_rue: undefined,
-    // batiment: '',
-    // code_postal: '',
-    // libelle_adresse: '',
+    avatar: ''
   }
 
   constructor(
