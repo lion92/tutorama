@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-
+import { ModalController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
 import { Cour } from 'src/app/interfaces/cour';
 import { CoursService } from 'src/app/services/cours.service';
+import { CartPage } from '../cart/cart.page';
 
 
 @Component({
@@ -19,8 +21,17 @@ export class HomePage {
   }
 
   cours: Cour[];
+  cart = [];
+  products = [];
+  cartItemCount: BehaviorSubject<number>;
 
-  constructor(private router: Router, private cour: CoursService) {}
+  @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
+
+  constructor(
+    private router: Router,
+    private cour: CoursService,
+    private modalCtrl: ModalController
+    ) {}
 
   ionViewWillEnter() {
     console.log("ionViewWillEnter");
@@ -28,11 +39,20 @@ export class HomePage {
       if (event instanceof NavigationEnd) {
          // this.cours = await this.cour.getData()
       }
-  });
+    });
   }
 
   async ngOnInit(){
-    //this.cours = await this.cour.getData();
+    
     
   }
+
+  async openCart(){
+    const modal = await this.modalCtrl.create({
+      component: CartPage,
+      cssClass: 'cart-modal'
+    })
+    modal.present();
+  }
+
 }

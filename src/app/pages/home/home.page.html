@@ -1,12 +1,17 @@
 
 <ion-content [fullscreen]="true">
-    <ion-row class="top-row">
-      <ion-col size="8"></ion-col>
-      <ion-col size="4">
-        
-        <ion-icon name="cart-outline" [routerLink]="['/cart']" class="cart-icon"></ion-icon>
-      </ion-col>
-    </ion-row>
+  <ion-row class="top-row">
+    <ion-col size="8"></ion-col>
+    <ion-col size="4">
+      <ion-button (click)="openCart()" #cart>
+          
+        <div class="cart-length">
+          {{ cartItemCount | async }}
+        </div>
+        <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
 
 
     <ion-row>

@@ -1,9 +1,7 @@
 export interface Cour {
-    auteur: string;
-    image: string;
-    video: string;
-    etoile: number;
-    contenu: string;
+    Auteur: string;
+    Etoile: number;
+    Conetenu: string;
     prix: string;
     date: Date;
 }
