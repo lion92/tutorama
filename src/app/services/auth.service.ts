@@ -15,17 +15,9 @@ export class AuthService {
 
   login(email: string, password: string) {
 
-    const optionRequete = {
-      headers: new HttpHeaders({ 
-        "Host": "https://tutoramaflorian.krissdeveloppeur.com",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST",
-        "Access-Control-Allow-Headers": "application/json"
-      })
-    };
 
     return new Promise((resolve, rejects) => {
-        this.http.post(this.url + '/login', { email: email, password: password },optionRequete).subscribe((data: any) => {
+        this.http.post(this.url + '/login', { email: email, password: password }).subscribe((data: any) => {
             //(!data.success) ? rejects(false): resolve(data);
            console.log(data)
            if(!data){

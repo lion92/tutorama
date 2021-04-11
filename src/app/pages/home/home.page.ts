@@ -7,12 +7,15 @@ import { CoursService } from 'src/app/services/cours.service';
 import { CartPage } from '../cart/cart.page';
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
 export class HomePage {
+
 
   sliderConfig = {
     spaceBetween: 10,

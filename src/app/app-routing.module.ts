@@ -35,15 +35,16 @@ const routes: Routes = [{
     path: 'profile',
     loadChildren: () => 
     import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
-  },  {
+  },
+  {
     path: 'catalog',
     loadChildren: () => import('./pages/catalog/catalog.module').then( m => m.CatalogPageModule)
   },
-
- 
-
-  
-
+  {
+    path: 'tuto',
+    loadChildren: () => 
+    import('./pages/tuto/tuto.module').then( m => m.TutoPageModule)
+  },
 
 ];
 
