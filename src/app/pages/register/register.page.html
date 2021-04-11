@@ -6,9 +6,10 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-content>
 
-     
+  <ion-row class="logo">
+    <img src="../../../assets/img/tutorama.png" alt="">
+</ion-row>
       <ion-row class="form">
           <ion-col size="12">
             <ion-item>
@@ -16,10 +17,18 @@
               <ion-input type="email" [(ngModel)]="user.email"></ion-input>
             </ion-item>
             <ion-item>
+              <ion-label position="floating">Nom</ion-label>
+              <ion-input type="text" [(ngModel)]="user.nom"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Prénom</ion-label>
+              <ion-input type="text" [(ngModel)]="user.prenom"></ion-input>
+            </ion-item>
+            <ion-item>
               <ion-label position="floating">Password</ion-label>
               <ion-input type="password" [(ngModel)]="user.password"></ion-input>
             </ion-item>
-            <!-- <ion-item>
+            <ion-item>
               <ion-label position="floating">avatar</ion-label>
               <ion-input type="text" [(ngModel)]="user.avatar"></ion-input>
             </ion-item>
@@ -29,11 +38,11 @@
             </ion-item>
             <ion-item>
               <ion-label position="floating">Tel</ion-label>
-              <ion-input type="text" [(ngModel)]="user.user_tel"></ion-input>
+              <ion-input type="text" [(ngModel)]="user.userTel"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">N° rue</ion-label>
-              <ion-input type="text" [(ngModel)]="user.num_rue"></ion-input>
+              <ion-input type="text" [(ngModel)]="user.numeroRue"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Batiment</ion-label>
@@ -41,12 +50,12 @@
             </ion-item>
             <ion-item>
               <ion-label position="floating">Code Postal</ion-label>
-              <ion-input type="text" [(ngModel)]="user.code_postal"></ion-input>
+              <ion-input type="text" [(ngModel)]="user.code_Postale"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Libellé adresse</ion-label>
-              <ion-input type="text" [(ngModel)]="user.libelle_adresse"></ion-input>
-            </ion-item> -->
+              <ion-input type="text" [(ngModel)]="user.libelle"></ion-input>
+            </ion-item>
               
           </ion-col>
           <ion-col size="12">

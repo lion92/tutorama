@@ -16,7 +16,7 @@ export class SplashScreenComponent implements OnInit {
       setTimeout(() => {
         this.showSplash = !this.showSplash;
       }, 500);
-    },0);
+    },2000);
 
     
   }

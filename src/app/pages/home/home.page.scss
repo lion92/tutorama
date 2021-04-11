@@ -1,3 +1,6 @@
+ion-content{
+    --background: #EFF1F3;
+}
 
 h2{
     margin-top: 6px;
@@ -18,6 +21,9 @@ h3{
     .top-row {
         margin-top: 1.5rem;
         text-align: end;
+        ion-button{
+            --background: #f15152!important;
+        }
     }
     .cart-icon{
         font-size: 2rem;
@@ -35,15 +41,14 @@ h3{
             display: flex;
             align-items: center;
             max-width: 100%;
-            font-size: 0.9rem;
+            font-size: 0.6rem;
+            padding-left: 8px;
+            padding-right: 11px;
             margin: auto;
             border-radius: 3px;
             background: #243b55;
             
-            span{
-                font-size: 0.95rem;
-                text-transform:none!important;
-            }
+        
     }
     }
 

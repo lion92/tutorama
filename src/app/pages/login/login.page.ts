@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
-
+import { SplashScreenComponent } from "../../splash-screen/splash-screen.component";
 import { AuthService } from '../../services/auth.service';
-
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +22,8 @@ export class LoginPage implements OnInit {
     private auth: AuthService,
     private storage: NativeStorage,
     private platform: Platform,
-    private router: Router
+    private router: Router,
+    private toast: ToastController
   ) { }
 
   async ngOnInit() {
@@ -51,9 +52,23 @@ export class LoginPage implements OnInit {
           await this.storage.setItem('token', user.token)
           await this.storage.setItem('user', JSON.stringify(user.data))
       }
+
+        const toast = await this.toast.create({
+          message: "Vous vous êtes bien connecté",
+          color: "success",
+          duration: 2000,
+        });
+        toast.present();
+
           this.router.navigate(['/home'])
       }).catch(async(err) => {
           console.log(err)
+          const toast = await this.toast.create({
+            message: "Vous avez mal renseigné le champs email ou password !",
+            color: "danger",
+            duration: 2000,
+          });
+          toast.present();
         
       })
   }

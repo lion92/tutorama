@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 import { Router } from '@angular/router';
 
@@ -9,7 +10,7 @@ import { UserRegister } from './../../interfaces/user-register';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
+  styleUrls: ['./register.page.scss', '../login/login.page.scss'],
 })
 export class RegisterPage implements OnInit {
 
@@ -19,8 +20,8 @@ export class RegisterPage implements OnInit {
     nom: '',
     prenom: '',
     numeroTel: '',
-    numeroRue: 1,
-    age: 2,
+    numeroRue: undefined,
+    age: undefined,
     batiment: '',
     code_Postale: '',
     libelle: '',
@@ -31,16 +32,18 @@ export class RegisterPage implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
+    private toast: ToastController
   ) { }
 
   ngOnInit() {}
 
   async register() {
-    this.auth.register(this.user).then(async(data) => {
+    this.auth.register(this.user).then(async(data: any) => {
         
+      this.router.navigate(['/login']);
         
-        this.router.navigate(['/login']);
     }).catch(async(err) => {
+      
         console.log(err)
     })
   }

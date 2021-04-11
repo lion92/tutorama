@@ -1,0 +1,38 @@
+ion-content{
+    --background: #EFF1F3;
+}
+
+.logo{
+    margin-top: 6rem;
+    img{
+        max-width: 72%;
+        margin-left: 4rem;
+    }
+}
+.form{
+    margin-top: 3rem;
+    width: 87%;
+    ion-item{
+        --background: #EFF1F3;
+    }
+}
+.form.md{
+    margin-left: 1.4rem;
+}
+.col-login{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    ion-button{
+        width: 80%;
+        border-radius: 3px;
+    }
+}
+a{
+    text-align: center;
+    display: block;
+    font-size: 0.9rem;
+}
+ion-button{
+    --background: #243b55;
+}

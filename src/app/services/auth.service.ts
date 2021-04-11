@@ -33,17 +33,9 @@ export class AuthService {
 
   register(user: UserRegister) {
 
-    const optionRequete = {
-      headers: new HttpHeaders({ 
-        "Host": "https://tutoramaflorian.krissdeveloppeur.com",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST",
-        "Access-Control-Allow-Headers": "application/json"
-      })
-    };
     
     return new Promise((resolve, rejects) => {
-        this.http.post(this.url + '/register', user, optionRequete).subscribe((data: any) => {
+        this.http.post(this.url + '/register', user).subscribe((data: any) => {
             (!data.success) ? rejects(data.message): resolve(data);
         });
     });
