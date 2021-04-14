@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
+import { Platform, ModalController } from '@ionic/angular';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { SplashScreenComponent } from "../../splash-screen/splash-screen.component";
 import { AuthService } from '../../services/auth.service';
 import { ToastController } from '@ionic/angular';
+import { ForgotPasswordComponent } from '../../modals/forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginPage implements OnInit {
     private storage: NativeStorage,
     private platform: Platform,
     private router: Router,
-    private toast: ToastController
+    private toast: ToastController,
+    private modal: ModalController
   ) { }
 
   async ngOnInit() {
@@ -36,6 +38,16 @@ export class LoginPage implements OnInit {
    
     if (token !== undefined && token !== null)
         this.router.navigate(['/tabs'])
+  }
+
+  async forgotPassword() {
+    const modal = await this.modal.create({
+      component: ForgotPasswordComponent,
+      componentProps: {
+        'emailer': this.email
+    }
+    });
+    return await modal.present();
   }
 
   async loginForm(){
@@ -72,5 +84,7 @@ export class LoginPage implements OnInit {
         
       })
   }
+
+  
 
 }

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserRegister } from '../interfaces/user-register';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +13,22 @@ export class AuthService {
 
 
   constructor(private http: HttpClient) { }
+
+
+  forgotPassword(email: string){
+
+    return new Promise((resolve, rejects) => {
+      this.http.post(this.url + '/perdu', { email: email }).subscribe((data: any) => {
+        
+        if(!data){
+          rejects(false)
+         }else{
+          resolve(data);
+         }
+        
+      })
+    })
+  }
 
   login(email: string, password: string) {
 
@@ -40,4 +57,8 @@ export class AuthService {
         });
     });
   }
+
+  
+
+  
 }

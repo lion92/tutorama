@@ -7,9 +7,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+  <div id="fullscreen" slot="fixed">
+  </div>
   <ion-list>
-    <ion-item *ngFor="let v of videos">
+    <!-- <ion-item *ngFor="let v of videos">
       <ion-avatar slot="start">
         <img [src]="v.thumb" />
       </ion-avatar>
@@ -18,7 +19,7 @@
         <ion-icon name="play-circle-outline"></ion-icon>
       </ion-button>
 
-    </ion-item>
+    </ion-item> -->
 
   </ion-list>
 </ion-content>

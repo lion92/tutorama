@@ -36,3 +36,15 @@ a{
 ion-button{
     --background: #243b55;
 }
+
+.mdp{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2.8rem;
+    margin-top: 0.5rem;
+    ion-text{
+        font-size: 0.7rem;
+        border-bottom: 1px solid;
+        color: var(--ion-color-primary, #3880ff);
+    }
+}
