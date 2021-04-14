@@ -19,7 +19,6 @@
     "@angular/platform-browser": "~11.2.0",
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
-    "@capacitor-community/electron": "^1.4.0",
     "@capacitor/android": "^2.0.1",
     "@ionic-native/core": "^5.31.1",
     "@ionic-native/native-storage": "^5.31.1",

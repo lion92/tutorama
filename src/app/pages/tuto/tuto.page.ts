@@ -34,18 +34,18 @@ export class TutoPage implements AfterViewInit  {
     this._addListenersToPlayerPlugin();
    }
 
-   async ionViewDidEnter() {
-    this._url = this.url;
+  //  async ionViewDidEnter() {
+  //   this._url = this.url;
     
-    if(this._url != null) {
+  //   if(this._url != null) {
       
-      const res:any  = await this.videoPlayer.initPlayer({mode: "fullscreen",url: this._url, subtitle: "toto",
-                                                          playerId: "fullscreen",
-                                                          componentTag:"app-tuto"});
-      console.log("res " + JSON.stringify(res));
+  //     const res:any  = await this.videoPlayer.initPlayer({mode: "embedded",url: this._url, subtitle: "toto",
+  //                                                         playerId: "fullscreen",
+  //                                                         componentTag:"app-tuto"});
+  //     console.log("res " + JSON.stringify(res));
        
-      }
-    }
+  //     }
+  //   }
   
     private _addListenersToPlayerPlugin() {
       this._handlerPlay = this._videoPlayer.addListener('jeepCapVideoPlayerPlay', (data:any) => { 
@@ -68,11 +68,15 @@ export class TutoPage implements AfterViewInit  {
   }
 
   async play(url: string) {
-    document.addEventListener('jeepCapVideoPlayerPlay', (e: CustomEvent) => { console.log('Event jeepCapVideoPlayerPlay ', e.detail) }, false);
-    document.addEventListener('jeepCapVideoPlayerPause', (e: CustomEvent) => { console.log('Event jeepCapVideoPlayerPause ', e.detail) }, false);
-    document.addEventListener('jeepCapVideoPlayerEnded', (e: CustomEvent) => { console.log('Event jeepCapVideoPlayerEnded ', e.detail) }, false);
-    const res: any = await this.videoPlayer.initPlayer({ mode: "fullscreen", url: url });
+    
+    const res:any  = await this.videoPlayer.initPlayer({mode: "fullscreen",
+                                                        url: url, subtitle: "toto",
+                                                        playerId: "fullscreen",
+                                                        componentTag:"app-tuto"
+                                                      });
   }
+
+  
 
  
 
