@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
   email: string = '';
   password: string = '';
   token: string = '';
-
+  tabBarElement: any;
 
   constructor(
     private auth: AuthService,
@@ -26,16 +26,24 @@ export class LoginPage implements OnInit {
     private router: Router,
     private toast: ToastController,
     private modal: ModalController
-  ) { }
+  ) {
+    this.tabBarElement = document.querySelector('#tabs ion-tab-bar');
+   }
+
+  ngAfterViewInit(){
+    
+  }
 
   async ngOnInit() {
+   
+    console.log(this.tabBarElement)
     let token;
     if (this.platform.is("desktop")) {
         token = localStorage.getItem('token')
     } else {
         token = await this.storage.getItem('token')
     }
-   
+    
     if (token !== undefined && token !== null)
         this.router.navigate(['/tabs'])
   }
@@ -62,7 +70,7 @@ export class LoginPage implements OnInit {
           localStorage.setItem('user', this.email)
       } else {
           await this.storage.setItem('token', user.token)
-          await this.storage.setItem('user', JSON.stringify(user.data))
+          await this.storage.setItem('user', this.email)
       }
 
         const toast = await this.toast.create({
@@ -72,7 +80,7 @@ export class LoginPage implements OnInit {
         });
         toast.present();
 
-          this.router.navigate(['/home'])
+          this.router.navigate(['/tabs/home'])
       }).catch(async(err) => {
           console.log(err)
           const toast = await this.toast.create({
@@ -84,6 +92,7 @@ export class LoginPage implements OnInit {
         
       })
   }
+
 
   
 

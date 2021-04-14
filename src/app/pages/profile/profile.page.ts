@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private storage: NativeStorage
+    ) { }
 
   ngOnInit() {
   }
@@ -23,7 +27,7 @@ export class ProfilePage implements OnInit {
   getProfile(){
 
     const user = localStorage.getItem('user');
-    console.log(user)
+    
     return user;
   }
 
@@ -31,7 +35,7 @@ export class ProfilePage implements OnInit {
 
     await localStorage.removeItem('user');
     await localStorage.removeItem('token');
-    this.router.navigateByUrl('/login', { replaceUrl:true });
+    this.router.navigateByUrl('/tabs/login', { replaceUrl:true });
   }
 
 }

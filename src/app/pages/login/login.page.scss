@@ -48,3 +48,7 @@ ion-button{
         color: var(--ion-color-primary, #3880ff);
     }
 }
+
+#tabs ion-tab-bar{
+     display: none!important;
+}
