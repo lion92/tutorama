@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -9,9 +10,12 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 })
 export class ProfilePage implements OnInit {
 
+  
+
   constructor(
     private router: Router,
-    private storage: NativeStorage
+    private storage: NativeStorage,
+    private platform: Platform
     ) { }
 
   ngOnInit() {
@@ -24,10 +28,13 @@ export class ProfilePage implements OnInit {
    // return user.avatar;
   }
 
-  getProfile(){
-
-    const user = localStorage.getItem('user');
-    
+   getProfile(){
+    let user;
+    if (this.platform.is("desktop")) {
+      user = localStorage.getItem('user')
+    } else {
+      user =  this.storage.getItem('user')
+    }
     return user;
   }
 

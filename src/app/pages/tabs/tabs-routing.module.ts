@@ -6,57 +6,92 @@ import { TabsPage } from './tabs.page';
 const routes: Routes = 
 [
     {
-        path: 'tabs',
-        component: TabsPage,
-        children: [
+      path: 'tabs',
+      component: TabsPage,
+      children: 
+      [
+        {
+          path: 'home',
+          children: [
             {
-                path: 'home',
-                loadChildren: () => 
+              path:'',
+              loadChildren: () => 
                 import('../../pages/home/home.module').then( m => m.HomePageModule)
-              },
+            }
+          ]
+        },
+        {
+          path: 'register',
+          children: [
             {
-                path: 'register',
-                loadChildren: () => 
+              path: '',
+              loadChildren: () => 
                 import('../../pages/register/register.module').then( m => m.RegisterPageModule)
-              },
-              {
-                path: 'login',
-                loadChildren: () => 
+            }
+          ]
+        },
+        {
+          path: 'login',
+          children: [
+            {
+              path: '',
+              loadChildren: () => 
                 import('../../pages/login/login.module').then( m => m.LoginPageModule)
-              },
-              {
-                path: 'cart',
-                loadChildren: () => 
+            }
+          ]
+        },
+        {
+          path: 'cart',
+          children: [
+            {
+              path: '',
+              loadChildren: () => 
                 import('../../pages/cart/cart.module').then( m => m.CartPageModule)
-              },
-              {
-                path: 'profile',
-                loadChildren: () => 
+            }
+          ]
+        },
+        {
+          path: 'profile',
+          children: [
+            {
+              path: '',
+              loadChildren: () => 
                 import('../../pages/profile/profile.module').then( m => m.ProfilePageModule)
-              },
-              {
-                path: 'catalog',
-                loadChildren: () => import('../../pages/catalog/catalog.module').then( m => m.CatalogPageModule)
-              },
-              {
-                path: 'tuto',
-                loadChildren: () => 
+            }
+          ]
+        },
+        {
+          path: 'catalog',
+          children: [
+            {
+              path: '',
+              loadChildren: () => 
+                import('../../pages/catalog/catalog.module').then( m => m.CatalogPageModule)
+            }
+          ]
+        }, 
+        {
+          path: 'tuto',
+          children: [
+            {
+              path: '',
+              loadChildren: () => 
                 import('../../pages/tuto/tuto.module').then( m => m.TutoPageModule)
-              },
-              {
-                path: '',
-                redirectTo: '/tabs/login',
-                pathMatch: 'full'
-              },
-              
-        ],
-      },
+            }
+          ]
+        },
         {
           path: '',
           redirectTo: '/tabs/login',
           pathMatch: 'full'
-        },
-        
+        }, 
+      ],
+    },
+    {
+      path: '',
+      redirectTo: '/tabs/login',
+      pathMatch: 'full'
+    },   
 ];
 
 @NgModule({

@@ -14,76 +14,46 @@ export class VideoService {
 
   private videos: Video[] = [
     {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      subtitle: "By Blender Foundation",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg",
-      title: "Elephant Dream"
+      url: "../assets/video/video1.mp4",
+      subtitle: "By imie",
+      thumb: "../assets/img/angular_ionic.png",
+      title: "Débuter avec ionic et angular"
     },
     {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-      subtitle: "By Google",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg",
-      title: "For Bigger Blazes"
+      url: "../assets/video/video2.mp4",
+      subtitle: "By imie",
+      thumb: "../assets/img/life_cycle.png",
+      title: "Angular - Cycle de vie de l'application"
     },
     {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-      subtitle: "By Google",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg",
-      title: "For Bigger Escape"
+      url: "../assets/video/video3.mp4",
+      subtitle: "By imie",
+      thumb: "../assets/img/ionic-crash-course.png",
+      title: "Débuter avec ionic"
     },
     {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-      subtitle: "By Google",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg",
-      title: "For Bigger Fun"
+      url: "../assets/video/video4.mp4",
+      subtitle: "By imie",
+      thumb: "../assets/img/cover-image.png",
+      title: "Développez votre application avec ionic et angular"
     },
     {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-      subtitle: "By Google",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg",
-      title: "For Bigger Joyrides"
+      url: "../assets/video/video5.mp4",
+      subtitle: "By imie",
+      thumb: "../assets/img/pass-data-router.png",
+      title: "Angular - Le Router"
     },
     {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-      subtitle: "By Google",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerMeltdowns.jpg",
-      title: "For Bigger Meltdowns"
+      url: "../assets/video/video6.mp4",
+      subtitle: "By imie",
+      thumb: "../assets/img/firebase.jpg",
+      title: "Angular et firebase"
     },
     {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-      subtitle: "By Blender Foundation",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/Sintel.jpg",
-      title: "Sintel"
-    },
-    {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-      subtitle: "By Garage419",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/SubaruOutbackOnStreetAndDirt.jpg",
-      title: "Subaru Outback On Street And Dirt"
-    },
-    {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-      subtitle: "By Blender Foundation",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/TearsOfSteel.jpg",
-      title: "Tears of Steel"
-    },
-    {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",
-      subtitle: "By Garage419",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/VolkswagenGTIReview.jpg",
-      title: "Volkswagen GTI Review"
-    },
-    {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
-      subtitle: "By Garage419",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/WeAreGoingOnBullrun.jpg",
-      title: "We Are Going On Bullrun"
-    },
-    {
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
-      subtitle: "By Garage419",
-      thumb: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/WhatCarCanYouGetForAGrand.jpg",
-      title: "What care can you get for a grand?"
+      url: "../assets/video/video7.mp4",
+      subtitle: "By imie",
+      thumb: "../assets/img/variable_env.jpeg",
+      title: "Les variables d'environnements avec angular"
     }
   ];
 
