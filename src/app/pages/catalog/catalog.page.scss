@@ -8,3 +8,23 @@ ion-button{
     --background: #f15152!important;
     
 }
+ion-card{
+    --background: #243b55;
+    ion-card-title{
+        font-size: 1.2rem;
+        color: white;
+        text-decoration: underline;
+    }
+    ion-card-content{
+        ion-label{
+            color: white;
+        }
+        ion-button{
+            --background: white!important;
+            ion-icon{
+                color: #243b55;
+            }
+        }
+    }
+}
+

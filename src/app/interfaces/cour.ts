@@ -1,7 +1,9 @@
 export interface Cour {
+    idCour: any;
     Auteur: string;
-    Etoile: number;
+    Etoile: any;
     Conetenu: string;
-    prix: string;
-    date: Date;
+    prix: number;
+    date: string;
+    amount?: any;
 }

@@ -18,7 +18,7 @@ export class HomePage {
 
 
   sliderConfig = {
-    spaceBetween: 10,
+    spaceBetween: 5,
     centeredSlides: true,
     slidesPerView: 1.6
   }
@@ -27,6 +27,8 @@ export class HomePage {
   cart = [];
   products = [];
   cartItemCount: BehaviorSubject<number>;
+
+  etoile = [];
 
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
 
@@ -40,15 +42,19 @@ export class HomePage {
     console.log("ionViewWillEnter");
     this.router.events.subscribe(async(event) => {
       if (event instanceof NavigationEnd) {
-         // this.cours = await this.cour.getData()
+          
       }
     });
   }
 
   async ngOnInit(){
     
+    this.cours = await this.cour.getData();
+   
     
   }
+
+  
 
   async openCart(){
     const modal = await this.modalCtrl.create({

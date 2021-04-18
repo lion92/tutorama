@@ -3,6 +3,8 @@ import { SplashScreenComponent } from "../../splash-screen/splash-screen.compone
 import { Router } from '@angular/router';
 import { Product, CartService } from '../../services/cart.service';
 import { ModalController } from '@ionic/angular';
+import { Cour } from '../../interfaces/cour';
+
 
 @Component({
   selector: 'app-cart',
@@ -10,16 +12,17 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./cart.page.scss'],
 })
 export class CartPage implements OnInit {
-  cart: Product[] = [];
-
+  cart: Cour[] = [];
+  cour: Cour[] = [];
   constructor(
     private router: Router,
     private cartService: CartService,
 		private modalCtrl: ModalController
     ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.cart = this.cartService.getCart();
+    this.cour = await this.cartService.getData();
   }
 
   decreaseCartItem(product){
@@ -35,7 +38,7 @@ export class CartPage implements OnInit {
   }
 
   getTotal(){
-    return this.cart.reduce((i, j) => i + j.price * j.amount, 0);
+    return this.cart.reduce((i, j) => i + j.prix * j.amount, 0);
   }
 
   close(){

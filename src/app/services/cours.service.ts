@@ -9,46 +9,40 @@ import { Cour } from '../interfaces/cour';
 })
 export class CoursService {
 
-  url: string = "http://localhost:3000/api/cours/";
+  url: string = "https://tutoramaflorian.krissdeveloppeur.com/";
 
   constructor(private http: HttpClient) { }
 
-  // getData(): Promise <Cour[]>{
+  getData(): Promise <Cour[]>{
 
-  //   return new Promise((resolve, rejects) => {
+    return new Promise((resolve, rejects) => {
       
-  //     const httpOptions = {
-  //       headers: new HttpHeaders({
-  //           'Authorization': 'Bearer ' + localStorage.getItem("token")
-  //       })
-  //     };
-  //     this.http.request('GET', 'http://localhost:3000/api/cours/', { headers: httpOptions.headers, responseType: 'text' }).subscribe((data) => {
-  //       try{
+      this.http.request('GET', this.url + "promo", { responseType: 'text' }).subscribe((data) => {
+        try{
             
-  //           let cours: Cour[] = [];
-  //           let object = JSON.parse(data)
-           
-  //           for(const item of object.data){
-  //             cours.push({
-  //               auteur: item.auteur,
-  //               image: item.image,
-  //               video: item.video,
-  //               etoile: item.etoile,
-  //               contenu: item.contenu,
-  //               prix: item.prix,
-  //               date: item.date
-  //             })
+            let cours: Cour[] = [];
+            let object = JSON.parse(data)
+           console.log(object)
+            for(const item of object){
+              cours.push({
+                idCour: item.idCour,
+                Auteur: item.Auteur,
+                Etoile: item.Etoile,
+                Conetenu: item.Conetenu,
+                prix: item.prix,
+                date: item.date
+              })
               
-  //             resolve(cours);
-  //           }
-  //         }catch(err){
+              resolve(cours);
+            }
+          }catch(err){
            
-  //           rejects(false)
-  //         }
-  //     })
-  //   })
+            rejects(false)
+          }
+      })
+    })
 
-  // }
+  }
 
 
 
