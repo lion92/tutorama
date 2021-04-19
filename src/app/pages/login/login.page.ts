@@ -18,6 +18,7 @@ export class LoginPage implements OnInit {
   password: string = '';
   token: string = '';
   tabBarElement: any;
+  isErrorMail: boolean = true;
 
   constructor(
     private auth: AuthService,
@@ -58,6 +59,12 @@ export class LoginPage implements OnInit {
     return await modal.present();
   }
 
+  testEmail() {
+    const regex = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g);
+    // this.isErrorMail = !regex.test(this.email);
+    this.isErrorMail = (regex.test(this.email.trim())) ? false : true;
+  }
+
   async loginForm(){
     
       this.auth.login(this.email, this.password).then(async(user: any) => {
@@ -70,7 +77,7 @@ export class LoginPage implements OnInit {
           localStorage.setItem('user', this.email)
       } else {
           await this.storage.setItem('token', user.token)
-          await this.storage.setItem('user', this.email)
+          await this.storage.setItem('user', user.user)
       }
 
         const toast = await this.toast.create({
@@ -92,6 +99,7 @@ export class LoginPage implements OnInit {
         
       })
   }
+
 
 
   

@@ -16,6 +16,20 @@ h3{
    
 }
 
+.cart-length {
+    color: var(--ion-color-primary);
+    position: absolute;
+    top: 23px;
+    left: 25px;
+    font-weight: 600;
+    font-size: 1em;
+    min-width: 25px;
+    z-index: 10;
+  }
+
+  ion-slide{
+      width: 300px;
+  }
 
 
     .top-row {
@@ -46,7 +60,7 @@ h3{
             
         
     }
-    }
+}
 
 
 

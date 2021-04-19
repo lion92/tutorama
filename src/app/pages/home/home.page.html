@@ -47,7 +47,8 @@
           <ion-slides [options]="sliderConfig">
             <ion-slide class="slide1" *ngFor="let cour of cours">
               <ion-card class="card-home">
-              <!--<img [src]="cour.image" class="img-card">-->
+                <img [src]="cour.image"/>
+                
               <ion-card-header class="card-body">
                 <h3>{{ cour.Conetenu }}</h3>
                 <span>Cyber sécurité</span>

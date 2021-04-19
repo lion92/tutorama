@@ -30,7 +30,8 @@ export class CoursService {
                 Etoile: item.Etoile,
                 Conetenu: item.Conetenu,
                 prix: item.prix,
-                date: item.date
+                date: item.date,
+                image: item.image
               })
               
               resolve(cours);

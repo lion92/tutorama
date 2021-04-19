@@ -1,13 +1,26 @@
 .top-row{
     background-color: #EFF1F3;
+    ion-button{
+        margin-top: 1.5rem;
+        --background: #f15152!important;
+        
+        .cart-length {
+            color: #eff4ff;
+            position: absolute;
+            top: 21px;
+            left: 12px;
+            font-weight: 600;
+            font-size: 1em;
+            min-width: 25px;
+            z-index: 10;
+          }
+    }
 }
+
 ion-content{
     --background: #EFF1F3;
 }
-ion-button{
-    --background: #f15152!important;
-    
-}
+
 ion-card{
     --background: #243b55;
     ion-card-title{

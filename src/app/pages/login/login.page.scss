@@ -1,6 +1,6 @@
 ion-content{
     --background: #EFF1F3;
-}
+
 
 .logo{
     margin-top: 6rem;
@@ -12,31 +12,24 @@ ion-content{
 .form{
     margin-top: 3rem;
     width: 87%;
+    .errorEmail {
+        
+        --border-color: #ff0062;
+        --highlight-background: #ff0062;
+    }
+    .goodEmail {
+        border-bottom: green;
+        --border-color: green;
+        --highlight-background: green;
+    }
     ion-item{
         --background: #EFF1F3;
+        
     }
 }
 .form.md{
     margin-left: 1.4rem;
 }
-.col-login{
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-    ion-button{
-        width: 80%;
-        border-radius: 3px;
-    }
-}
-a{
-    text-align: center;
-    display: block;
-    font-size: 0.9rem;
-}
-ion-button{
-    --background: #243b55;
-}
-
 .mdp{
     display: flex;
     justify-content: flex-end;
@@ -48,7 +41,24 @@ ion-button{
         color: var(--ion-color-primary, #3880ff);
     }
 }
+.col-login{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    ion-button{
+        width: 80%;
+        border-radius: 3px;
+        --background: #243b55;
+    }
+    
+}
+p{
+    text-align: center;
+    a{
+        font-size: 0.8rem;
+    }
+}
 
-#tabs ion-tab-bar{
-     display: none!important;
+
+
 }

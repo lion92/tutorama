@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VideoService } from '../../services/video.service';
 
 @Component({
   selector: 'app-tabs',
@@ -9,22 +10,19 @@ export class TabsPage implements OnInit {
 
   user: string = undefined;
   isButtonDisabled: boolean = true;
-  constructor() { }
+  video: any = undefined;
 
-  tabsEnabled = true;
+  constructor(private videoService: VideoService) { }
 
-  enableTabs(enable: boolean): void {
-      this.tabsEnabled = enable;
-  }
+
+
+
 
   ngOnInit() {
 
-    
+    this.video = this.videoService.getVidoes().length;
        
-    this.user = localStorage.getItem('user')
-    if(this.user){
-      this.isButtonDisabled = false;
-    }
+    
   }
 
 }

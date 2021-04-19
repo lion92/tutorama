@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { Platform } from '@ionic/angular';
+import { Platform, ModalController } from '@ionic/angular';
+import { FaqComponent } from '../../modals/faq/faq.component';
+import { AboutComponent } from './../../modals/about/about.component';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +17,8 @@ export class ProfilePage implements OnInit {
   constructor(
     private router: Router,
     private storage: NativeStorage,
-    private platform: Platform
+    private platform: Platform,
+    private modal: ModalController
     ) { }
 
   ngOnInit() {
@@ -42,7 +45,26 @@ export class ProfilePage implements OnInit {
 
     await localStorage.removeItem('user');
     await localStorage.removeItem('token');
+    
     this.router.navigateByUrl('/tabs/login', { replaceUrl:true });
+  }
+
+  async faq() {
+      const modal = await this.modal.create({
+        component: FaqComponent,
+        componentProps: {
+        }
+      });
+    return await modal.present();
+  }
+
+  async info() {
+      const modal = await this.modal.create({
+        component: AboutComponent,
+        componentProps: {
+        }
+      });
+    return await modal.present();
   }
 
 }

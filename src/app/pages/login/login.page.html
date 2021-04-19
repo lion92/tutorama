@@ -4,9 +4,9 @@
     </ion-row>
     <ion-row class="form">
         <ion-col>
-            <ion-item>
+            <ion-item [ngClass]="isErrorMail ? 'errorEmail' : 'goodEmail'">
                 <ion-label position="floating">Email</ion-label>
-                <ion-input type="email" [(ngModel)]="email"></ion-input>
+                <ion-input (keydown)="testEmail()" type="email" [(ngModel)]="email"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label position="floating">Password</ion-label>

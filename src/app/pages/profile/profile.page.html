@@ -19,7 +19,7 @@
     <ion-row>
       <ion-col size="12" class="row-top">
         <ion-icon name="book-outline"></ion-icon>
-        <span>Mes tutos</span>
+        <span><a routerLink="/tabs/tuto">Mes tutos</a></span>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -31,12 +31,12 @@
     <ion-row>
       <ion-col size="12" class="row-top">
         <ion-icon name="help-outline"></ion-icon>
-        <span>FAQ</span>
+        <span (click)="faq()">FAQ</span>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12" class="row-top">
-        <span>À propos de</span> 
+        <span (click)="info()">À propos de</span> 
       </ion-col>
     </ion-row>
     <ion-row class="btn">

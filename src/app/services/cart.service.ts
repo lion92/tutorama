@@ -18,10 +18,10 @@ export class CartService {
 	data: Cour[] =
 
 	[
-		{ idCour: 0, Auteur: 'Florian', prix: 100.00, Etoile: 5, Conetenu: "Bien débuter avec nodeJs et express", date: "2021-04-18", amount: 1 },
-		{ idCour: 1, Auteur: 'Antoine', prix: 109.99, Etoile: 4.5, Conetenu: "Les fondamentaux de TypeScript", date: "2021-04-18", amount: 1 },
-		{ idCour: 2, Auteur: 'Kriss', prix: 85.00, Etoile: 4, Conetenu: "Structurez votre application avec ionic", date: "2021-04-18", amount: 1 },
-		{ idCour: 3, Auteur: 'Julien', prix: 55.00, Etoile: 3.5, Conetenu: "Les bases de nodeJs", date: "2021-04-18", amount: 1 },
+		{ idCour: 0, image:"", Auteur: 'Florian', prix: 100.00, Etoile: 5, Conetenu: "Bien débuter avec nodeJs et express", date: "2021-04-18", amount: 1 },
+		{ idCour: 1, image:"", Auteur: 'Antoine', prix: 109.99, Etoile: 4.5, Conetenu: "Les fondamentaux de TypeScript", date: "2021-04-18", amount: 1 },
+		{ idCour: 2, image:"", Auteur: 'Kriss', prix: 85.00, Etoile: 4, Conetenu: "Structurez votre application avec ionic", date: "2021-04-18", amount: 1 },
+		{ idCour: 3, image:"", Auteur: 'Julien', prix: 55.00, Etoile: 3.5, Conetenu: "Les bases de nodeJs", date: "2021-04-18", amount: 1 },
 	];
 	url: string = "https://tutoramaflorian.krissdeveloppeur.com/";
  	private cart = [];
@@ -47,6 +47,7 @@ export class CartService {
 				for(const item of object){
 				  cours.push({
 					idCour: item.idCour,
+					image: item.image,
 					Auteur: item.Auteur,
 					Etoile: item.Etoile,
 					Conetenu: item.Conetenu,
@@ -86,9 +87,12 @@ export class CartService {
 				break;
 			}
 		}
-		!added
-			? this.cart.push(product)
-			: this.cartItemCount.next(this.cartItemCount.value + 1);
+		if(!added){
+			this.cart.push(product); this.cartItemCount.next(this.cartItemCount.value + 1);
+		}else{
+			this.cartItemCount.next(this.cartItemCount.value + 1);
+		}
+
 	}
 
 	decreaseProduct(product: Cour) {

@@ -1,0 +1,30 @@
+ion-content{
+    background-color: #eff1f3;
+    ion-button{
+        --background: #243b55;
+    }
+    .row-top{
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        border-bottom: none;
+    }
+    ion-col{
+        text-align: left;
+        margin-left: 10px;
+    }
+    
+    
+    ion-row{
+        height: 4rem;
+        align-items: center;
+        border-bottom: 1px solid #e7e7e7;
+    }
+    .row-middle{
+        margin: auto;
+        margin-top: 5rem;
+        display: flex;
+        align-items: center;
+    }
+}
+
+

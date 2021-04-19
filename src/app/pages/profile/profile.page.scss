@@ -1,6 +1,13 @@
 ion-content{
     background-color: #eff1f3;
-
+    ion-button{
+        --background: #243b55;
+    }
+    .row-top{
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        border-bottom: none;
+    }
 }
 .logo {
     margin-top: 2rem;
@@ -24,7 +31,7 @@ ion-content{
 }
 
 ion-row{
-    height: 4rem;
+    height: 20%;
     ion-icon{
         margin-right: 0.6rem;
         font-size: 1.2rem;
@@ -33,10 +40,17 @@ ion-row{
 }
 .row-top{
     margin: auto;
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .btn{
     border-bottom: none;
+    margin-bottom: 2rem;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
 }
