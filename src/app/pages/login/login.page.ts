@@ -17,6 +17,7 @@ export class LoginPage implements OnInit {
   email: string = '';
   password: string = '';
   token: string = '';
+  avatar: string = '';
   tabBarElement: any;
   isErrorMail: boolean = true;
 
@@ -41,6 +42,7 @@ export class LoginPage implements OnInit {
     let token;
     if (this.platform.is("desktop")) {
         token = localStorage.getItem('token')
+      
     } else {
         token = await this.storage.getItem('token')
     }

@@ -4,6 +4,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Platform, ModalController } from '@ionic/angular';
 import { FaqComponent } from '../../modals/faq/faq.component';
 import { AboutComponent } from './../../modals/about/about.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,23 +13,36 @@ import { AboutComponent } from './../../modals/about/about.component';
 })
 export class ProfilePage implements OnInit {
 
-  
+  email: string;
+  avatar: string;
+  user: string;
 
   constructor(
     private router: Router,
     private storage: NativeStorage,
     private platform: Platform,
-    private modal: ModalController
+    private modal: ModalController,
+    private userService: UserService
     ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.email = localStorage.getItem('user');
+    this.userService.getUserByEmail(this.email).then(async(data: any) => {
+      this.user = await JSON.stringify(data);
+
+      for(let result of data){
+        this.avatar = result.avatar;
+      }
+      
+    }).catch(async(err) => {
+      console.log(err)
+    }) 
   }
 
-  getAvatar(){
+  async getAvatar(){
     //const user = JSON.parse(localStorage.getItem('user'));
     
-    
-   // return user.avatar;
+ 
   }
 
    getProfile(){

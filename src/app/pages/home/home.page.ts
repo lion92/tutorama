@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Cour } from 'src/app/interfaces/cour';
 import { CoursService } from 'src/app/services/cours.service';
 import { CartPage } from '../cart/cart.page';
+import { UserService } from '../../services/user.service';
 
 
 
@@ -50,6 +51,7 @@ export class HomePage {
 
   async ngOnInit(){
     
+  
     this.cours = await this.cour.getData();
    
     

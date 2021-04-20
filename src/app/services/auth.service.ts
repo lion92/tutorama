@@ -62,7 +62,14 @@ export class AuthService {
   logout(){
     return new Promise((resolve, rejects) => {
       this.http.request('POST', this.url + '/deconnexion').subscribe((data: any) => {
-        (!data.success) ? rejects(data.message): resolve(data);
+        if(!data.success){
+          rejects(data.message)
+        }else{
+          resolve(data);
+          console.log(data);
+        }
+       // (!data.success) ? rejects(data.message): resolve(data);
+
       })
     })
   }
