@@ -9,8 +9,10 @@ import { VideoService } from '../../services/video.service';
 export class TabsPage implements OnInit {
 
   user: string = undefined;
-  isButtonDisabled: boolean = true;
+
   video: any = undefined;
+  email: string = "";
+  disabled: boolean;
 
   constructor(private videoService: VideoService) { }
 
@@ -20,9 +22,10 @@ export class TabsPage implements OnInit {
 
   ngOnInit() {
 
-    this.video = this.videoService.getVidoes().length;
-       
+    this.video = this.videoService.getVideos().length;
+   
     
   }
+
 
 }

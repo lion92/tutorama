@@ -60,7 +60,7 @@ export class VideoService {
 
   constructor() { }
 
-  public getVidoes(): Video[] {
+  public getVideos(): Video[] {
     return this.videos;
   }
 }

@@ -27,35 +27,12 @@ export class TutoPage implements AfterViewInit  {
   videos: Video[];
 
   constructor(private data: VideoService) {
-    this.videos = data.getVidoes();
+    this.videos = data.getVideos();
    }
 
    async ngOnInit() { 
-    this._addListenersToPlayerPlugin();
    }
-
-  //  async ionViewDidEnter() {
-  //   this._url = this.url;
-    
-  //   if(this._url != null) {
-      
-  //     const res:any  = await this.videoPlayer.initPlayer({mode: "embedded",url: this._url, subtitle: "toto",
-  //                                                         playerId: "fullscreen",
-  //                                                         componentTag:"app-tuto"});
-  //     console.log("res " + JSON.stringify(res));
-       
-  //     }
-  //   }
   
-    private _addListenersToPlayerPlugin() {
-      this._handlerPlay = this._videoPlayer.addListener('jeepCapVideoPlayerPlay', (data:any) => { 
-        console.log('Event jeepCapVideoPlayerPlay ', data);
-        
-      }, false);
-      this._handlerPause = this._videoPlayer.addListener('jeepCapVideoPlayerPause', (data:any) => {
-        console.log('Event jeepCapVideoPlayerPause ', data);
-      }, false);
-    }
 
    async ngAfterViewInit() {
     const info = await Device.getInfo();

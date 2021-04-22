@@ -45,5 +45,8 @@ export class CartPage implements OnInit {
     this.modalCtrl.dismiss();
   }
 
-  checkout() {}
+  async checkout() {
+    this.close();
+    this.router.navigate(['../paiement'])
+  }
 }

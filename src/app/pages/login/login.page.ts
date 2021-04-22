@@ -73,7 +73,7 @@ export class LoginPage implements OnInit {
         
         this.token = user.split('!')[1];
         console.log(this.token)
-     
+        
         if (this.platform.is("desktop")) {
           localStorage.setItem('token', this.token)
           localStorage.setItem('user', this.email)

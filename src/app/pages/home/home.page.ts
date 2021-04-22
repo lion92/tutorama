@@ -19,7 +19,7 @@ export class HomePage {
 
 
   sliderConfig = {
-    spaceBetween: 5,
+    spaceBetween: 50,
     centeredSlides: true,
     slidesPerView: 1.6
   }
@@ -47,6 +47,8 @@ export class HomePage {
           
       }
     });
+    
+
   }
 
   async ngOnInit(){

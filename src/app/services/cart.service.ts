@@ -43,7 +43,7 @@ export class CartService {
 				
 				let cours: Cour[] = [];
 				let object = JSON.parse(data)
-			   console.log(object)
+			  
 				for(const item of object){
 				  cours.push({
 					idCour: item.idCour,

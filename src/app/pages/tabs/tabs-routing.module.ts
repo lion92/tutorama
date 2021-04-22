@@ -51,6 +51,16 @@ const routes: Routes =
           ]
         },
         {
+          path: 'paiement',
+          children: [
+            {
+              path: '',
+              loadChildren: () => 
+                import('../../pages/paiement/paiement.module').then( m => m.PaiementPageModule)
+            }
+          ]
+        },
+        {
           path: 'profile',
           children: [
             {

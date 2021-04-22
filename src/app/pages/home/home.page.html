@@ -47,26 +47,32 @@
           <ion-slides [options]="sliderConfig">
             <ion-slide class="slide1" *ngFor="let cour of cours">
               <ion-card class="card-home">
-                <img [src]="cour.image"/>
+                
                 
               <ion-card-header class="card-body">
-                <h3>{{ cour.Conetenu }}</h3>
-                <span>Cyber sécurité</span>
+                <img [src]="cour.image"/>
               </ion-card-header>
               <ion-card-content>
-                <ion-row align-self-end>
-                  <cite>{{ cour.Auteur }}</cite>
-                </ion-row>
-                <ion-row class="card-footer">
-                  
-                    <ion-icon name="star-sharp"></ion-icon>
-                    <ion-icon name="star-sharp"></ion-icon>
-                    <ion-icon name="star-sharp"></ion-icon>
-                    <ion-icon name="star-sharp"></ion-icon>
-                    <ion-icon name="star-half-outline"></ion-icon>
-                    <span>{{ cour.prix }},00€</span>
-                  
-                </ion-row>
+                <div>
+                  <h3>{{ cour.Conetenu }}</h3>
+                </div>
+
+                  <ion-row align-self-end>
+                    <cite>{{ cour.Auteur }}</cite>
+                  </ion-row>
+                  <ion-row class="card-footer">
+                    <ion-col>
+                      <ion-icon name="star-sharp"></ion-icon>
+                      <ion-icon name="star-sharp"></ion-icon>
+                      <ion-icon name="star-sharp"></ion-icon>
+                      <ion-icon name="star-sharp"></ion-icon>
+                      <ion-icon name="star-half-outline"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                      <span>{{ cour.prix }},00€</span>
+                    </ion-col>
+                    
+                  </ion-row>
                 <ion-row>
                   <span>Les avis(12)</span>
                 </ion-row>

@@ -16,6 +16,8 @@ export class ProfilePage implements OnInit {
   email: string;
   avatar: string;
   user: string;
+  disabled: boolean;
+
 
   constructor(
     private router: Router,
@@ -26,8 +28,17 @@ export class ProfilePage implements OnInit {
     ) { }
 
   async ngOnInit() {
-    this.email = localStorage.getItem('user');
+
+    
+    
+    if(this.platform.is("desktop")) {
+      this.email = localStorage.getItem('user');
+      console.log(this.email) //trim('r')[1]);  
+    }else{
+      this.email = await this.storage.getItem('user');
+    }
     this.userService.getUserByEmail(this.email).then(async(data: any) => {
+      
       this.user = await JSON.stringify(data);
 
       for(let result of data){
@@ -37,12 +48,24 @@ export class ProfilePage implements OnInit {
     }).catch(async(err) => {
       console.log(err)
     }) 
+
+    
+    
+    if(this.email == undefined || this.email == null){
+      this.disabled = true;
+    }else{
+      this.disabled = false;
+    }
   }
 
   async getAvatar(){
     //const user = JSON.parse(localStorage.getItem('user'));
     
  
+  }
+
+  ionTabsWillChange(){
+    console.log("Hé hooooo")
   }
 
    getProfile(){
