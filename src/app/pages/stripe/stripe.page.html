@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Paiement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+  
+    <ion-item>
+      <ion-label color="primary" stacked>Numéro de carte</ion-label>
+      <ion-input type="text" [(ngModel)]="cardNumber"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label color="primary" stacked>Mois d'expiration</ion-label>
+      <ion-input type="number" [(ngModel)]="cardMonth"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label color="primary" stacked>Année d'expiration</ion-label>
+      <ion-input type="number" [(ngModel)]="cardYear"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label color="primary" stacked>CVV</ion-label>
+      <ion-input type="number" [(ngModel)]="cardCVV"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+  
+  <ion-button expand="block" size="medium" (click)="validateCard()">Valider le paiement</ion-button>
+  
+</ion-content>

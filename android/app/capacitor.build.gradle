@@ -10,7 +10,7 @@ android {
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
     implementation project(':capacitor-video-player')
-
+    implementation "com.stripe:stripe-android:4.1.2"
 }
 
 

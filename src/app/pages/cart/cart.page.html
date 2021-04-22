@@ -24,7 +24,7 @@
 							{{ product.amount }}
 						</ion-col>
 
-						<ion-col size="2" class="ion-align-self-center">
+						<ion-col size="4" class="ion-align-self-center">
 							<ion-button
 								color="medium"
 								fill="clear"
@@ -44,7 +44,7 @@
 							</ion-button>
 						</ion-col>
 					</ion-row>
-					<ion-row>
+					<ion-row class="title">
 						<ion-col size="9">
 							<b>{{ product.Conetenu }}</b>
 						</ion-col>
@@ -68,6 +68,6 @@
 		</ion-list>
 
 		
-		<ion-button expand="full" (click)="checkout()"> Checkout </ion-button>
+		<ion-button expand="full" (click)="checkout()" [disabled]="cart.length == 0"> Checkout </ion-button>
 	</div>
 </ion-content>

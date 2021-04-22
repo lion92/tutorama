@@ -9,13 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { ​​HttpClientModule​​ } from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { SplashScreenComponent } from "./splash-screen/splash-screen.component";
+import { Stripe } from '@ionic-native/stripe/ngx';
+
 
 @NgModule({
   declarations: [AppComponent, SplashScreenComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ​​HttpClientModule​​],
   
-providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, NativeStorage],
+providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, NativeStorage, Stripe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

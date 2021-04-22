@@ -64,9 +64,6 @@ export class ProfilePage implements OnInit {
  
   }
 
-  ionTabsWillChange(){
-    console.log("Hé hooooo")
-  }
 
    getProfile(){
     let user;
@@ -83,7 +80,7 @@ export class ProfilePage implements OnInit {
     await localStorage.removeItem('user');
     await localStorage.removeItem('token');
     
-    this.router.navigateByUrl('/tabs/login', { replaceUrl:true });
+    this.router.navigateByUrl('login', { replaceUrl:true });
   }
 
   async faq() {

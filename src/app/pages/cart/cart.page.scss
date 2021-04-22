@@ -6,24 +6,36 @@ ion-content{
         margin-top: 1rem;
         margin-left: -8.5rem;
     }
+
+    ion-list{
+        margin-top: 3rem;
     
-    
-    .ion-text-center{
-        font-size: 1.5rem;
-        margin-top: 10rem;
-        margin-bottom: 5rem;
-        height: 20vh;
-    }
-    
-    .col-close{
-        margin-left: 0!important;
-    }
-    
-    .amount{
-        text-align: center;
+        .title{
+            
+            ion-col{
+                font-size: 0.8rem;
+                
+            }
+        }
+        
+        .ion-text-center{
+            font-size: 1.5rem;
+            margin-top: 10rem;
+            margin-bottom: 5rem;
+            height: 20vh;
+        }
+      
+        .col-close{
+            margin-left: 0!important;
+        }
+        
+        .amount{
+            text-align: center;
+        }
     }
 
     ion-button{
         --background: #243b55;
     }
+
 }

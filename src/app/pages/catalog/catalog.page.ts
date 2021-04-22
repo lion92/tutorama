@@ -25,9 +25,10 @@ export class CatalogPage implements OnInit {
     ) {}
 
   async ngOnInit(){
-    this.products = this.cartService.getProducts();
-    this.cart = this.cartService.getCart();
-    this.cartItemCount = this.cartService.getCartItemCount();
+    this.products = await this.cartService.getProducts();
+    this.cart = await this.cartService.getCart();
+    this.cartItemCount = await this.cartService.getCartItemCount();
+   
     
   }
 

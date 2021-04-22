@@ -22,9 +22,11 @@
     "@capacitor/android": "^2.0.1",
     "@ionic-native/core": "^5.31.1",
     "@ionic-native/native-storage": "^5.31.1",
+    "@ionic-native/stripe": "^5.32.1",
     "@ionic/angular": "^5.5.2",
     "capacitor-video-player": "^2.4.7-2",
     "cordova-plugin-nativestorage": "^2.3.2",
+    "cordova-plugin-stripe": "^1.5.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

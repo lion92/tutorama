@@ -49,9 +49,6 @@ ion-content{
                 display: flex;
                 align-items: center;
                 max-width: 90%;
-                font-size: 0.6rem;
-                padding-left: 8px;
-                padding-right: 11px;
                 margin: auto;
                 border-radius: 3px;
                 background: #243b55;
@@ -113,7 +110,6 @@ ion-content{
             }
         }
         h3{
-            margin-top: 30px !important;
             margin-bottom: 2px!important;
             font-size: 15px;
             font-weight: bold;
@@ -136,7 +132,7 @@ ion-content{
             padding-right: 0!important;
             margin-left: 5px;
             div{
-                height: 12vh;
+                height: 6vh;
             }
             cite{
                 margin-top: 1rem;
@@ -154,7 +150,6 @@ ion-content{
             .card-footer{
                 display: flex;
                 align-items: center;
-                margin-top: 0.2rem;
                 
                 span{
                     font-size: 1rem;

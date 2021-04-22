@@ -21,26 +21,6 @@ const routes: Routes =
           ]
         },
         {
-          path: 'register',
-          children: [
-            {
-              path: '',
-              loadChildren: () => 
-                import('../../pages/register/register.module').then( m => m.RegisterPageModule)
-            }
-          ]
-        },
-        {
-          path: 'login',
-          children: [
-            {
-              path: '',
-              loadChildren: () => 
-                import('../../pages/login/login.module').then( m => m.LoginPageModule)
-            }
-          ]
-        },
-        {
           path: 'cart',
           children: [
             {
@@ -92,14 +72,14 @@ const routes: Routes =
         },
         {
           path: '',
-          redirectTo: '/tabs/login',
+          redirectTo: 'home',
           pathMatch: 'full'
         }, 
       ],
     },
     {
       path: '',
-      redirectTo: '/tabs/login',
+      redirectTo: 'tabs/home',
       pathMatch: 'full'
     },   
 ];

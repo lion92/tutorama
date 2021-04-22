@@ -23,18 +23,19 @@ export class CartPage implements OnInit {
   async ngOnInit() {
     this.cart = this.cartService.getCart();
     this.cour = await this.cartService.getData();
+    
   }
 
-  decreaseCartItem(product){
-    this.cartService.decreaseProduct(product);
+  async decreaseCartItem(product){
+    await this.cartService.decreaseProduct(product);
   }
 
-  increaseCartItem(product){
-    this.cartService.addProduct(product);
+  async increaseCartItem(product){
+    await this.cartService.addProduct(product);
   }
 
-  removeCartItem(product){
-    this.cartService.removeProduct(product);
+  async removeCartItem(product){
+    await this.cartService.removeProduct(product);
   }
 
   getTotal(){
@@ -47,6 +48,7 @@ export class CartPage implements OnInit {
 
   async checkout() {
     this.close();
-    this.router.navigate(['../paiement'])
+   
+    this.router.navigate(['../stripe'])
   }
 }

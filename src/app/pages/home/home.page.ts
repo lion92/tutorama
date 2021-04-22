@@ -19,7 +19,7 @@ export class HomePage {
 
 
   sliderConfig = {
-    spaceBetween: 50,
+    spaceBetween: 30,
     centeredSlides: true,
     slidesPerView: 1.6
   }
@@ -52,7 +52,10 @@ export class HomePage {
   }
 
   async ngOnInit(){
-    
+    const user = localStorage.getItem('user');
+    if(user == null){
+      this.router.navigate(['login'])
+    }
   
     this.cours = await this.cour.getData();
    
