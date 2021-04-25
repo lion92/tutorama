@@ -15,7 +15,7 @@ export class PaiementPage implements OnInit {
 
   
   ngOnInit() {
-    this.cour = this.cartService.getProducts();
+    //this.cour = this.cartService.getProducts();
   }
 
 

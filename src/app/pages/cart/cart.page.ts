@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Product, CartService } from '../../services/cart.service';
 import { ModalController } from '@ionic/angular';
 import { Cour } from '../../interfaces/cour';
+import { CoursService } from 'src/app/services/cours.service';
 
 
 @Component({
@@ -17,12 +18,13 @@ export class CartPage implements OnInit {
   constructor(
     private router: Router,
     private cartService: CartService,
+    private courService: CoursService,
 		private modalCtrl: ModalController
     ) { }
 
   async ngOnInit() {
     this.cart = this.cartService.getCart();
-    this.cour = await this.cartService.getData();
+    this.cour = await this.courService.getData();
     
   }
 
@@ -49,6 +51,6 @@ export class CartPage implements OnInit {
   async checkout() {
     this.close();
    
-    this.router.navigate(['../stripe'])
+    this.router.navigate(['/stripe'])
   }
 }

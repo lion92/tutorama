@@ -17,21 +17,24 @@ export class CoursService {
 
     return new Promise((resolve, rejects) => {
       
-      this.http.request('GET', this.url + "promo", { responseType: 'text' }).subscribe((data) => {
+      this.http.request('GET', this.url + "courTout", { responseType: 'text' }).subscribe((data) => {
         try{
             
             let cours: Cour[] = [];
+            console.log(data)
             let object = JSON.parse(data)
-           console.log(object)
+          
             for(const item of object){
               cours.push({
-                idCour: item.idCour,
+                IdCour: item.IdCour,
                 Auteur: item.Auteur,
                 Etoile: item.Etoile,
-                Conetenu: item.Conetenu,
+                contenu: item.contenu,
                 prix: item.prix,
                 date: item.date,
-                image: item.image
+                image: item.image,
+                video: item.video,
+                amount: 1
               })
               
               resolve(cours);
@@ -45,6 +48,73 @@ export class CoursService {
 
   }
 
+  getPromo(): Promise <Cour[]>{
+
+    return new Promise((resolve, rejects) => {
+      
+      this.http.request('GET', this.url + "promo", { responseType: 'text' }).subscribe((data) => {
+        try{
+            
+            let cours: Cour[] = [];
+            let object = JSON.parse(data)
+          
+            for(const item of object){
+              cours.push({
+                IdCour: item.IdCour,
+                Auteur: item.Auteur,
+                Etoile: item.Etoile,
+                contenu: item.contenu,
+                prix: item.prix,
+                date: item.date,
+                image: item.image,
+                video: item.video,
+                amount: 1
+              })
+              
+              resolve(cours);
+            }
+          }catch(err){
+           
+            rejects(false)
+          }
+      })
+    })
+
+  }
+
+
+
+
+  getBestTuto(): Promise <Cour[]>{
+    return new Promise((resolve, rejects) => {
+      
+      this.http.request('GET', this.url + "mieunote", { responseType: 'text' }).subscribe((data) => {
+        try{
+            
+            let cours: Cour[] = [];
+            let object = JSON.parse(data)
+           
+            for(const item of object){
+              cours.push({
+                IdCour: item.IdCour,
+                Auteur: item.Auteur,
+                Etoile: item.Etoile,
+                contenu: item.contenu,
+                prix: item.prix,
+                date: item.date,
+                image: item.image,
+                video: item.video
+              })
+              
+              resolve(cours);
+            }
+          }catch(err){
+           
+            rejects(false)
+          }
+      })
+    })
+  }
 
 
 

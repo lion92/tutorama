@@ -24,7 +24,8 @@ export class HomePage {
     slidesPerView: 1.6
   }
 
-  cours: Cour[];
+  coursPromo: Cour[];
+  bestTuto: Cour[];
   cart = [];
   products = [];
   cartItemCount: BehaviorSubject<number>;
@@ -41,7 +42,7 @@ export class HomePage {
     ) {}
 
   ionViewWillEnter() {
-    console.log("ionViewWillEnter");
+   
     this.router.events.subscribe(async(event) => {
       if (event instanceof NavigationEnd) {
           
@@ -57,9 +58,9 @@ export class HomePage {
       this.router.navigate(['login'])
     }
   
-    this.cours = await this.cour.getData();
+    this.coursPromo = await this.cour.getPromo();
    
-    
+    this.bestTuto = await this.cour.getBestTuto();
   }
 
   

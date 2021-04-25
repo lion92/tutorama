@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Cour } from '../interfaces/cour';
 import { HttpClient } from '@angular/common/http';
+import { CoursService } from './cours.service';
+
 
 export interface Product {
   	id: number;
@@ -15,59 +17,31 @@ export interface Product {
 })
 export class CartService {
 
-	data: Cour[] =
+	// data: Cour[] =
 
-	[
-		{ idCour: 0, image:"", Auteur: 'Florian', prix: 100.00, Etoile: 5, Conetenu: "Bien débuter avec nodeJs et express", date: "2021-04-18", amount: 1 },
-		{ idCour: 1, image:"", Auteur: 'Antoine', prix: 109.99, Etoile: 4.5, Conetenu: "Les fondamentaux de TypeScript", date: "2021-04-18", amount: 1 },
-		{ idCour: 2, image:"", Auteur: 'Kriss', prix: 85.00, Etoile: 4, Conetenu: "Structurez votre application avec ionic", date: "2021-04-18", amount: 1 },
-		{ idCour: 3, image:"", Auteur: 'Julien', prix: 55.00, Etoile: 3.5, Conetenu: "Les bases de nodeJs", date: "2021-04-18", amount: 1 },
-	];
+	// [
+	// 	{ idCour: 0, image:"", Auteur: 'Florian', prix: 100.00, Etoile: 5, contenu: "Bien débuter avec nodeJs et express", date: "2021-04-18", amount: 1 },
+	// 	{ idCour: 1, image:"", Auteur: 'Antoine', prix: 109.99, Etoile: 4.5, contenu: "Les fondamentaux de TypeScript", date: "2021-04-18", amount: 1 },
+	// 	{ idCour: 2, image:"", Auteur: 'Kriss', prix: 85.00, Etoile: 4, contenu: "Structurez votre application avec ionic", date: "2021-04-18", amount: 1 },
+	// 	{ idCour: 3, image:"", Auteur: 'Julien', prix: 55.00, Etoile: 3.5, contenu: "Les bases de nodeJs", date: "2021-04-18", amount: 1 },
+	// ];
 	url: string = "https://tutoramaflorian.krissdeveloppeur.com/";
  	private cart = [];
   	private cartItemCount = new BehaviorSubject(0);
+	cours: Cour[];
 
-
-  	constructor(private http: HttpClient) { 
+  	constructor(private http: HttpClient, private cour: CoursService) { 
 		
 		
-	  }
+	}
 
 
-	  getData(): Promise <Cour[]>{
+	 
 
-		return new Promise((resolve, rejects) => {
-		  
-		  this.http.request('GET', this.url + "cours", { responseType: 'text' }).subscribe((data) => {
-			try{
-				
-				let cours: Cour[] = [];
-				let object = JSON.parse(data)
-			  
-				for(const item of object){
-				  cours.push({
-					idCour: item.idCour,
-					image: item.image,
-					Auteur: item.Auteur,
-					Etoile: item.Etoile,
-					Conetenu: item.Conetenu,
-					prix: item.prix,
-					date: item.date
-				  })
-				  console.log(cours)
-				  resolve(cours);
-				}
-			  }catch(err){
-			   
-				rejects(false)
-			  }
-		  })
-		})
-	
-	  }
+	async getProducts(): Promise<Cour[]> {
+		return this.cours = await this.cour.getData();
+		
 
-	getProducts(): Cour[] {
-		return this.data;
 	}
 
 	getCart(): Cour[] {
@@ -80,8 +54,10 @@ export class CartService {
 
 	addProduct(product: Cour) {
 		let added = false;
+		
 		for (const item of this.cart) {
-			if (item.idCour === product.idCour) {
+			
+			if (item.IdCour === product.IdCour) {
 				item.amount += 1;
 				added = true;
 				break;
@@ -89,18 +65,22 @@ export class CartService {
 		}
 		if(!added){
 			this.cart.push(product); this.cartItemCount.next(this.cartItemCount.value + 1);
+			
+			
 		}else{
 			this.cartItemCount.next(this.cartItemCount.value + 1);
+			
 		}
 
 	}
 
 	decreaseProduct(product: Cour) {
 		for (const [index, item] of this.cart.entries()) {
-			if (item.idCour === product.idCour) {
+			if (item.IdCour === product.IdCour) {
 				item.amount -= 1;
 				if (item.amount === 0) {
 					this.cart.splice(index, 1);
+					item.amount = 1;
 				}
 			}
 		}
@@ -109,7 +89,7 @@ export class CartService {
 
 	removeProduct(product: Cour) {
 		for (const [index, item] of this.cart.entries()) {
-			if (item.idCour === product.idCour) {
+			if (item.IdCour === product.IdCour) {
 				this.cartItemCount.next(this.cartItemCount.value - item.amount);
 				this.cart.splice(index, 1);
 			}

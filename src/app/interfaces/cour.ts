@@ -1,10 +1,11 @@
 export interface Cour {
-    idCour: any;
+    IdCour: number;
     image: string;
     Auteur: string;
     Etoile: any;
-    Conetenu: string;
+    contenu: string;
     prix: number;
     date: string;
-    amount?: any;
+    video: string;
+    amount?: number;
 }

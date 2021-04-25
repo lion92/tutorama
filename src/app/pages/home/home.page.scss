@@ -150,7 +150,13 @@ ion-content{
             .card-footer{
                 display: flex;
                 align-items: center;
-                
+                ion-col{
+                    display: flex;
+                    justify-content: center;
+                    ion-icon{
+                        font-size: 1.3rem;
+                    }
+                }
                 span{
                     font-size: 1rem;
                     margin-left: 8px;

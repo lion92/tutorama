@@ -29,7 +29,7 @@ export class CatalogPage implements OnInit {
     this.cart = await this.cartService.getCart();
     this.cartItemCount = await this.cartService.getCartItemCount();
    
-    
+    console.log(this.products)
   }
 
   addToCart(product){
