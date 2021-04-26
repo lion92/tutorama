@@ -19,7 +19,7 @@ export class HomePage {
 
 
   sliderConfig = {
-    spaceBetween: 30,
+    spaceBetween: 5,
     centeredSlides: true,
     slidesPerView: 1.6
   }
@@ -41,29 +41,16 @@ export class HomePage {
     private modalCtrl: ModalController
     ) {}
 
-  ionViewWillEnter() {
-   
-    this.router.events.subscribe(async(event) => {
-      if (event instanceof NavigationEnd) {
-          
-      }
-    });
-    
-
-  }
 
   async ngOnInit(){
-    /*const user = localStorage.getItem('user');
-    if(user == null){
-      this.router.navigate(['login'])
-    }
+
   
     this.coursPromo = await this.cour.getPromo();
    
     this.bestTuto = await this.cour.getBestTuto();
-  
-*/
   }
+
+  
 
   async openCart(){
     const modal = await this.modalCtrl.create({

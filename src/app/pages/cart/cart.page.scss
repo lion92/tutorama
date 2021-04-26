@@ -3,18 +3,41 @@ ion-content{
     img{
         max-width: 100%;
         border: 0;
-        margin-top: 1rem;
-        margin-left: -8.5rem;
     }
 
     ion-list{
         margin-top: 3rem;
-    
+        .ion-align-self-center{
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            ion-button{
+                ion-icon{
+                    color: #243b55!important;
+                }
+            }
+            
+        }
+        .col-close{
+            display: flex;
+            justify-content: flex-end;
+            ion-button{
+                
+                ion-icon{
+                   
+                    color: #E04853; 
+                }
+            }
+        }
         .title{
             
             ion-col{
                 font-size: 0.8rem;
-                
+            }
+            .ion-text-end{
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
         
@@ -24,13 +47,13 @@ ion-content{
             margin-bottom: 5rem;
             height: 20vh;
         }
-      
-        .col-close{
-            margin-left: 0!important;
-        }
         
         .amount{
             text-align: center;
+        }
+        .row-total{
+            margin-top: 3rem;
+            font-weight: bold;
         }
     }
 

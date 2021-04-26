@@ -36,24 +36,7 @@ export class LoginPage implements OnInit {
     
   }
 
-  async ngOnInit() {
-   
-    /*
-    let token;
-    if (this.platform.is("desktop")) {
-        token = await localStorage.getItem('token')
-      
-    } else {
-        token = await this.storage.getItem('token')
-    }
-     
-      console.log("Je suis le token avant connexion" + token)
-    if (token !== null){
-      this.router.navigate(['/tabs/home'])
-      console.log("Je suis le token après connexion" + token)
-    }
-*/
-  }
+  ngOnInit() {}
 
   async forgotPassword() {
     const modal = await this.modal.create({
@@ -83,19 +66,22 @@ export class LoginPage implements OnInit {
           localStorage.setItem('token', this.token)
           localStorage.setItem('user', this.email)
       } else {
-          await this.storage.setItem('token', {property: this.token})
-          await this.storage.setItem('user', {property: this.email})
+          await this.storage.setItem('token', this.token)
+          await this.storage.setItem('user', this.email)
       }
 
         const toast = await this.toast.create({
-          message: this.token,
+          message: this.email,
           color: "success",
           duration: 2000,
         });
         toast.present();
 
+        
+
         this.router.navigate(['/tabs/home'])
       }).catch(async(err) => {
+        
           console.log(err)
           const toast = await this.toast.create({
             message: "Vous avez mal renseigné le champs email ou password !",
@@ -103,7 +89,7 @@ export class LoginPage implements OnInit {
             duration: 2000,
           });
           toast.present();
-        
+          
       })
   }
 

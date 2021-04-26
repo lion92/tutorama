@@ -12,13 +12,8 @@ ion-content{
 .form{
     margin-top: 3rem;
     width: 87%;
-    .errorEmail {
-        
-        --border-color: #ff0062;
-        --highlight-background: #ff0062;
-    }
+    
     .goodEmail {
-        border-bottom: green;
         --border-color: green;
         --highlight-background: green;
     }

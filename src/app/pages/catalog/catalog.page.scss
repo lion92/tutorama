@@ -59,12 +59,19 @@ ion-list{
     flex-wrap: wrap;
     justify-content: center;
     ion-card{
-        max-width: 70%;
+        max-width: 65%;
         ion-card-header{
             padding: 0;
+            img {
+                width: 100%;
+                height: 100px;
+                object-fit: cover;
+            }
         }
         ion-card-title{
             font-size: 1.1rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
             text-align: center;
             font-weight: bold;
             color: #243b55;
@@ -73,19 +80,18 @@ ion-list{
             display: flex;
             flex-direction: column;
             --background: #EFF1F3;
-            
-            ion-label{
-                color: #243b55;
+            ion-col{
+                margin-bottom: 0.5rem;
+                ion-label{
+                    color: #243b55;
+                }
             }
             
                 ion-row{
                     margin: auto;
                     ion-button{
                         --background: #243b55;
-                        // border-color: #243b55;
                         color: white;
-                        font-size: 0.6rem;
-                        margin-right: 0.4rem;
                         ion-icon{
                             color: white;
                             font-size: 1.2rem;
