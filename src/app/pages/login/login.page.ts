@@ -45,11 +45,13 @@ export class LoginPage implements OnInit {
       
     } else {
         token = await this.storage.getItem('token')
-      }
+    }
      
-      
-    if (token !== undefined || token !== null)
-        this.router.navigate(['/tabs/home'])
+      console.log("Je suis le token avant connexion" + token)
+    if (token !== null){
+      this.router.navigate(['/tabs/home'])
+      console.log("Je suis le token après connexion" + token)
+    }
 
   }
 
@@ -74,14 +76,15 @@ export class LoginPage implements OnInit {
       this.auth.login(this.email, this.password).then(async(user: any) => {
         
         this.token = user.split('!')[1];
-        console.log(this.token)
+        
+        console.log(this.token + " je suis")
         
         if (this.platform.is("desktop")) {
           localStorage.setItem('token', this.token)
           localStorage.setItem('user', this.email)
       } else {
-          await this.storage.setItem('token', this.token)
-          await this.storage.setItem('user', this.email)
+          await this.storage.setItem('token', {property: this.token})
+          await this.storage.setItem('user', {property: this.email})
       }
 
         const toast = await this.toast.create({
@@ -91,7 +94,7 @@ export class LoginPage implements OnInit {
         });
         toast.present();
 
-          this.router.navigate(['/tabs/home'])
+        this.router.navigate(['/tabs/home'])
       }).catch(async(err) => {
           console.log(err)
           const toast = await this.toast.create({
