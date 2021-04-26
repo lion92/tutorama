@@ -17,7 +17,7 @@ export class ProfilePage implements OnInit {
   avatar: string;
   user: string;
   disabled: boolean;
-
+  users: string;
 
   constructor(
     private router: Router,
@@ -33,7 +33,7 @@ export class ProfilePage implements OnInit {
     
     if(this.platform.is("desktop")) {
       this.email = localStorage.getItem('user');
-      console.log(this.email) //trim('r')[1]);  
+      
     }else{
       this.email = await this.storage.getItem('user');
     }
@@ -65,14 +65,14 @@ export class ProfilePage implements OnInit {
   }
 
 
-   getProfile(){
-    let user;
+  async getProfile(){
+    
     if (this.platform.is("desktop")) {
-      user = localStorage.getItem('user')
+      this.users = await localStorage.getItem('user')
     } else {
-      user =  this.storage.getItem('user')
+      this.users = await this.storage.getItem('user')
     }
-    return user;
+    return this.users;
   }
 
   async logout(){
@@ -85,7 +85,8 @@ export class ProfilePage implements OnInit {
       await this.storage.remove('user');
       await this.storage.remove('token');
     }
-    
+    this.users = "";
+    this.email = "";
     this.router.navigateByUrl('login', { replaceUrl:true });
     
   }

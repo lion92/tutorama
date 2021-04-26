@@ -88,7 +88,7 @@ export class LoginPage implements OnInit {
       }
 
         const toast = await this.toast.create({
-          message: "Vous vous êtes bien connecté",
+          message: this.token,
           color: "success",
           duration: 2000,
         });
