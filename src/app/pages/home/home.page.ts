@@ -53,7 +53,7 @@ export class HomePage {
   }
 
   async ngOnInit(){
-    const user = localStorage.getItem('user');
+    /*const user = localStorage.getItem('user');
     if(user == null){
       this.router.navigate(['login'])
     }
@@ -61,9 +61,9 @@ export class HomePage {
     this.coursPromo = await this.cour.getPromo();
    
     this.bestTuto = await this.cour.getBestTuto();
-  }
-
   
+*/
+  }
 
   async openCart(){
     const modal = await this.modalCtrl.create({

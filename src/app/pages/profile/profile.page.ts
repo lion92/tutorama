@@ -76,21 +76,21 @@ export class ProfilePage implements OnInit {
   }
 
   async logout(){
-
     if (this.platform.is("desktop")) {
       await localStorage.removeItem('user');
       await localStorage.removeItem('token');
-      
-    } else {
-      await this.storage.remove('user');
-      await this.storage.remove('token');
-    }
-    this.users = "";
-    this.email = "";
-    this.router.navigateByUrl('login', { replaceUrl:true });
-    
+  } else {
+      await this.storage.remove('token')
+      await this.storage.remove('user')
+      this.email = null;
+      this.user = null;
   }
 
+
+    this.router.navigateByUrl('login', { replaceUrl:true });
+  }
+
+  
   async faq() {
       const modal = await this.modal.create({
         component: FaqComponent,

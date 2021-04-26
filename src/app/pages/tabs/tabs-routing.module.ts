@@ -72,7 +72,7 @@ const routes: Routes =
         },
         {
           path: '',
-          redirectTo: 'home',
+          redirectTo: 'tabs/home',
           pathMatch: 'full'
         }, 
       ],
@@ -83,9 +83,8 @@ const routes: Routes =
       pathMatch: 'full'
     },   
 ];
-
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule],
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
 export class TabsPageRoutingModule {}
