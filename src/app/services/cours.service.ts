@@ -21,7 +21,7 @@ export class CoursService {
         try{
             
             let cours: Cour[] = [];
-            console.log(data)
+            
             let object = JSON.parse(data)
           
             for(const item of object){

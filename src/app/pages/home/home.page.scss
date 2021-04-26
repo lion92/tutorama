@@ -15,14 +15,7 @@ ion-content{
     }
     
     .cart-length {
-        color: var(--ion-color-primary);
-        position: absolute;
-        top: 23px;
-        left: 25px;
-        font-weight: 600;
-        font-size: 1em;
-        min-width: 25px;
-        z-index: 10;
+        color: black;
       }
     
       ion-slide{
@@ -31,15 +24,43 @@ ion-content{
     
     
         .top-row {
-            margin-top: 1.5rem;
-            text-align: end;
-            ion-button{
-                --background: #f15152!important;
+            display: flex;
+            justify-content: flex-end;
+            align-content: center;
+            align-items: center;
+            margin-top: 3rem;
+            margin-right: 1rem;
+            a{
+                display: block;
+                font-size: 2.2rem;
+                ion-icon{
+                    color: #243b55;
+                }
+                @keyframes iconScaleUp {
+                    0% {
+                        font-size: 1rem;
+                    }
+        
+                    25%{
+                        font-size: 1.5rem;
+                    }
+        
+                    50%{
+                        font-size: 2rem;
+                    }
+        
+                    100%{
+                        font-size: 1.2rem;
+                    }
+                }
             }
-        }
-        .cart-icon{
-            font-size: 2rem;
-            margin-right: 1.5rem;
+            .cart-grow{
+                animation: iconScaleUp 1s ease-in forwards;
+            }
+        
+            .cart-length {
+                color: black;
+            }
         }
     
     

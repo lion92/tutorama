@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 
 import { CartService } from '../../services/cart.service';
@@ -21,7 +21,8 @@ export class CatalogPage implements OnInit {
   constructor(
     private router: Router,
     private cartService: CartService, 
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private toast: ToastController
     ) {}
 
   async ngOnInit(){
@@ -29,11 +30,33 @@ export class CatalogPage implements OnInit {
     this.cart = await this.cartService.getCart();
     this.cartItemCount = await this.cartService.getCartItemCount();
    
-    console.log(this.products)
+    
   }
 
-  addToCart(product){
-    this.cartService.addProduct(product);
+  async addToCart(product){
+    if(product){
+      this.cartService.addProduct(product);
+      let cartLength = document.querySelector('.cart-length');
+      cartLength.classList.add('cart-grow');
+
+      const toast = await this.toast.create({
+        message: "Le cours a bien été ajouté !",
+        color: "success",
+        duration: 500,
+      });
+      toast.present();
+      setTimeout(() => {
+        cartLength.classList.remove('cart-grow');
+      }, 1000 ) 
+     
+    }else{
+      const toast = await this.toast.create({
+        message: "Le cours n'a pas pu être être ajouté !",
+        color: "danger",
+        duration: 1000,
+      });
+      toast.present();
+    }
   }
 
   async openCart(){

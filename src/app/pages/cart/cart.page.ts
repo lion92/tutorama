@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SplashScreenComponent } from "../../splash-screen/splash-screen.component";
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Product, CartService } from '../../services/cart.service';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController, NavParams } from '@ionic/angular';
 import { Cour } from '../../interfaces/cour';
 import { CoursService } from 'src/app/services/cours.service';
+import { PaypalMobilePage } from '../paypal-mobile/paypal-mobile.page';
 
 
 @Component({
@@ -13,13 +14,19 @@ import { CoursService } from 'src/app/services/cours.service';
   styleUrls: ['./cart.page.scss'],
 })
 export class CartPage implements OnInit {
+
+  @ViewChild('paypal-mobile', {static: false, read: ElementRef})fab: ElementRef;
+
   cart: Cour[] = [];
   cour: Cour[] = [];
+
   constructor(
     private router: Router,
     private cartService: CartService,
     private courService: CoursService,
-		private modalCtrl: ModalController
+		private modalCtrl: ModalController,
+    private navCtrl: NavController,
+    private navParams: NavParams
     ) { }
 
   async ngOnInit() {
@@ -41,7 +48,7 @@ export class CartPage implements OnInit {
   }
 
   getTotal(){
-    return this.cart.reduce((i, j) => i + j.prix * j.amount, 0);
+    return this.cart.reduce((i, j) => i + j.prix * j.amount, 0).toString();
   }
 
   close(){
@@ -50,7 +57,19 @@ export class CartPage implements OnInit {
 
   async checkout() {
     this.close();
-   
-    this.router.navigate(['/stripe'])
+    // const modal = await this.modalCtrl.create({
+    //   component: PaypalMobilePage,
+    //   cssClass: ''
+    // })
+    // modal.present();
+    // this.navCtrl.navigateForward('/paypal-mobile', )
+    // this.router.navigate(['/paypal-mobile'])
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: this.getTotal()
+      }
+    };
+
+    this.router.navigate(['/paypal-mobile'], navigationExtras);
   }
 }

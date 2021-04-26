@@ -77,10 +77,17 @@ export class ProfilePage implements OnInit {
 
   async logout(){
 
-    await localStorage.removeItem('user');
-    await localStorage.removeItem('token');
+    if (this.platform.is("desktop")) {
+      await localStorage.removeItem('user');
+      await localStorage.removeItem('token');
+      
+    } else {
+      await this.storage.remove('user');
+      await this.storage.remove('token');
+    }
     
     this.router.navigateByUrl('login', { replaceUrl:true });
+    
   }
 
   async faq() {

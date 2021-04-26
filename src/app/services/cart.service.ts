@@ -81,6 +81,7 @@ export class CartService {
 				if (item.amount === 0) {
 					this.cart.splice(index, 1);
 					item.amount = 1;
+					console.log(item.amount)
 				}
 			}
 		}
@@ -92,6 +93,7 @@ export class CartService {
 			if (item.IdCour === product.IdCour) {
 				this.cartItemCount.next(this.cartItemCount.value - item.amount);
 				this.cart.splice(index, 1);
+				item.amount = 1
 			}
 		}
 	}

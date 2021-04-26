@@ -16,7 +16,7 @@ export class UserService {
       return new Promise((resolve, rejects) => {
           this.http.get(this.url + '/utilisateur/'+ email).subscribe((data: any) => {
               //(!data.success) ? rejects(false): resolve(data);
-            console.log(data)
+           
             if(!data){
               rejects(false)
             }else{

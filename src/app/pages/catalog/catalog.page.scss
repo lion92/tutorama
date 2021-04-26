@@ -1,42 +1,100 @@
+
+
 .top-row{
-    background-color: #EFF1F3;
-    ion-button{
-        margin-top: 1.5rem;
-        --background: #f15152!important;
-        
-        .cart-length {
-            color: #eff4ff;
-            position: absolute;
-            top: 21px;
-            left: 12px;
-            font-weight: 600;
-            font-size: 1em;
-            min-width: 25px;
-            z-index: 10;
-          }
-    }
-}
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-right: 1rem;
 
-ion-content{
-    --background: #EFF1F3;
-}
-
-ion-card{
-    --background: #243b55;
-    ion-card-title{
-        font-size: 1.2rem;
-        color: white;
-    }
-    ion-card-content{
-        ion-label{
-            color: white;
+    a{
+        position: fixed;
+        margin-right: 0.8rem;
+        z-index: 1000;
+        display: block;
+        font-size: 2.2rem;
+        ion-icon{
+            color: #243b55;
         }
-        ion-button{
-            --background: white!important;
-            ion-icon{
-                color: #243b55;
+        @keyframes iconScaleUp {
+            0% {
+                font-size: 1rem;
+            }
+
+            25%{
+                font-size: 1.5rem;
+            }
+
+            50%{
+                font-size: 2rem;
+            }
+
+            100%{
+                font-size: 1.2rem;
             }
         }
     }
+    .cart-grow{
+        position: fixed;
+        z-index: 1000;
+        animation: iconScaleUp 1s ease-in forwards;
+    }
+
+    .cart-length {
+        position: fixed;
+        padding-left: 3px;
+        z-index: 1000;
+        color: black;
+    }
 }
+
+ion-title{
+    font-size: 2rem;
+    color: #243b55;
+}
+
+ion-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    ion-card{
+        max-width: 70%;
+        ion-card-header{
+            padding: 0;
+        }
+        ion-card-title{
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: bold;
+            color: #243b55;
+        }
+        ion-card-content{
+            display: flex;
+            flex-direction: column;
+            --background: #EFF1F3;
+            
+            ion-label{
+                color: #243b55;
+            }
+            
+                ion-row{
+                    margin: auto;
+                    ion-button{
+                        --background: #243b55;
+                        // border-color: #243b55;
+                        color: white;
+                        font-size: 0.6rem;
+                        margin-right: 0.4rem;
+                        ion-icon{
+                            color: white;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            
+        }
+    }
+}
+
 

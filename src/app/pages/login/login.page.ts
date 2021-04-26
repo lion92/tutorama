@@ -38,17 +38,19 @@ export class LoginPage implements OnInit {
 
   async ngOnInit() {
    
-    console.log(this.tabBarElement)
+    
     let token;
     if (this.platform.is("desktop")) {
-        token = localStorage.getItem('token')
+        token = await localStorage.getItem('token')
       
     } else {
         token = await this.storage.getItem('token')
-    }
-    
-    if (token !== undefined && token !== null)
-        this.router.navigate(['/tabs'])
+      }
+     
+      
+    if (token !== undefined || token !== null)
+        this.router.navigate(['/tabs/home'])
+
   }
 
   async forgotPassword() {
@@ -78,8 +80,8 @@ export class LoginPage implements OnInit {
           localStorage.setItem('token', this.token)
           localStorage.setItem('user', this.email)
       } else {
-          await this.storage.setItem('token', user.token)
-          await this.storage.setItem('user', user.user)
+          await this.storage.setItem('token', this.token)
+          await this.storage.setItem('user', this.email)
       }
 
         const toast = await this.toast.create({
