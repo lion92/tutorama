@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Cour } from '../interfaces/cour';
 import { HttpClient } from '@angular/common/http';
 import { CoursService } from './cours.service';
+import { UserRegister } from '../interfaces/user-register';
 
 
 export interface Product {
@@ -97,4 +98,21 @@ export class CartService {
 			}
 		}
 	}
+
+	addCart(idUtilisateur: number, idCour: number){
+		return new Promise((resolve, rejects) => {
+			this.http.post(this.url + '/addpanier', { idUtilisateur: idUtilisateur, idCour: idCour }).subscribe((data: any) => {
+				//(!data.success) ? rejects(false): resolve(data);
+				console.log(data)
+				if(!data){
+				rejects(false)
+				}else{
+				resolve(data);
+				}
+				//(!data.success) ? rejects(false): resolve(data);
+				
+			});
+		});
+	}
+	
 }

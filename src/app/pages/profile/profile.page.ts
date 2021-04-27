@@ -40,7 +40,7 @@ export class ProfilePage implements OnInit {
     this.userService.getUserByEmail(this.email).then(async(data: any) => {
       
       this.user = await JSON.stringify(data);
-
+      
       for(let result of data){
         this.avatar = result.avatar;
       }

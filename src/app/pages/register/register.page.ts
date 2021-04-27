@@ -16,6 +16,7 @@ export class RegisterPage implements OnInit {
 
   user: UserRegister = 
   { 
+    idUtilisateur: undefined,
     email: '',
     nom: '',
     prenom: '',

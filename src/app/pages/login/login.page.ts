@@ -14,6 +14,7 @@ import { ForgotPasswordComponent } from '../../modals/forgot-password/forgot-pas
 })
 export class LoginPage implements OnInit {
 
+  idUser: string= '';
   email: string = '';
   password: string = '';
   token: string = '';
@@ -59,15 +60,17 @@ export class LoginPage implements OnInit {
       this.auth.login(this.email, this.password).then(async(user: any) => {
         
         this.token = user.split('!')[1];
-        
-        console.log(this.token + " je suis")
+        this.idUser = user.split(" ")[1];
+        console.log(this.idUser + " je suis")
         
         if (this.platform.is("desktop")) {
           localStorage.setItem('token', this.token)
           localStorage.setItem('user', this.email)
+          localStorage.setItem('idUser', this.idUser)
       } else {
           await this.storage.setItem('token', this.token)
           await this.storage.setItem('user', this.email)
+          await this.storage.setItem('idUser', this.idUser)
       }
 
         const toast = await this.toast.create({

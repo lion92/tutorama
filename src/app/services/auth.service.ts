@@ -63,6 +63,7 @@ export class AuthService {
     return new Promise((resolve, rejects) => {
       this.http.request('POST', this.url + '/deconnexion').subscribe((data: any) => {
         if(!data.success){
+          
           rejects(data.message)
         }else{
           resolve(data);

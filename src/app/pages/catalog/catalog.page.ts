@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { ModalController, ToastController } from '@ionic/angular';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { ModalController, Platform, ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 
 import { CartService } from '../../services/cart.service';
@@ -22,7 +23,9 @@ export class CatalogPage implements OnInit {
     private router: Router,
     private cartService: CartService, 
     private modalCtrl: ModalController,
-    private toast: ToastController
+    private toast: ToastController,
+    private platform: Platform,
+    private storage: NativeStorage
     ) {}
 
   async ngOnInit(){
@@ -38,6 +41,14 @@ export class CatalogPage implements OnInit {
       this.cartService.addProduct(product);
       let cartLength = document.querySelector('.cart-length');
       cartLength.classList.add('cart-grow');
+
+      if (this.platform.is("desktop")) {
+        localStorage.setItem('cart', product)
+       
+      } else {
+        await this.storage.setItem('cart', product)
+        
+      }
 
       const toast = await this.toast.create({
         message: "Le cours a bien été ajouté !",

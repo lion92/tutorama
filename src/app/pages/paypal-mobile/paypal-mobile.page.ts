@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PayPal, PayPalConfiguration, PayPalPayment } from '@ionic-native/paypal/ngx';
+import { ModalController } from '@ionic/angular';
 import { CartPage } from '../cart/cart.page';
 
 
@@ -13,7 +14,7 @@ export class PaypalMobilePage implements OnInit {
 
  data: string = '';
 
-  constructor(private payPal: PayPal, private cartPage: CartPage, private route: ActivatedRoute, private router: Router)
+  constructor(private payPal: PayPal, private cartPage: CartPage, private route: ActivatedRoute, private router: Router, private modalCtrl: ModalController)
   {
     this.route.queryParams.subscribe(params => {
       if (params && params.special) {
@@ -56,5 +57,6 @@ export class PaypalMobilePage implements OnInit {
       // Error in initialization, maybe PayPal isn't supported or something else
     });
   }
-
+ 
+  
 }
