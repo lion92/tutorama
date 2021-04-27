@@ -18,7 +18,8 @@ export class CatalogPage implements OnInit {
   cart = [];
   products = [];
   cartItemCount: BehaviorSubject<number>;
-
+  amountProduct: number;
+  toto: boolean = false;
   constructor(
     private router: Router,
     private cartService: CartService, 
@@ -32,18 +33,20 @@ export class CatalogPage implements OnInit {
     this.products = await this.cartService.getProducts();
     this.cart = await this.cartService.getCart();
     this.cartItemCount = await this.cartService.getCartItemCount();
-   
+   console.log( this.products)
     
   }
 
   async addToCart(product){
     if(product){
+     
       this.cartService.addProduct(product);
+      
       let cartLength = document.querySelector('.cart-length');
       cartLength.classList.add('cart-grow');
-      
+      product.amount++;
      // for(let c of this.cartService.getCart()){
-        
+      console.log(product.amount)
         if (this.platform.is("desktop")) {
          localStorage.setItem('cart', JSON.stringify(this.cartService.getCart()))
          

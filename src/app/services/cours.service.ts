@@ -103,7 +103,8 @@ export class CoursService {
                 prix: item.prix,
                 date: item.date,
                 image: item.image,
-                video: item.video
+                video: item.video,
+                amount: 1
               })
               
               resolve(cours);

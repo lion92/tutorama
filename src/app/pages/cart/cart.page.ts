@@ -63,13 +63,13 @@ export class CartPage implements OnInit {
     }
   }
 
-  async decreaseCartItem(product){
-    await this.cartService.decreaseProduct(product);
-  }
+  // async decreaseCartItem(product){
+  //   await this.cartService.decreaseProduct(product);
+  // }
 
-  async increaseCartItem(product){
-    await this.cartService.addProduct(product);
-  }
+  // async increaseCartItem(product){
+  //   await this.cartService.addProduct(product);
+  // }
 
   async removeCartItem(product){
     await this.cartService.removeProduct(product);

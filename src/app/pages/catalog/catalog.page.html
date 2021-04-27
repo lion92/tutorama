@@ -25,7 +25,7 @@
             </ion-col>
           </ion-row>
           <ion-row size="12">
-            <ion-button fill="clear" expand="block" (click)="addToCart(product)">
+            <ion-button fill="clear" expand="block" [disabled]="product.amount > 1" (click)="addToCart(product)">
               Ajouter
               <ion-icon name="add"></ion-icon>
             </ion-button>

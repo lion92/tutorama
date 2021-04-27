@@ -55,9 +55,9 @@ export class CartService {
 
 	addProduct(product: Cour) {
 		let added = false;
-		
+		product.amount = 1
 		for (const item of this.cart) {
-			
+			// item.amount = 1
 			if (item.IdCour === product.IdCour) {
 				item.amount += 1;
 				added = true;
@@ -75,19 +75,19 @@ export class CartService {
 
 	}
 
-	decreaseProduct(product: Cour) {
-		for (const [index, item] of this.cart.entries()) {
-			if (item.IdCour === product.IdCour) {
-				item.amount -= 1;
-				if (item.amount === 0) {
-					this.cart.splice(index, 1);
-					item.amount = 1;
-					console.log(item.amount)
-				}
-			}
-		}
-		this.cartItemCount.next(this.cartItemCount.value - 1);
-	}
+	// decreaseProduct(product: Cour) {
+	// 	for (const [index, item] of this.cart.entries()) {
+	// 		if (item.IdCour === product.IdCour) {
+	// 			item.amount -= 1;
+	// 			if (item.amount === 0) {
+	// 				this.cart.splice(index, 1);
+	// 				item.amount = 1;
+	// 				console.log(item.amount)
+	// 			}
+	// 		}
+	// 	}
+	// 	this.cartItemCount.next(this.cartItemCount.value - 1);
+	// }
 
 	removeProduct(product: Cour) {
 		for (const [index, item] of this.cart.entries()) {
