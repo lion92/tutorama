@@ -17,26 +17,18 @@ export interface Product {
   providedIn: 'root'
 })
 export class CartService {
-
-	// data: Cour[] =
-
-	// [
-	// 	{ idCour: 0, image:"", Auteur: 'Florian', prix: 100.00, Etoile: 5, contenu: "Bien débuter avec nodeJs et express", date: "2021-04-18", amount: 1 },
-	// 	{ idCour: 1, image:"", Auteur: 'Antoine', prix: 109.99, Etoile: 4.5, contenu: "Les fondamentaux de TypeScript", date: "2021-04-18", amount: 1 },
-	// 	{ idCour: 2, image:"", Auteur: 'Kriss', prix: 85.00, Etoile: 4, contenu: "Structurez votre application avec ionic", date: "2021-04-18", amount: 1 },
-	// 	{ idCour: 3, image:"", Auteur: 'Julien', prix: 55.00, Etoile: 3.5, contenu: "Les bases de nodeJs", date: "2021-04-18", amount: 1 },
-	// ];
+	
 	url: string = "https://tutoramaflorian.krissdeveloppeur.com/";
  	private cart = [];
   	private cartItemCount = new BehaviorSubject(0);
 	cours: Cour[];
-
+	private storage = [];
   	constructor(private http: HttpClient, private cour: CoursService) { 
 		
 		
 	}
 
-
+    
 	 
 
 	async getProducts(): Promise<Cour[]> {
@@ -54,6 +46,9 @@ export class CartService {
 	}
 
 	addProduct(product: Cour) {
+		
+	
+
 		let added = false;
 		product.amount = 1
 		for (const item of this.cart) {
@@ -64,9 +59,10 @@ export class CartService {
 				break;
 			}
 		}
+		
 		if(!added){
 			this.cart.push(product); this.cartItemCount.next(this.cartItemCount.value + 1);
-			
+			localStorage.setItem('toto',JSON.stringify(this.getCart()))
 			
 		}else{
 			this.cartItemCount.next(this.cartItemCount.value + 1);
@@ -89,14 +85,18 @@ export class CartService {
 	// 	this.cartItemCount.next(this.cartItemCount.value - 1);
 	// }
 
-	removeProduct(product: Cour) {
-		for (const [index, item] of this.cart.entries()) {
+	removeProduct(product: any) {
+		this.storage.push(localStorage.getItem('toto'))
+		for (const [index, item] of this.storage.entries()) {
 			if (item.IdCour === product.IdCour) {
 				this.cartItemCount.next(this.cartItemCount.value - item.amount);
-				this.cart.splice(index, 1);
+				this.storage.splice(index, 1);
+				
 				item.amount = 1
 			}
 		}
+
+
 	}
 
 	addCart(idUtilisateur: number, idCour: number){

@@ -32,6 +32,7 @@ export class CartPage implements OnInit {
   imgCart: string;
   priceCart: number;
   titleCart: string;
+
   constructor(
     private router: Router,
     private cartService: CartService,
@@ -49,7 +50,7 @@ export class CartPage implements OnInit {
     this.cour = await this.courService.getData();
     
 
-    const Cours = await localStorage.getItem('cart');
+    const Cours = await localStorage.getItem('toto');
     
     if(Cours!== undefined){
 
@@ -93,13 +94,7 @@ export class CartPage implements OnInit {
   async checkout() {
     await this.addCartToBdd();
     this.close();
-    // const modal = await this.modalCtrl.create({
-    //   component: PaypalMobilePage,
-    //   cssClass: ''
-    // })
-    // modal.present();
-    // this.navCtrl.navigateForward('/paypal-mobile', )
-    // this.router.navigate(['/paypal-mobile'])
+    
     let navigationExtras: NavigationExtras = {
       queryParams: {
         special: this.getTotal()
@@ -109,16 +104,16 @@ export class CartPage implements OnInit {
     this.router.navigate(['/paypal-mobile'], navigationExtras);
   }
 
-  async isLocalStorage(){
-    const Cours = await localStorage.getItem('cart');
-    if(Cours!== undefined){
+  // async isLocalStorage(){
+  //   const Cours = await localStorage.getItem('cart');
+  //   if(Cours!== undefined){
 
-      for(let courCart of JSON.parse(Cours)){
-          this.idCourCart = courCart.IdCour;
-          this.imgCart = courCart.img
-      }
-    }
-  }
+  //     for(let courCart of JSON.parse(Cours)){
+  //         this.idCourCart = courCart.IdCour;
+  //         this.imgCart = courCart.img
+  //     }
+  //   }
+  // }
 
 
   async addCartToBdd(){
@@ -138,7 +133,7 @@ export class CartPage implements OnInit {
     // }).catch(async(err) => {
     //   console.log(err)
     // }) 
-    const Cours = await localStorage.getItem('cart');
+    const Cours = await localStorage.getItem('toto');
     let idC;
     for(let cour of JSON.parse(Cours)){
        idC = cour.IdCour

@@ -72,14 +72,14 @@ const routes: Routes =
         },
         {
           path: '',
-          redirectTo: '/login',
+          redirectTo: '/tabs/catalog',
           pathMatch: 'full'
         }, 
       ],
     },
     {
       path: '',
-      redirectTo: '/login',
+      redirectTo: '/tabs/catalog',
       pathMatch: 'full'
     },   
 ];
