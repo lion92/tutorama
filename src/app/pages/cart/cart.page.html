@@ -6,6 +6,63 @@
 	</div>
 
 	<div class="ion-padding">
+
+
+		<ion-list>
+			<ion-item *ngFor="let product of cartCour" class="ion-text-wrap">
+				<ion-grid>
+					<ion-row class="ion-align-items-center">
+						<ion-col size="2">
+							<img [src]="product.image"/>
+						</ion-col>
+						<ion-col size="2" class="ion-align-self-center">
+							<ion-button
+								color="medium"
+								fill="clear"
+								(click)="decreaseCartItem(product)"
+							>
+								<ion-icon name="remove-circle" slot="icon-only"></ion-icon>
+							</ion-button>
+						</ion-col>
+
+						<ion-col size="1" class="ion-align-self-center amount">
+							{{ product.amount }}
+						</ion-col>
+
+						<ion-col size="2" class="ion-align-self-center">
+							<ion-button
+								color="medium"
+								fill="clear"
+								(click)="increaseCartItem(product)"
+							>
+								<ion-icon name="add-circle" slot="icon-only"></ion-icon>
+							</ion-button>
+						</ion-col>
+						<ion-col size="5" class="col-close">
+							<ion-button
+								color="medium"
+								fill="clear"
+								(click)="removeCartItem(product)"
+							>
+								<ion-icon name="close-circle" slot="icon-only"></ion-icon>
+							</ion-button>
+						</ion-col>
+					</ion-row>
+					<ion-row class="title">
+						<ion-col size="8">
+							<b>{{ product.contenu }}</b>
+						</ion-col>
+						<ion-col size="4" class="ion-text-end">
+							{{ product.amount * product.prix }}€
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-item>
+		</ion-list>
+
+
+
+		
 		<ion-list>
 			<ion-item *ngFor="let product of cart" class="ion-text-wrap">
 				<ion-grid>

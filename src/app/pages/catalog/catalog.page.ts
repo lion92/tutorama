@@ -41,14 +41,17 @@ export class CatalogPage implements OnInit {
       this.cartService.addProduct(product);
       let cartLength = document.querySelector('.cart-length');
       cartLength.classList.add('cart-grow');
-
-      if (this.platform.is("desktop")) {
-        localStorage.setItem('cart', product)
-       
-      } else {
-        await this.storage.setItem('cart', product)
+      
+     // for(let c of this.cartService.getCart()){
         
-      }
+        if (this.platform.is("desktop")) {
+         localStorage.setItem('cart', JSON.stringify(this.cartService.getCart()))
+         
+        } else {
+          await this.storage.setItem('cart', JSON.stringify(this.cartService.getCart()))
+          
+        }
+      
 
       const toast = await this.toast.create({
         message: "Le cours a bien été ajouté !",

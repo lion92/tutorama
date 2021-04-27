@@ -21,10 +21,17 @@ export class CartPage implements OnInit {
 
   cart: Cour[] = [];
   cour: Cour[] = [];
+  
+  cartCour: Cour[] = [];
+
   idUser: any;
   users: string;
   courCart: Cour;
   user: UserRegister;
+  idCourCart: number;
+  imgCart: string;
+  priceCart: number;
+  titleCart: string;
   constructor(
     private router: Router,
     private cartService: CartService,
@@ -41,6 +48,19 @@ export class CartPage implements OnInit {
     this.cart = this.cartService.getCart();
     this.cour = await this.courService.getData();
     
+
+    const Cours = await localStorage.getItem('cart');
+    
+    if(Cours!== undefined){
+
+      for(let courCart of JSON.parse(Cours)){
+        this.idCourCart = await courCart.IdCour;
+       
+          // this.imgCart = courCart.image
+          this.cartCour.push(courCart)
+      }
+      // this.cartCour.push(this.imgCart)
+    }
   }
 
   async decreaseCartItem(product){
@@ -89,6 +109,16 @@ export class CartPage implements OnInit {
     this.router.navigate(['/paypal-mobile'], navigationExtras);
   }
 
+  async isLocalStorage(){
+    const Cours = await localStorage.getItem('cart');
+    if(Cours!== undefined){
+
+      for(let courCart of JSON.parse(Cours)){
+          this.idCourCart = courCart.IdCour;
+          this.imgCart = courCart.img
+      }
+    }
+  }
 
 
   async addCartToBdd(){
@@ -108,26 +138,27 @@ export class CartPage implements OnInit {
     // }).catch(async(err) => {
     //   console.log(err)
     // }) 
-    const Cours = await this.courService.getData();
+    const Cours = await localStorage.getItem('cart');
     let idC;
-    for(let cour of Cours){
+    for(let cour of JSON.parse(Cours)){
        idC = cour.IdCour
+       
+       this.cartService.addCart(this.idUser, idC).then(async(user: any) => {
+         
+         
+        
+         
+   
+         
+   
+         
+       }).catch(async(err) => {
+         
+         console.log(err)
+           
+       })
      
     }
 
-    this.cartService.addCart(this.idUser, idC).then(async(user: any) => {
-      
-      
-      console.log(user.idCour)
-      
-
-      
-
-      
-    }).catch(async(err) => {
-      
-      console.log(err)
-        
-    })
 }
 }
