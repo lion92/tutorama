@@ -44,8 +44,16 @@
                 </ion-row>
                 <ion-row class="card-footer">
                   <ion-col size="6">
-                    <p>{{ cour.Etoile }}</p>
-                    <ion-icon name="star-sharp"></ion-icon>
+                    <ion-icon name="star-sharp" *ngIf="cour.Etoile > 1 else elseBlock"></ion-icon>
+                      <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                      <ion-icon name="star-sharp" *ngIf="cour.Etoile > 2 else elseBlock"></ion-icon>
+                      <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                      <ion-icon name="star-sharp" *ngIf="cour.Etoile > 3 else elseBlock"></ion-icon>
+                      <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                      <ion-icon name="star-sharp" *ngIf="cour.Etoile > 4 else elseBlock"></ion-icon>
+                      <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                      <ion-icon name="star-sharp" *ngIf="cour.Etoile > 5 else elseBlock"></ion-icon>
+                      <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
                   </ion-col>
                   <ion-col size="6">
                     <span>{{ cour.prix }},00€</span>
@@ -57,15 +65,17 @@
               </ion-row>
             </ion-card-content>
           </ion-card>
+          
+          </ion-slide>
+
+
+          <ion-slide class="slide1">
+            <h3 routerLink="/tabs/catalog">Afficher tout</h3>
           </ion-slide>
           
         </ion-slides>
       </ion-row>
-    
     <ion-row>
-      
-       
-
           <ion-row no-padding class="category-banner">
             <h2>
               Publié récemment
@@ -86,9 +96,19 @@
                     <cite>{{ courPromo.Auteur }}</cite>
                   </ion-row>
                   <ion-row class="card-footer">
+                    <!-- <rating [rating]="review.rating"></rating> -->
                     <ion-col size="6">
-                      <p>{{ courPromo.Etoile }}</p>
-                      <ion-icon name="star-sharp"></ion-icon>
+                      
+                      <ion-icon name="star-sharp" *ngIf="courPromo.Etoile > 1 else elseBlock"></ion-icon>
+                      <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                      <ion-icon name="star-sharp" *ngIf="courPromo.Etoile > 2 else elseBlock"></ion-icon>
+                      <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                      <ion-icon name="star-sharp" *ngIf="courPromo.Etoile > 3 else elseBlock"></ion-icon>
+                      <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                      <ion-icon name="star-sharp" *ngIf="courPromo.Etoile > 4 else elseBlock"></ion-icon>
+                      <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                      <ion-icon name="star-sharp" *ngIf="courPromo.Etoile > 5 else elseBlock"></ion-icon>
+                      <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
                     </ion-col>
                     <ion-col size="6">
                       <span>{{ courPromo.prix }},00€</span>
@@ -100,7 +120,9 @@
               </ion-card-content>
             </ion-card>
           </ion-slide>
-            
+          <ion-slide class="slide1">
+            <h3 routerLink="/tabs/catalog">Afficher tout</h3>
+          </ion-slide>
         </ion-slides>
     </ion-row>
     

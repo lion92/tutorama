@@ -97,7 +97,10 @@ ion-content{
         flex-direction: column;
         margin-right: 0;
         
-        
+        h3{
+            font-size: 1.2rem;
+            color: #66fcf1;
+        }
         
     }
     
@@ -149,7 +152,7 @@ ion-content{
             }
             .auteur{
                 display: flex;
-                justify-content: center;
+                justify-content: left;
                 cite{
                     margin-top: 1rem;
                     font-style: normal;
@@ -164,6 +167,9 @@ ion-content{
                 
                 p{
                     color: white;
+                }
+                .toto{
+                    color: black;
                 }
                 ion-icon{
                     color: yellow;
@@ -183,19 +189,18 @@ ion-content{
                 }
                 span{
                     font-size: 0.8rem;
-                    font-weight: bold;
                     color: #66fcf1;
                 }
             }
             .review{
                 display: flex;
-                justify-content: center;
                 span{
                     font-size: 0.5rem;
                     color: #66fcf1;
-                    font-weight: bold;
+                
                 }
             }
+            
             
         }
     }

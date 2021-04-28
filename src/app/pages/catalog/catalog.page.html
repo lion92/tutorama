@@ -1,21 +1,28 @@
 
 <ion-content>
-  <ion-row class="top-row" size="12">
-    <a (click)="openCart()" #cart>
-      <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
-    </a>
-    <div class="cart-length">
-      {{ cartItemCount | async }}
-    </div>
+  <ion-row class="top-row">
+    <ion-col size="8">
+      <ion-title>Catalogue</ion-title>
+    </ion-col>
+    <ion-col size="2">
+      <a (click)="openCart()" #cart>
+        <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+      </a>
+    </ion-col>
+    <ion-col size="2">
+      <div class="cart-length">
+        {{ cartItemCount | async }}
+      </div>
+    </ion-col>
   </ion-row>
-  <ion-title>Catalogue</ion-title>
+  
   
   <ion-row class="row-list">
     
     <h2>Java</h2>
+
     <ion-slides [options]="sliderConfig">
       <ion-slide class="slide1" *ngFor="let courJava of java">
-        
         <ion-card class="card-home">
           
           
@@ -24,49 +31,62 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3>{{ courJava.contenu }}</h3>
+            <h3 [routerLink]="['/single-tuto/', courJava.IdCour]" routerDirection="forward">{{ courJava.contenu.substring(0, 25) }} ...</h3>
           </div>
 
-            <ion-row align-self-end>
+            <ion-row class="auteur">
               <cite>{{ courJava.Nom }}</cite>
               <cite>{{ courJava.Auteur }}</cite>
             </ion-row>
             <ion-row class="card-footer">
-              <ion-col>
-                <p>{{ courJava.Etoile }}</p>
-                <ion-icon name="star-sharp"></ion-icon>
+              <ion-col size="6">
+                <ion-icon name="star-sharp" *ngIf="courJava.Etoile > 1 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courJava.Etoile > 2 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courJava.Etoile > 3 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courJava.Etoile > 4 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courJava.Etoile > 5 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
               </ion-col>
-              <ion-col>
+              <ion-col size="6">
                 <span>{{ courJava.prix }},00€</span>
               </ion-col>
               
             </ion-row>
-            <ion-row>
-            <span>Les avis(12)</span>
-            <ion-col size="6" class="add">
-              
-            
-            
-                <ion-button fill="clear" (click)="addToCart(courJava)">
-                
-                  <ion-icon name="add-outline"></ion-icon>
-                </ion-button>
-              
-            </ion-col>
+          <ion-row class="review">
+            <ion-col><span>Les avis(12)</span></ion-col>
           </ion-row>
+          <ion-col size="12" class="add">
+              
+            
+            
+            <ion-button fill="clear" expand="full" (click)="addToCart(courJava)">
+              Ajouter
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+          
+        </ion-col>
         </ion-card-content>
       </ion-card>
       </ion-slide>
       
     </ion-slides>
+
+
+
+
+    
   </ion-row>
 
   <ion-row class="row-list">
     
     <h2>Python</h2>
+
     <ion-slides [options]="sliderConfig">
       <ion-slide class="slide1" *ngFor="let courPython of python">
-        
         <ion-card class="card-home">
           
           
@@ -75,48 +95,59 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3>{{ courPython.contenu }}</h3>
+            <h3 [routerLink]="['/single-tuto/', courPython.IdCour]" routerDirection="forward">{{ courPython.contenu.substring(0, 25) }} ...</h3>
           </div>
 
-            <ion-row align-self-end>
+            <ion-row class="auteur">
               <cite>{{ courPython.Nom }}</cite>
               <cite>{{ courPython.Auteur }}</cite>
             </ion-row>
             <ion-row class="card-footer">
-              <ion-col>
-                <p>{{ courPython.Etoile }}</p>
-                <ion-icon name="star-sharp"></ion-icon>
+              <ion-col size="6">
+                <ion-icon name="star-sharp" *ngIf="courPython.Etoile > 1 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courPython.Etoile > 2 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courPython.Etoile > 3 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courPython.Etoile > 4 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courPython.Etoile > 5 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
               </ion-col>
-              <ion-col>
+              <ion-col size="6">
                 <span>{{ courPython.prix }},00€</span>
               </ion-col>
               
             </ion-row>
-          <ion-row>
-            <span>Les avis(12)</span>
-            <ion-col size="6">
-              
-            
-            
-                <ion-button fill="clear" (click)="addToCart(courPython)">
-                
-                  <ion-icon name="add-outline"></ion-icon>
-                </ion-button>
-              
-            </ion-col>
+          <ion-row class="review">
+            <ion-col><span>Les avis(12)</span></ion-col>
           </ion-row>
+          <ion-col size="12" class="add">
+              
+            
+            
+            <ion-button fill="clear" expand="full" (click)="addToCart(courPython)">
+                Ajouter
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+          
+        </ion-col>
         </ion-card-content>
       </ion-card>
       </ion-slide>
       
     </ion-slides>
+
+   
+      
+  
   </ion-row>
   <ion-row class="row-list">
     
     <h2>SQL</h2>
     <ion-slides [options]="sliderConfig">
       <ion-slide class="slide1" *ngFor="let courSQL of sql">
-        
         <ion-card class="card-home">
           
           
@@ -125,36 +156,44 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3>{{ courSQL.contenu }}</h3>
+            <h3 [routerLink]="['/single-tuto/', courSQL.IdCour]" routerDirection="forward">{{ courSQL.contenu.substring(0, 25) }} ...</h3>
           </div>
 
-            <ion-row align-self-end>
+            <ion-row class="auteur">
               <cite>{{ courSQL.Nom }}</cite>
               <cite>{{ courSQL.Auteur }}</cite>
             </ion-row>
             <ion-row class="card-footer">
-              <ion-col>
-                <p>{{ courSQL.Etoile }}</p>
-                <ion-icon name="star-sharp"></ion-icon>
+              <ion-col size="6">
+                <ion-icon name="star-sharp" *ngIf="courSQL.Etoile > 1 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courSQL.Etoile > 2 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courSQL.Etoile > 3 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courSQL.Etoile > 4 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courSQL.Etoile > 5 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
               </ion-col>
-              <ion-col>
+              <ion-col size="6">
                 <span>{{ courSQL.prix }},00€</span>
               </ion-col>
               
             </ion-row>
-          <ion-row>
-            <span>Les avis(12)</span>
-            <ion-col size="6">
-              
-            
-            
-                <ion-button fill="clear" (click)="addToCart(courSQL)">
-                
-                  <ion-icon name="add-outline"></ion-icon>
-                </ion-button>
-              
-            </ion-col>
+          <ion-row class="review">
+            <ion-col><span>Les avis(12)</span></ion-col>
           </ion-row>
+          <ion-col size="12" class="add">
+              
+            
+            
+            <ion-button fill="clear" expand="full" (click)="addToCart(courSQL)">
+                Ajouter
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+          
+        </ion-col>
         </ion-card-content>
       </ion-card>
       </ion-slide>
@@ -167,7 +206,6 @@
     <h2>PHP</h2>
     <ion-slides [options]="sliderConfig">
       <ion-slide class="slide1" *ngFor="let courPHP of php">
-        
         <ion-card class="card-home">
           
           
@@ -176,36 +214,44 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3>{{ courPHP.contenu }}</h3>
+            <h3 [routerLink]="['/single-tuto/', courPHP.IdCour]" routerDirection="forward">{{ courPHP.contenu.substring(0, 25) }} ...</h3>
           </div>
 
-            <ion-row align-self-end>
+            <ion-row class="auteur">
               <cite>{{ courPHP.Nom }}</cite>
               <cite>{{ courPHP.Auteur }}</cite>
             </ion-row>
             <ion-row class="card-footer">
-              <ion-col>
-                <p>{{ courPHP.Etoile }}</p>
-                <ion-icon name="star-sharp"></ion-icon>
+              <ion-col size="6">
+                <ion-icon name="star-sharp" *ngIf="courPHP.Etoile > 1 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courPHP.Etoile > 2 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courPHP.Etoile > 3 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courPHP.Etoile > 4 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courPHP.Etoile > 5 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
               </ion-col>
-              <ion-col>
+              <ion-col size="6">
                 <span>{{ courPHP.prix }},00€</span>
               </ion-col>
               
             </ion-row>
-          <ion-row>
-            <span>Les avis(12)</span>
-            <ion-col size="6">
-              
-            
-            
-                <ion-button fill="clear" (click)="addToCart(courPHP)">
-                
-                  <ion-icon name="add-outline"></ion-icon>
-                </ion-button>
-              
-            </ion-col>
+          <ion-row class="review">
+            <ion-col><span>Les avis(12)</span></ion-col>
           </ion-row>
+          <ion-col size="12" class="add">
+              
+            
+            
+            <ion-button fill="clear" expand="full" (click)="addToCart(courPHP)">
+              Ajouter
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+          
+        </ion-col>
         </ion-card-content>
       </ion-card>
       </ion-slide>
@@ -218,7 +264,6 @@
     <h2>CSS</h2>
     <ion-slides [options]="sliderConfig">
       <ion-slide class="slide1" *ngFor="let courCSS of css">
-        
         <ion-card class="card-home">
           
           
@@ -227,36 +272,44 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3>{{ courCSS.contenu }}</h3>
+            <h3 [routerLink]="['/single-tuto/', courCSS.IdCour]" routerDirection="forward">{{ courCSS.contenu.substring(0, 25) }} ...</h3>
           </div>
 
-            <ion-row align-self-end>
+            <ion-row class="auteur">
               <cite>{{ courCSS.Nom }}</cite>
               <cite>{{ courCSS.Auteur }}</cite>
             </ion-row>
             <ion-row class="card-footer">
-              <ion-col>
-                <p>{{ courCSS.Etoile }}</p>
-                <ion-icon name="star-sharp"></ion-icon>
+              <ion-col size="6">
+                <ion-icon name="star-sharp" *ngIf="courCSS.Etoile > 1 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courCSS.Etoile > 2 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courCSS.Etoile > 3 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courCSS.Etoile > 4 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courCSS.Etoile > 5 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
               </ion-col>
-              <ion-col>
+              <ion-col size="6">
                 <span>{{ courCSS.prix }},00€</span>
               </ion-col>
               
             </ion-row>
-          <ion-row>
-            <span>Les avis(12)</span>
-            <ion-col size="6">
-              
-            
-            
-                <ion-button fill="clear" (click)="addToCart(courCSS)">
-                
-                  <ion-icon name="add-outline"></ion-icon>
-                </ion-button>
-              
-            </ion-col>
+          <ion-row class="review">
+            <ion-col><span>Les avis(12)</span></ion-col>
           </ion-row>
+          <ion-col size="12" class="add">
+              
+            
+            
+            <ion-button fill="clear" expand="full" (click)="addToCart(courCSS)">
+              Ajouter
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+          
+        </ion-col>
         </ion-card-content>
       </ion-card>
       </ion-slide>
@@ -269,7 +322,6 @@
     <h2>Javascript</h2>
     <ion-slides [options]="sliderConfig">
       <ion-slide class="slide1" *ngFor="let courJS of js">
-        
         <ion-card class="card-home">
           
           
@@ -278,40 +330,50 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3>{{ courJS.contenu }}</h3>
+            <h3 [routerLink]="['/single-tuto/', courJS.IdCour]" routerDirection="forward">{{ courJS.contenu.substring(0, 25) }} ...</h3>
           </div>
 
-            <ion-row>
+            <ion-row class="auteur">
               <cite>{{ courJS.Nom }}</cite>
               <cite>{{ courJS.Auteur }}</cite>
             </ion-row>
             <ion-row class="card-footer">
-              <ion-col>
-                <p>{{ courJS.Etoile }}</p>
-                <ion-icon name="star-sharp"></ion-icon>
+              <ion-col size="6">
+                <ion-icon name="star-sharp" *ngIf="courJS.Etoile > 1 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courJS.Etoile > 2 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courJS.Etoile > 3 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courJS.Etoile > 4 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
+                  <ion-icon name="star-sharp" *ngIf="courJS.Etoile > 5 else elseBlock"></ion-icon>
+                  <ng-template #elseBlock><ion-icon name="star" class="toto"></ion-icon></ng-template>
               </ion-col>
-              <ion-col>
+              <ion-col size="6">
                 <span>{{ courJS.prix }},00€</span>
               </ion-col>
               
             </ion-row>
-          <ion-row>
-            <span>Les avis(12)</span>
-            <ion-col size="6" class="col-add">
-              
-            
-            
-                <ion-button fill="clear" (click)="addToCart(courJS)">
-                
-                  <ion-icon name="add-outline"></ion-icon>
-                </ion-button>
-              
-            </ion-col>
+          <ion-row class="review">
+            <ion-col><span>Les avis(12)</span></ion-col>
           </ion-row>
+          <ion-col size="12"  class="add">
+              
+            
+            
+            <ion-button fill="clear" expand="full" (click)="addToCart(courJS)">
+              Ajouter
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+          
+        </ion-col>
         </ion-card-content>
       </ion-card>
       </ion-slide>
       
     </ion-slides>
+
+    
   </ion-row>
 </ion-content>

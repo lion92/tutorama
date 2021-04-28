@@ -34,7 +34,7 @@ export class TabsPage implements OnInit {
 
     this.video = await this.videoService.getTutoByUser(this.email);
    
-    this.videoLength = this.video.length
+    this.videoLength = await this.video.length
   }
 
 

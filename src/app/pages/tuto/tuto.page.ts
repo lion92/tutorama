@@ -46,7 +46,7 @@ export class TutoPage implements AfterViewInit, OnInit  {
 
      
      
-       this.data.getTutoByUser(this.email).then(async(data: any) => {
+       await this.data.getTutoByUser(this.email).then(async(data: any) => {
       
         this.videoUser = data;
         

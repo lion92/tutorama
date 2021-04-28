@@ -64,7 +64,7 @@ ion-content{
             padding: 5px;
             margin: auto;
             margin-top: 32px;
-            margin-bottom: 5px;
+            margin-bottom: 16px;
             font-size: 1rem;
             font-weight: bold;
             color: white;
@@ -72,31 +72,63 @@ ion-content{
         }
         
 
+        .card-home-top{
+            background-image: url("../../../assets/img/home/student.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            ion-card-title{
+                font-size: 1.3rem;
+                margin-top: 2.5rem;
+                color: white;
+            }
+            ion-card-content{
+                color: #eef0f8;
+                font-weight: bold;
+                font-size: 0.8rem;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+        }
+        
+        .slide1{
+            display: flex;
+            flex-direction: column;
+            margin-right: 0;
+            
+            
+            
+        }
+        
+        .categorie-block{
+            margin-top: 0!important;
+        }
+        
         .card-home{
-            width: 160px;
+            background: transparent;
             ion-card-header{
                 padding-top: 0px  !important;
                 padding-bottom: 0px !important;
                 padding-left: 0px !important;
                 padding-right: 0px !important;
                  img {
-                    /* width: auto; */
+                  
                     max-width: 100%;
-                    /* width: 132px; */
+                  
                     height: 100px;
                     vertical-align: middle;
-                    /* height: auto; */
-                    /* max-height: 100%; */
+                
                 }
             }
             h3{
-                font-size: 13px;
-                font-weight: bold;
+                margin-bottom: 2px!important;
+                font-size: 15px;
+                text-align: left;
+                color: white;
                 
             }
             span{
                 font-size: 0.8rem;
-                color: #b5732e;
+                color: #66fcf1;
             }
         
         
@@ -104,23 +136,40 @@ ion-content{
                 
                 padding-top: 0;
                 display: flex;
-                margin-top: 0.6rem;
-                font-size: -9px;
-                align-items: center;
+                font-size: 11px;
                 flex-direction: column;
                 padding-left: 0 !important;
-                padding-right: 0 !important;
+                padding-right: 0!important;
                 
                 div{
-                    height: 6vh;
+                    margin-top: 0.8rem;
+               
                 }
-                cite{
-                    margin-top: 1rem;
-                    margin-left: 19px;
-                    font-size: 0.6rem;
-                    display: inline-block;
-                    margin: left;
-                    color: #011627;
+                .auteur{
+                    display: flex;
+                    justify-content: space-around;
+                    cite{
+                        margin-top: 1rem;
+                        font-style: normal;
+                        font-size: 0.8rem;
+                        display: inline-block;
+                        margin: left;
+                        color: white;
+                    }
+                }
+                ion-col{
+                    display: flex;
+                    
+                    p{
+                        color: white;
+                    }
+                    .toto{
+                        color: black;
+                    }
+                    ion-icon{
+                        color: yellow;
+                        font-size: 1rem;
+                    }
                 }
                 
                 .card-footer{
@@ -129,31 +178,33 @@ ion-content{
                     ion-col{
                         display: flex;
                         justify-content: center;
-                        
                         ion-icon{
-                            color: yellow;
-                            font-size: 0.6rem;
+                            font-size: 1.3rem;
                         }
-                    }
-                    .add{
-                        ion-button{
-                            ion-icon{
-                                color: var(--background);
-                                font-size: 1rem;
-                            }
-                        }
-
                     }
                     span{
-                        font-size: 1rem;
-                        color: #011627;
+                        font-size: 0.8rem;
+                        color: #66fcf1;
                     }
                 }
-                span{
-                    margin-left: 19px;
-                    font-size: 0.5rem;
-                    color: #011627;
-                    font-weight: bold;
+                .review{
+                    display: flex;
+                    span{
+                        font-size: 0.5rem;
+                        color: #66fcf1;
+                    
+                    }
+                }
+                .add{
+                    display: block;
+                    ion-button{
+                        border: 1px solid #66fcf1;
+                        color: #66fcf1;
+                        ion-icon{
+                            margin-left: 0.3rem;
+                            color: #66fcf1; 
+                        }
+                    }
                 }
                 
             }

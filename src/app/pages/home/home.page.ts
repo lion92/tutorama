@@ -46,7 +46,7 @@ export class HomePage {
 
     this.coursPromo = await this.cour.getPromo();
     
-    
+
     this.bestTuto = await this.cour.getBestTuto();
   }
 
