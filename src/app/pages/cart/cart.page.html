@@ -8,7 +8,7 @@
 	<div class="ion-padding">
 
 
-		<ion-list>
+		<!-- <ion-list>
 			<ion-item *ngFor="let product of cartCour" class="ion-text-wrap">
 				<ion-grid>
 					<ion-row class="ion-align-items-center">
@@ -42,24 +42,18 @@
 					</ion-row>
 				</ion-grid>
 			</ion-item>
-		</ion-list>
+		</ion-list> -->
 
 
 
 		
 		<ion-list>
-			<ion-item *ngFor="let product of cart" class="ion-text-wrap">
+			<ion-item *ngFor="let product of contenu" class="ion-text-wrap">
 				<ion-grid>
 					<ion-row class="ion-align-items-center">
 						<ion-col size="2">
 							<img [src]="product.image"/>
 						</ion-col>
-						
-
-						<ion-col size="1" class="ion-align-self-center amount">
-							{{ product.amount }}
-						</ion-col>
-
 						
 						<ion-col size="5" class="col-close">
 							<ion-button

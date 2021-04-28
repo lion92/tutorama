@@ -82,12 +82,25 @@ ion-list{
             flex-direction: column;
             padding: 2px;
             --background: #EFF1F3;
-            ion-col{
-                display: flex;
-                justify-content: center;
-                ion-label{
-                    color: #243b55;
+            ion-row{
+                ion-col{
+                    display: flex;
+                    justify-content: center;
+                    ion-label{
+                        color: #243b55;
+                    }
                 }
+                .col-add{
+                    ion-button{
+
+                        --background: transparent;
+                        border: none;
+                        --box-shadow: none;
+                        color: green;
+                    }
+                    
+                }
+                
             }
             
                 ion-row{
@@ -97,10 +110,8 @@ ion-list{
                         font-size: 1.2rem;
                     }
                     ion-button{
-                        font-size: 1.8rem;
-                        width: 30px;
+                        font-size: 1.2rem;
                         color: #243b55;
-                        height: 30px;
                     }
                 }
             

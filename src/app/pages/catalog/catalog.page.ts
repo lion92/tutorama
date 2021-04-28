@@ -19,7 +19,7 @@ export class CatalogPage implements OnInit {
   products = [];
   cartItemCount: BehaviorSubject<number>;
   amountProduct: number;
-  toto: boolean = false;
+  Cours: any;
   constructor(
     private router: Router,
     private cartService: CartService, 
@@ -34,26 +34,32 @@ export class CatalogPage implements OnInit {
     this.cart = await this.cartService.getCart();
     this.cartItemCount = await this.cartService.getCartItemCount();
 
-    
+    this.Cours = await JSON.parse(localStorage.getItem('cartItem'));
+    //console.log(Cours)
   }
 
   async addToCart(product){
+
+    
+
     if(product){
-     
+      // product.activeClass = true;
       this.cartService.addProduct(product);
       
       let cartLength = document.querySelector('.cart-length');
       cartLength.classList.add('cart-grow');
-      product.amount++;
+      
      // for(let c of this.cartService.getCart()){
-      console.log(product.amount)
-        if (this.platform.is("desktop")) {
-         localStorage.setItem('cart', JSON.stringify(this.cartService.getCart()))
-         
-        } else {
-          await this.storage.setItem('cart', JSON.stringify(this.cartService.getCart()))
+      for (const item of this.Cours) {
+        if (item.IdCour === product.IdCour) {
+          product.activeClass = true;
+          item.activeClass = true;
+        }else{
           
+          product.activeClass = false;
+          item.activeClass = true;
         }
+      }
       
 
       const toast = await this.toast.create({

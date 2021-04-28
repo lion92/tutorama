@@ -34,7 +34,8 @@ export class CoursService {
                 date: item.date,
                 image: item.image,
                 video: item.video,
-                amount: 1
+                amount: 1,
+                activeClass: false
               })
               
               resolve(cours);
@@ -68,7 +69,8 @@ export class CoursService {
                 date: item.date,
                 image: item.image,
                 video: item.video,
-                amount: 1
+                amount: 1,
+                activeClass: false
               })
               
               resolve(cours);

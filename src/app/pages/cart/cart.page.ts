@@ -22,7 +22,7 @@ export class CartPage implements OnInit {
   cart: Cour[] = [];
   cour: Cour[] = [];
   
-  cartCour: Cour[] = [];
+  contenu: Cour[] = [];
 
   idUser: any;
   users: string;
@@ -50,41 +50,35 @@ export class CartPage implements OnInit {
     this.cour = await this.courService.getData();
     
 
-    const Cours = await localStorage.getItem('toto');
-    
+    const Cours = await JSON.parse(localStorage.getItem('cartItem'));
+    console.log(Cours)
     if(Cours!== undefined){
 
-      for(let courCart of JSON.parse(Cours)){
+      for(let courCart of Cours){
         this.idCourCart = await courCart.IdCour;
        
-          // this.imgCart = courCart.image
-          this.cartCour.push(courCart)
+        this.contenu.push(courCart)
       }
-      // this.cartCour.push(this.imgCart)
+     
     }
   }
 
-  // async decreaseCartItem(product){
-  //   await this.cartService.decreaseProduct(product);
-  // }
-
-  // async increaseCartItem(product){
-  //   await this.cartService.addProduct(product);
-  // }
+ 
 
   async removeCartItem(product){
     await this.cartService.removeProduct(product);
-    if (this.platform.is("desktop")) {
-      await localStorage.removeItem('cart')
-     
-    } else {
-      await this.storage.remove('cart')
-      
-    }
+ 
+    const tp = this.contenu.findIndex(item => {
+			return item.IdCour == product.IdCour
+	  })
+    // product.activeClass = false;
+    this.contenu.splice(tp, 1)
+    // product.activeClass = 0
+  
   }
 
   getTotal(){
-    return this.cart.reduce((i, j) => i + j.prix * j.amount, 0).toString();
+    return this.cart.reduce((i, j) => i + j.prix * 1, 0).toString();
   }
 
   close(){
@@ -92,7 +86,9 @@ export class CartPage implements OnInit {
   }
 
   async checkout() {
+
     await this.addCartToBdd();
+
     this.close();
     
     let navigationExtras: NavigationExtras = {
@@ -103,18 +99,6 @@ export class CartPage implements OnInit {
 
     this.router.navigate(['/paypal-mobile'], navigationExtras);
   }
-
-  // async isLocalStorage(){
-  //   const Cours = await localStorage.getItem('cart');
-  //   if(Cours!== undefined){
-
-  //     for(let courCart of JSON.parse(Cours)){
-  //         this.idCourCart = courCart.IdCour;
-  //         this.imgCart = courCart.img
-  //     }
-  //   }
-  // }
-
 
   async addCartToBdd(){
     
@@ -133,7 +117,7 @@ export class CartPage implements OnInit {
     // }).catch(async(err) => {
     //   console.log(err)
     // }) 
-    const Cours = await localStorage.getItem('toto');
+    const Cours = await localStorage.getItem('cartItem');
     let idC;
     for(let cour of JSON.parse(Cours)){
        idC = cour.IdCour
