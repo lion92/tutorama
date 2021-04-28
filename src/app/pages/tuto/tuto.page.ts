@@ -5,18 +5,19 @@ import * as WebVPPlugin from 'capacitor-video-player';
 
 const videoFrom:string = "http";
 
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 
 
 
 import { Video, VideoService } from 'src/app/services/video.service';
+import { Cour } from 'src/app/interfaces/cour';
 
 @Component({
   selector: 'app-tuto',
   templateUrl: './tuto.page.html',
   styleUrls: ['./tuto.page.scss'],
 })
-export class TutoPage implements AfterViewInit  {
+export class TutoPage implements AfterViewInit, OnInit  {
 
   private url: string = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4";
   private _url: string = null;
@@ -25,12 +26,26 @@ export class TutoPage implements AfterViewInit  {
   private _handlerPause: any;
   videoPlayer: any;
   videos: Video[];
+  email: string;
+  videoUser: Cour[] = [];
 
   constructor(private data: VideoService) {
-    this.videos = data.getVideos();
+    //this.videos = data.getVideos();
    }
 
    async ngOnInit() { 
+     this.email = await localStorage.getItem('user');
+     
+       this.data.getTutoByUser(this.email).then(async(data: any) => {
+      
+        this.videoUser = data;
+        
+       
+        
+       }).catch(async(err) => {
+         console.log(err)
+       }) 
+    
    }
   
 

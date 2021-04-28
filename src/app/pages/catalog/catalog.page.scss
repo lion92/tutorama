@@ -1,122 +1,162 @@
 
-
-.top-row{
-    display: flex;
-    justify-content: flex-end;
-    align-content: center;
-    align-items: center;
-    margin-top: 3rem;
-    --background: black!important;
-    margin-right: 1rem;
-
-    a{
-        position: fixed;
-        margin-right: 0.8rem;
-        z-index: 1000;
-        display: block;
-        font-size: 2.2rem;
-        ion-icon{
-            color: #243b55;
-        }
-        @keyframes iconScaleUp {
-            0% {
-                font-size: 1rem;
-            }
-
-            25%{
-                font-size: 1.5rem;
-            }
-
-            50%{
-                font-size: 2rem;
-            }
-
-            100%{
-                font-size: 1.2rem;
-            }
-        }
+ion-content{
+    --background: #011627;
+    ion-title{
+        color: white;
     }
-    .cart-grow{
-        position: fixed;
-        z-index: 1000;
-        animation: iconScaleUp 1s ease-in forwards;
-    }
+    .top-row{
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+        align-items: center;
+        margin-top: 3rem;
+        --background: black!important;
+        margin-right: 1rem;
 
-    .cart-length {
-        position: fixed;
-        padding-left: 3px;
-        z-index: 1000;
-        color: black;
-    }
-}
+        a{
+            
+            margin-right: 0.8rem;
+            z-index: 1000;
+            display: block;
+            font-size: 2.2rem;
+            ion-icon{
+                color: #66fcf1;
+            }
+            @keyframes iconScaleUp {
+                0% {
+                    font-size: 1rem;
+                }
 
-ion-title{
-    font-size: 2rem;
-    margin-top: 2rem;
-    text-align: center;
-    color: #243b55;
-}
+                25%{
+                    font-size: 1.5rem;
+                }
 
-ion-list{
-    display: flex;
-    padding: 0;
-    flex-wrap: wrap;
-    justify-content: center;
-    ion-card{
-        max-width: 65%;
-        ion-card-header{
-            padding: 0;
-            img {
-                width: 100%;
-                height: 100px;
-                object-fit: cover;
+                50%{
+                    font-size: 2rem;
+                }
+
+                100%{
+                    font-size: 1.2rem;
+                }
             }
         }
-        ion-card-title{
-            font-size: 0.8rem;
+        .cart-grow{
+            
+            z-index: 1000;
+            animation: iconScaleUp 1s ease-in forwards;
+        }
+
+        .cart-length {
+        
+            padding-left: 3px;
+            z-index: 1000;
+            color: white;
+        }
+    }
+    .row-list{
+        --background: #011627;
+        h2{
+            
+            border: 1px solid #66FCF1;
+            align-items: left;
+            color: white;
+            font-size: 0.6rem;
+            padding: 5px;
+            margin: auto;
+            margin-top: 32px;
+            margin-bottom: 5px;
+            font-size: 1rem;
             font-weight: bold;
-            color: #243b55;
+            color: white;
+            
         }
-        ion-card-content{
-            display: flex;
-            flex-direction: column;
-            padding: 2px;
-            --background: #EFF1F3;
-            ion-row{
-                ion-col{
+        
+
+        .card-home{
+            width: 160px;
+            ion-card-header{
+                padding-top: 0px  !important;
+                padding-bottom: 0px !important;
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+                 img {
+                    /* width: auto; */
+                    max-width: 100%;
+                    /* width: 132px; */
+                    height: 100px;
+                    vertical-align: middle;
+                    /* height: auto; */
+                    /* max-height: 100%; */
+                }
+            }
+            h3{
+                font-size: 13px;
+                font-weight: bold;
+                
+            }
+            span{
+                font-size: 0.8rem;
+                color: #b5732e;
+            }
+        
+        
+            ion-card-content{
+                
+                padding-top: 0;
+                display: flex;
+                margin-top: 0.6rem;
+                font-size: -9px;
+                align-items: center;
+                flex-direction: column;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                
+                div{
+                    height: 6vh;
+                }
+                cite{
+                    margin-top: 1rem;
+                    margin-left: 19px;
+                    font-size: 0.6rem;
+                    display: inline-block;
+                    margin: left;
+                    color: #011627;
+                }
+                
+                .card-footer{
                     display: flex;
-                    justify-content: center;
-                    ion-label{
-                        color: #243b55;
+                    align-items: center;
+                    ion-col{
+                        display: flex;
+                        justify-content: center;
+                        
+                        ion-icon{
+                            color: yellow;
+                            font-size: 0.6rem;
+                        }
+                    }
+                    .add{
+                        ion-button{
+                            ion-icon{
+                                color: var(--background);
+                                font-size: 1rem;
+                            }
+                        }
+
+                    }
+                    span{
+                        font-size: 1rem;
+                        color: #011627;
                     }
                 }
-                .col-add{
-                    ion-button{
-
-                        --background: transparent;
-                        border: none;
-                        --box-shadow: none;
-                        color: green;
-                    }
-                    
+                span{
+                    margin-left: 19px;
+                    font-size: 0.5rem;
+                    color: #011627;
+                    font-weight: bold;
                 }
                 
             }
-            
-                ion-row{
-                    display: flex;
-                    align-items: center;
-                    ion-label{
-                        font-size: 1.2rem;
-                    }
-                    ion-button{
-                        font-size: 1.2rem;
-                        color: #243b55;
-                    }
-                }
-            
         }
     }
 }
-
-

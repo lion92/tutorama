@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export interface Video {
@@ -58,7 +59,27 @@ export class VideoService {
   ];
 
 
-  constructor() { }
+  url: string = "https://tutoramaflorian.krissdeveloppeur.com";
+
+ 
+
+  constructor(private http: HttpClient) { }
+
+  getTutoByUser(email: string){
+    return new Promise((resolve, rejects) => {
+      this.http.get(this.url + '/panier/'+ email).subscribe((data: any) => {
+          //(!data.success) ? rejects(false): resolve(data);
+       
+        if(!data){
+          rejects(false)
+        }else{
+          resolve(data);
+        }
+        //(!data.success) ? rejects(false): resolve(data);
+          
+      });
+  });
+  }
 
   public getVideos(): Video[] {
     return this.videos;

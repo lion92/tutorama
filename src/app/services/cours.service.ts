@@ -17,7 +17,7 @@ export class CoursService {
 
     return new Promise((resolve, rejects) => {
       
-      this.http.request('GET', this.url + "courTout", { responseType: 'text' }).subscribe((data) => {
+      this.http.request('GET', this.url + "categorieTout", { responseType: 'text' }).subscribe((data) => {
         try{
             
             let cours: Cour[] = [];
@@ -27,6 +27,7 @@ export class CoursService {
             for(const item of object){
               cours.push({
                 IdCour: item.IdCour,
+                Nom: item.Nom,
                 Auteur: item.Auteur,
                 Etoile: item.Etoile,
                 contenu: item.contenu,
@@ -62,6 +63,7 @@ export class CoursService {
             for(const item of object){
               cours.push({
                 IdCour: item.IdCour,
+                Nom: item.Nom,
                 Auteur: item.Auteur,
                 Etoile: item.Etoile,
                 contenu: item.contenu,
@@ -99,6 +101,7 @@ export class CoursService {
             for(const item of object){
               cours.push({
                 IdCour: item.IdCour,
+                Nom: item.Nom,
                 Auteur: item.Auteur,
                 Etoile: item.Etoile,
                 contenu: item.contenu,
@@ -119,6 +122,22 @@ export class CoursService {
     })
   }
 
+
+  getCourseByCat(cat: string){
+    return new Promise((resolve, rejects) => {
+      this.http.get(this.url + '/courCategorie/'+ cat).subscribe((data: any) => {
+          //(!data.success) ? rejects(false): resolve(data);
+       
+        if(!data){
+          rejects(false)
+        }else{
+          resolve(data);
+        }
+        //(!data.success) ? rejects(false): resolve(data);
+          
+      });
+  });
+  }
 
 
 }

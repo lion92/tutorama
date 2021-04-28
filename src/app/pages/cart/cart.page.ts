@@ -21,7 +21,7 @@ export class CartPage implements OnInit {
 
   cart: Cour[] = [];
   cour: Cour[] = [];
-  
+  Cours: Cour[] = [];
   contenu: Cour[] = [];
 
   idUser: any;
@@ -32,6 +32,7 @@ export class CartPage implements OnInit {
   imgCart: string;
   priceCart: number;
   titleCart: string;
+  CoursItem: Cour[] = [];
 
   constructor(
     private router: Router,
@@ -50,11 +51,18 @@ export class CartPage implements OnInit {
     this.cour = await this.courService.getData();
     
 
-    const Cours = await JSON.parse(localStorage.getItem('cartItem'));
-    console.log(Cours)
-    if(Cours!== undefined){
+    if (this.platform.is("desktop")) {
+      this.Cours = await JSON.parse(localStorage.getItem('cartItem'));
+    } else {
+        this.Cours = JSON.parse(await this.storage.getItem('cartItem'));
+      
+    }
 
-      for(let courCart of Cours){
+   
+    
+    if(this.Cours!== undefined){
+
+      for(let courCart of this.Cours){
         this.idCourCart = await courCart.IdCour;
        
         this.contenu.push(courCart)
@@ -117,9 +125,19 @@ export class CartPage implements OnInit {
     // }).catch(async(err) => {
     //   console.log(err)
     // }) 
-    const Cours = await localStorage.getItem('cartItem');
+
+
+    if (this.platform.is("desktop")) {
+      this.CoursItem = await JSON.parse(localStorage.getItem('cartItem'));
+    } else {
+        this.CoursItem = JSON.parse(await this.storage.getItem('cartItem'));
+      
+    }
+
+
+    
     let idC;
-    for(let cour of JSON.parse(Cours)){
+    for(let cour of this.CoursItem){
        idC = cour.IdCour
        
        this.cartService.addCart(this.idUser, idC).then(async(user: any) => {

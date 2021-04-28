@@ -19,11 +19,11 @@ export class HomePage {
 
 
   sliderConfig = {
-    spaceBetween: 5,
+    spaceBetween: 0,
     centeredSlides: true,
     slidesPerView: 1.6
   }
-
+ 
   coursPromo: Cour[];
   bestTuto: Cour[];
   cart = [];
@@ -31,7 +31,7 @@ export class HomePage {
   cartItemCount: BehaviorSubject<number>;
   img = "https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png";
 
-  etoile = [];
+  etoile: Cour[]= [];
 
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
 
@@ -44,9 +44,9 @@ export class HomePage {
 
   async ngOnInit(){
 
-  
     this.coursPromo = await this.cour.getPromo();
-   
+    
+    
     this.bestTuto = await this.cour.getBestTuto();
   }
 

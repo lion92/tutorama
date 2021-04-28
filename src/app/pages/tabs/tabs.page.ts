@@ -11,6 +11,7 @@ export class TabsPage implements OnInit {
   user: string = undefined;
 
   video: any = undefined;
+  videoLength: number;
   email: string = "";
   disabled: boolean;
 
@@ -20,11 +21,11 @@ export class TabsPage implements OnInit {
 
 
 
-  ngOnInit() {
+  async ngOnInit() {
 
-    this.video = this.videoService.getVideos().length;
+    this.video = await this.videoService.getTutoByUser("florian_bracq@hotmail.fr");
    
-    
+    this.videoLength = this.video.length
   }
 
 

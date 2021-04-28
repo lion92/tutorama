@@ -7,6 +7,7 @@ export interface Cour {
     prix: number;
     date: string;
     video: string;
+    Nom: string;
     amount?: number;
     activeClass?: boolean;
 }

@@ -69,7 +69,11 @@ export class CartService {
 		if(!added){
 			this.cart.push(product); this.cartItemCount.next(this.cartItemCount.value + 1);
 			this.active.next(this.active.value + 1);
-			localStorage.setItem('cartItem',JSON.stringify(this.getCart()))
+			if(this.platform.is("desktop")) {
+				localStorage.setItem('cartItem',JSON.stringify(this.getCart()))
+			}else{
+				this.storage.setItem('cartItem', JSON.stringify(this.getCart()))
+			}
 
 			
 		}else{
@@ -84,7 +88,7 @@ export class CartService {
 			this.storageCart = await JSON.parse(localStorage.getItem('cartItem'));
 			
 		}else{
-			this.storageCart = await this.storage.getItem('cartItem');
+			this.storageCart = await JSON.parse(await this.storage.getItem('cartItem'));
 		}
 		
 	
@@ -109,7 +113,13 @@ export class CartService {
 		}
 
 		this.storageCart.splice(tp, 1)
-		localStorage.setItem('cartItem', JSON.stringify(this.storageCart))
+
+		if(this.platform.is("desktop")) {
+
+			localStorage.setItem('cartItem', JSON.stringify(this.storageCart))
+		}else{
+			this.storage.setItem('cartItem', JSON.stringify(this.storageCart))
+		}
 
 	}
 

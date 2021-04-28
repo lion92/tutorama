@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { ModalController, Platform, ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
+import { CoursService } from 'src/app/services/cours.service';
 
 import { CartService } from '../../services/cart.service';
 import { CartPage } from '../cart/cart.page';
@@ -20,9 +21,24 @@ export class CatalogPage implements OnInit {
   cartItemCount: BehaviorSubject<number>;
   amountProduct: number;
   Cours: any;
+  python = [];
+  java: [];
+  c: [];
+  sql: [];
+  php: [];
+  css: [];
+  js: [];
+
+  sliderConfig = {
+    spaceBetween: 3,
+    centeredSlides: true,
+    slidesPerView: 1.6
+  }
+
   constructor(
     private router: Router,
-    private cartService: CartService, 
+    private cartService: CartService,
+    private courService: CoursService, 
     private modalCtrl: ModalController,
     private toast: ToastController,
     private platform: Platform,
@@ -36,6 +52,50 @@ export class CatalogPage implements OnInit {
 
     this.Cours = await JSON.parse(localStorage.getItem('cartItem'));
     //console.log(Cours)
+
+
+    this.courService.getCourseByCat("Python").then(async(data: any) => {
+      this.python = await data;
+    }).catch(async(err) => {
+      console.log(err)
+    }) 
+
+    this.courService.getCourseByCat("Java").then(async(data: any) => {
+      this.java = await data;
+    }).catch(async(err) => {
+      console.log(err)
+    }) 
+
+    this.courService.getCourseByCat("C#").then(async(data: any) => {
+      this.c = await data;
+      console.log(this.c)
+    }).catch(async(err) => {
+      console.log(err)
+    }) 
+
+    this.courService.getCourseByCat("SQL").then(async(data: any) => {
+      this.sql = await data;
+    }).catch(async(err) => {
+      console.log(err)
+    }) 
+
+    this.courService.getCourseByCat("PHP").then(async(data: any) => {
+      this.php = await data;
+    }).catch(async(err) => {
+      console.log(err)
+    }) 
+
+    this.courService.getCourseByCat("CSS").then(async(data: any) => {
+      this.css = await data;
+    }).catch(async(err) => {
+      console.log(err)
+    }) 
+
+    this.courService.getCourseByCat("Javascript").then(async(data: any) => {
+      this.js = await data;
+    }).catch(async(err) => {
+      console.log(err)
+    }) 
   }
 
   async addToCart(product){
@@ -89,4 +149,7 @@ export class CatalogPage implements OnInit {
     })
     modal.present();
   }
+
+
+  
 }

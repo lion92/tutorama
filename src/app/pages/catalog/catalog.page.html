@@ -8,40 +8,310 @@
       {{ cartItemCount | async }}
     </div>
   </ion-row>
-  <ion-row>
-    <ion-title>Catalogue</ion-title>
-    <ion-list>
-      <ion-card *ngFor="let product of products">
-        <ion-card-header>
-          <img src={{product.image}} alt="Image du cour"/>
+  <ion-title>Catalogue</ion-title>
+  
+  <ion-row class="row-list">
+    
+    <h2>Java</h2>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide class="slide1" *ngFor="let courJava of java">
+        
+        <ion-card class="card-home">
+          
+          
+        <ion-card-header class="card-body">
+          <img [src]="courJava.image"/>
         </ion-card-header>
         <ion-card-content>
-          <ion-row class="ion-align-items-center">
-            <ion-col>
-              <ion-card-title>{{ product.contenu }}</ion-card-title>
+          <div>
+            <h3>{{ courJava.contenu }}</h3>
+          </div>
+
+            <ion-row align-self-end>
+              <cite>{{ courJava.Nom }}</cite>
+              <cite>{{ courJava.Auteur }}</cite>
+            </ion-row>
+            <ion-row class="card-footer">
+              <ion-col>
+                <p>{{ courJava.Etoile }}</p>
+                <ion-icon name="star-sharp"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <span>{{ courJava.prix }},00€</span>
+              </ion-col>
+              
+            </ion-row>
+            <ion-row>
+            <span>Les avis(12)</span>
+            <ion-col size="6" class="add">
+              
+            
+            
+                <ion-button fill="clear" (click)="addToCart(courJava)">
+                
+                  <ion-icon name="add-outline"></ion-icon>
+                </ion-button>
+              
             </ion-col>
           </ion-row>
-         <ion-row>
-          <ion-col size="6">
-            <ion-label color="secondary">
-              <b>{{ product.prix}}€</b>
-            </ion-label>
-          </ion-col>
-          <ion-col size="6" [ngClass]="product.activeClass == true ? 'col-add' : ''">
-            <ion-button *ngIf="product.activeClass == true; else elseBlock">
-              <ion-icon name="checkmark-outline"></ion-icon>
-            </ion-button>
-            
-            <ng-template #elseBlock>
-              <ion-button fill="clear" (click)="addToCart(product)">
-                
-                <ion-icon name="add-outline"></ion-icon>
-              </ion-button>
-          </ng-template>
-          </ion-col>
-         </ion-row>
         </ion-card-content>
       </ion-card>
-    </ion-list>
+      </ion-slide>
+      
+    </ion-slides>
+  </ion-row>
+
+  <ion-row class="row-list">
+    
+    <h2>Python</h2>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide class="slide1" *ngFor="let courPython of python">
+        
+        <ion-card class="card-home">
+          
+          
+        <ion-card-header class="card-body">
+          <img [src]="courPython.image"/>
+        </ion-card-header>
+        <ion-card-content>
+          <div>
+            <h3>{{ courPython.contenu }}</h3>
+          </div>
+
+            <ion-row align-self-end>
+              <cite>{{ courPython.Nom }}</cite>
+              <cite>{{ courPython.Auteur }}</cite>
+            </ion-row>
+            <ion-row class="card-footer">
+              <ion-col>
+                <p>{{ courPython.Etoile }}</p>
+                <ion-icon name="star-sharp"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <span>{{ courPython.prix }},00€</span>
+              </ion-col>
+              
+            </ion-row>
+          <ion-row>
+            <span>Les avis(12)</span>
+            <ion-col size="6">
+              
+            
+            
+                <ion-button fill="clear" (click)="addToCart(courPython)">
+                
+                  <ion-icon name="add-outline"></ion-icon>
+                </ion-button>
+              
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      </ion-slide>
+      
+    </ion-slides>
+  </ion-row>
+  <ion-row class="row-list">
+    
+    <h2>SQL</h2>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide class="slide1" *ngFor="let courSQL of sql">
+        
+        <ion-card class="card-home">
+          
+          
+        <ion-card-header class="card-body">
+          <img [src]="courSQL.image"/>
+        </ion-card-header>
+        <ion-card-content>
+          <div>
+            <h3>{{ courSQL.contenu }}</h3>
+          </div>
+
+            <ion-row align-self-end>
+              <cite>{{ courSQL.Nom }}</cite>
+              <cite>{{ courSQL.Auteur }}</cite>
+            </ion-row>
+            <ion-row class="card-footer">
+              <ion-col>
+                <p>{{ courSQL.Etoile }}</p>
+                <ion-icon name="star-sharp"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <span>{{ courSQL.prix }},00€</span>
+              </ion-col>
+              
+            </ion-row>
+          <ion-row>
+            <span>Les avis(12)</span>
+            <ion-col size="6">
+              
+            
+            
+                <ion-button fill="clear" (click)="addToCart(courSQL)">
+                
+                  <ion-icon name="add-outline"></ion-icon>
+                </ion-button>
+              
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      </ion-slide>
+      
+    </ion-slides>
+  </ion-row>
+
+  <ion-row class="row-list">
+    
+    <h2>PHP</h2>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide class="slide1" *ngFor="let courPHP of php">
+        
+        <ion-card class="card-home">
+          
+          
+        <ion-card-header class="card-body">
+          <img [src]="courPHP.image"/>
+        </ion-card-header>
+        <ion-card-content>
+          <div>
+            <h3>{{ courPHP.contenu }}</h3>
+          </div>
+
+            <ion-row align-self-end>
+              <cite>{{ courPHP.Nom }}</cite>
+              <cite>{{ courPHP.Auteur }}</cite>
+            </ion-row>
+            <ion-row class="card-footer">
+              <ion-col>
+                <p>{{ courPHP.Etoile }}</p>
+                <ion-icon name="star-sharp"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <span>{{ courPHP.prix }},00€</span>
+              </ion-col>
+              
+            </ion-row>
+          <ion-row>
+            <span>Les avis(12)</span>
+            <ion-col size="6">
+              
+            
+            
+                <ion-button fill="clear" (click)="addToCart(courPHP)">
+                
+                  <ion-icon name="add-outline"></ion-icon>
+                </ion-button>
+              
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      </ion-slide>
+      
+    </ion-slides>
+  </ion-row>
+
+  <ion-row class="row-list">
+    
+    <h2>CSS</h2>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide class="slide1" *ngFor="let courCSS of css">
+        
+        <ion-card class="card-home">
+          
+          
+        <ion-card-header class="card-body">
+          <img [src]="courCSS.image"/>
+        </ion-card-header>
+        <ion-card-content>
+          <div>
+            <h3>{{ courCSS.contenu }}</h3>
+          </div>
+
+            <ion-row align-self-end>
+              <cite>{{ courCSS.Nom }}</cite>
+              <cite>{{ courCSS.Auteur }}</cite>
+            </ion-row>
+            <ion-row class="card-footer">
+              <ion-col>
+                <p>{{ courCSS.Etoile }}</p>
+                <ion-icon name="star-sharp"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <span>{{ courCSS.prix }},00€</span>
+              </ion-col>
+              
+            </ion-row>
+          <ion-row>
+            <span>Les avis(12)</span>
+            <ion-col size="6">
+              
+            
+            
+                <ion-button fill="clear" (click)="addToCart(courCSS)">
+                
+                  <ion-icon name="add-outline"></ion-icon>
+                </ion-button>
+              
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      </ion-slide>
+      
+    </ion-slides>
+  </ion-row>
+
+  <ion-row class="row-list">
+    
+    <h2>Javascript</h2>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide class="slide1" *ngFor="let courJS of js">
+        
+        <ion-card class="card-home">
+          
+          
+        <ion-card-header class="card-body">
+          <img [src]="courJS.image"/>
+        </ion-card-header>
+        <ion-card-content>
+          <div>
+            <h3>{{ courJS.contenu }}</h3>
+          </div>
+
+            <ion-row>
+              <cite>{{ courJS.Nom }}</cite>
+              <cite>{{ courJS.Auteur }}</cite>
+            </ion-row>
+            <ion-row class="card-footer">
+              <ion-col>
+                <p>{{ courJS.Etoile }}</p>
+                <ion-icon name="star-sharp"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <span>{{ courJS.prix }},00€</span>
+              </ion-col>
+              
+            </ion-row>
+          <ion-row>
+            <span>Les avis(12)</span>
+            <ion-col size="6" class="col-add">
+              
+            
+            
+                <ion-button fill="clear" (click)="addToCart(courJS)">
+                
+                  <ion-icon name="add-outline"></ion-icon>
+                </ion-button>
+              
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      </ion-slide>
+      
+    </ion-slides>
   </ion-row>
 </ion-content>

@@ -23,9 +23,9 @@
       </ion-card>
     </ion-row>
       <ion-row class="row-star">
-        <ion-button class="btn-star" color="black">
-          Formations les mieux notées
-        </ion-button>
+        <h2 class="btn-star" color="black">
+          Les mieux notées
+        </h2>
         <ion-slides [options]="sliderConfig">
           <ion-slide class="slide1" *ngFor="let cour of bestTuto">
             <ion-card class="card-home">
@@ -36,23 +36,24 @@
             </ion-card-header>
             <ion-card-content>
               <div>
-                <h3>{{ cour.contenu }}</h3>
+                <h3 >{{ cour.contenu.substring(0, 25) }} ...</h3>
               </div>
 
-                <ion-row align-self-end>
+                <ion-row class="auteur">
+                  <cite>{{ cour.Nom }}</cite>
                   <cite>{{ cour.Auteur }}</cite>
                 </ion-row>
                 <ion-row class="card-footer">
-                  <ion-col>
+                  <ion-col size="6">
                     <p>{{ cour.Etoile }}</p>
                     <ion-icon name="star-sharp"></ion-icon>
                   </ion-col>
-                  <ion-col>
+                  <ion-col size="6">
                     <span>{{ cour.prix }},00€</span>
                   </ion-col>
                   
                 </ion-row>
-              <ion-row>
+              <ion-row class="review">
                 <span>Les avis(12)</span>
               </ion-row>
             </ion-card-content>
@@ -62,47 +63,48 @@
         </ion-slides>
       </ion-row>
     
-    <ion-row style="display: flex; align-items: stretch;">
+    <ion-row>
       <ion-col size="12">
        
 
         <div class="categorie-block">
           <ion-row no-padding class="category-banner">
-            <ion-col text-left button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
-              <h2>Publié récemment</h2>
-            </ion-col>
+            <h2>
+              Publié récemment
+            </h2>
           </ion-row>
           <ion-slides [options]="sliderConfig">
             <ion-slide class="slide1" *ngFor="let cour of coursPromo">
               <ion-card class="card-home">
-                
-                
-              <ion-card-header class="card-body">
-                <img [src]="cour.image"/>
-              </ion-card-header>
-              <ion-card-content>
-                <div>
-                  <h3>{{ cour.contenu }}</h3>
-                </div>
-
-                  <ion-row align-self-end>
-                    <cite>{{ cour.Auteur }}</cite>
+              
+              
+                <ion-card-header class="card-body">
+                  <img [src]="cour.image"/>
+                </ion-card-header>
+                <ion-card-content>
+                  <div>
+                    <h3 >{{ cour.contenu.substring(0, 20) }} ...</h3>
+                  </div>
+    
+                    <ion-row class="auteur">
+                      <cite>{{ cour.Nom }}</cite>
+                      <cite>{{ cour.Auteur }}</cite>
+                    </ion-row>
+                    <ion-row class="card-footer">
+                      <ion-col>
+                        <p>{{ cour.Etoile }}</p>
+                        <ion-icon name="star-sharp"></ion-icon>
+                      </ion-col>
+                      <ion-col>
+                        <span>{{ cour.prix }},00€</span>
+                      </ion-col>
+                      
+                    </ion-row>
+                  <ion-row>
+                    <span>Les avis(12)</span>
                   </ion-row>
-                  <ion-row class="card-footer">
-                    <ion-col>
-                      <p>{{ cour.Etoile }}</p>
-                      <ion-icon name="star-sharp"></ion-icon>
-                    </ion-col>
-                    <ion-col>
-                      <span>{{ cour.prix }},00€</span>
-                    </ion-col>
-                    
-                  </ion-row>
-                <ion-row>
-                  <span>Les avis(12)</span>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
+                </ion-card-content>
+              </ion-card>
             </ion-slide>
             
           </ion-slides>
