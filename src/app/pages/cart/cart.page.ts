@@ -109,10 +109,14 @@ export class CartPage implements OnInit {
   }
 
   async addCartToBdd(){
-    
-    const idUser = await localStorage.getItem('idUser');
-    
-    this.idUser = parseInt(idUser);
+    if (this.platform.is("desktop")) {
+
+      const idUser = await localStorage.getItem('idUser');
+      this.idUser = parseInt(idUser);
+    }else{
+      const idUser = await this.storage.getItem('idUser');
+      this.idUser = parseInt(idUser);
+    }
     // this.userService.getUserByEmail(email).then(async(data: any) => {
       
     //   this.users = await JSON.stringify(data);

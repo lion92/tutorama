@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { Platform } from '@ionic/angular';
 import { VideoService } from '../../services/video.service';
 
 @Component({
@@ -15,7 +17,7 @@ export class TabsPage implements OnInit {
   email: string = "";
   disabled: boolean;
 
-  constructor(private videoService: VideoService) { }
+  constructor(private videoService: VideoService, private platform: Platform, private storage: NativeStorage) { }
 
 
 
@@ -23,7 +25,14 @@ export class TabsPage implements OnInit {
 
   async ngOnInit() {
 
-    this.video = await this.videoService.getTutoByUser("florian_bracq@hotmail.fr");
+    if (this.platform.is("desktop")) {
+      this.email = await localStorage.getItem('user');
+    } else {
+      this.email = await this.storage.getItem('user')
+      
+    }
+
+    this.video = await this.videoService.getTutoByUser(this.email);
    
     this.videoLength = this.video.length
   }
