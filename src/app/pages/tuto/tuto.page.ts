@@ -11,6 +11,8 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 
 import { Video, VideoService } from 'src/app/services/video.service';
 import { Cour } from 'src/app/interfaces/cour';
+import { Platform } from '@ionic/angular';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-tuto',
@@ -29,12 +31,20 @@ export class TutoPage implements AfterViewInit, OnInit  {
   email: string;
   videoUser: Cour[] = [];
 
-  constructor(private data: VideoService) {
+  constructor(private data: VideoService, private platform: Platform, private storage: NativeStorage) {
     //this.videos = data.getVideos();
    }
 
    async ngOnInit() { 
-     this.email = await localStorage.getItem('user');
+
+    if (this.platform.is("desktop")) {
+      this.email = await localStorage.getItem('user');
+    } else {
+      this.email = await this.storage.getItem('user')
+      
+    }
+
+     
      
        this.data.getTutoByUser(this.email).then(async(data: any) => {
       
