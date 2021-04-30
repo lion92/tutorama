@@ -21,21 +21,18 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 })
 export class TutoPage implements AfterViewInit, OnInit  {
 
-  private url: string = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4";
   private _url: string = null;
-  private _videoPlayer: any;
-  private _handlerPlay: any;
-  private _handlerPause: any;
+
   videoPlayer: any;
   videos: Video[];
   email: string;
   videoUser: Cour[] = [];
 
   constructor(private data: VideoService, private platform: Platform, private storage: NativeStorage) {
-    //this.videos = data.getVideos();
+   
    }
 
-   async ngOnInit() { 
+  async ngOnInit() { 
 
     if (this.platform.is("desktop")) {
       this.email = await localStorage.getItem('user');
@@ -43,23 +40,18 @@ export class TutoPage implements AfterViewInit, OnInit  {
       this.email = await this.storage.getItem('user')
       
     }
-
      
-     
-       await this.data.getTutoByUser(this.email).then(async(data: any) => {
-      
-        this.videoUser = data;
-        
-       
-        
-       }).catch(async(err) => {
-         console.log(err)
-       }) 
+    // Récupère les achat liés à un utilisateur
+    await this.data.getTutoByUser(this.email).then(async(data: any) => {
+      this.videoUser = data;
+    }).catch(async(err) => {
+      console.log(err)
+    }) 
     
-   }
+  }
   
 
-   async ngAfterViewInit() {
+  async ngAfterViewInit() {
     const info = await Device.getInfo();
     if (info.platform === "ios" || info.platform === "android") {
       this.videoPlayer = CapacitorVideoPlayer;
@@ -69,10 +61,11 @@ export class TutoPage implements AfterViewInit, OnInit  {
 
   }
 
+  // Permet de lancer la lecture vidéo
   async play(url: string) {
     
     const res:any  = await this.videoPlayer.initPlayer({mode: "fullscreen",
-                                                        url: url, subtitle: "toto",
+                                                        url: url, subtitle: "video tutorama",
                                                         playerId: "fullscreen",
                                                         componentTag:"app-tuto"
                                                       });

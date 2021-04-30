@@ -18,7 +18,7 @@ export class PaiementPage implements OnInit {
 
   
   async ngOnInit() {
-    //this.cour = this.cartService.getProducts();
+    
     this.email = await localStorage.getItem('user');
      
        this.paiementUser.getTutoByUser(this.email).then(async(data: any) => {

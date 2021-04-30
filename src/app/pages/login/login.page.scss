@@ -1,5 +1,5 @@
 ion-content{
-    --background: #EFF1F3;
+    --background: #011627;
 
 
 .logo{
@@ -18,8 +18,9 @@ ion-content{
         --highlight-background: green;
     }
     ion-item{
-        --background: #EFF1F3;
-        
+        --background: #011627;
+        font-size: 0.8rem;
+        color: #C5C6C7;
     }
 }
 .form.md{
@@ -32,8 +33,11 @@ ion-content{
     margin-top: 0.5rem;
     ion-text{
         font-size: 0.7rem;
-        border-bottom: 1px solid;
-        color: var(--ion-color-primary, #3880ff);
+        border-bottom: 1px solid white;
+        
+        span{
+            color: #C5C6C7;
+        }
     }
 }
 .col-login{
@@ -44,6 +48,7 @@ ion-content{
         width: 80%;
         border-radius: 3px;
         --background: #011627;
+        border: 1px solid #45A29E;
     }
     
 }
@@ -51,6 +56,8 @@ p{
     text-align: center;
     a{
         font-size: 0.8rem;
+        color: #C5C6C7;
+
     }
 }
 

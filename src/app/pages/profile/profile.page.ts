@@ -58,12 +58,6 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  async getAvatar(){
-    //const user = JSON.parse(localStorage.getItem('user'));
-    
- 
-  }
-
 
   async getProfile(){
     

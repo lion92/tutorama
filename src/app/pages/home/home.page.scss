@@ -19,10 +19,7 @@ ion-content{
         color: black;
       }
     
-      ion-slide{
-         
-      }
-    
+  
     
         .top-row {
             display: flex;
@@ -35,7 +32,7 @@ ion-content{
                 display: block;
                 font-size: 2.2rem;
                 ion-icon{
-                    color: #66FCF1;
+                    color: #45A29E;
                 }
                 @keyframes iconScaleUp {
                     0% {
@@ -75,18 +72,19 @@ ion-content{
     
     
     .card-home-top{
-        background-image: url("../../../assets/img/home/student.jpg");
+        background-image: url("../../../assets/img/home/code.jpg");
         background-position: center;
         background-repeat: no-repeat;
+        filter: grayscale(50%);
         background-size: cover;
         ion-card-title{
             font-size: 1.3rem;
+            font-weight: bold;
             margin-top: 2.5rem;
             color: white;
         }
         ion-card-content{
             color: #eef0f8;
-            font-weight: bold;
             font-size: 0.8rem;
             font-family: Verdana, Arial, Helvetica, sans-serif;
         }
@@ -99,7 +97,7 @@ ion-content{
         
         h3{
             font-size: 1.2rem;
-            color: #66fcf1;
+            color: #45A29E;
         }
         
     }
@@ -133,7 +131,7 @@ ion-content{
         }
         span{
             font-size: 0.8rem;
-            color: #66fcf1;
+            color: #45A29E;
         }
     
     
@@ -153,13 +151,14 @@ ion-content{
             .auteur{
                 display: flex;
                 justify-content: left;
+                color: #C5C6C7;
                 cite{
                     margin-top: 1rem;
                     font-style: normal;
                     font-size: 0.8rem;
                     display: inline-block;
                     margin: left;
-                    color: white;
+                    color: #C5C6C7;
                 }
             }
             ion-col{
@@ -183,20 +182,21 @@ ion-content{
                 ion-col{
                     display: flex;
                     justify-content: center;
+                    padding-left: 0;
                     ion-icon{
                         font-size: 1.3rem;
                     }
                 }
                 span{
                     font-size: 0.8rem;
-                    color: #66fcf1;
+                    color: #45A29E;
                 }
             }
             .review{
                 display: flex;
                 span{
                     font-size: 0.5rem;
-                    color: #66fcf1;
+                    color: #45A29E;
                 
                 }
             }

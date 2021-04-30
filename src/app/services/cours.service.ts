@@ -36,7 +36,7 @@ export class CoursService {
                 image: item.image,
                 video: item.video,
                 amount: 1,
-                activeClass: false
+                
               })
               
               resolve(cours);
@@ -50,6 +50,7 @@ export class CoursService {
 
   }
 
+ 
   getPromo(): Promise <Cour[]>{
 
     return new Promise((resolve, rejects) => {
@@ -72,7 +73,7 @@ export class CoursService {
                 image: item.image,
                 video: item.video,
                 amount: 1,
-                activeClass: false
+                
               })
               
               resolve(cours);
@@ -88,7 +89,7 @@ export class CoursService {
 
 
 
-
+  // Récupère les tutos les mieux notées 
   getBestTuto(): Promise <Cour[]>{
     return new Promise((resolve, rejects) => {
       
@@ -122,7 +123,7 @@ export class CoursService {
     })
   }
 
-
+  // Récupère les tutos par catégorie
   getCourseByCat(cat: string){
     return new Promise((resolve, rejects) => {
       this.http.get(this.url + '/courCategorie/'+ cat).subscribe((data: any) => {

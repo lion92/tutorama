@@ -16,7 +16,6 @@ export class RegisterPage implements OnInit {
 
   user: UserRegister = 
   { 
-    idUtilisateur: undefined,
     email: '',
     nom: '',
     prenom: '',
@@ -39,13 +38,30 @@ export class RegisterPage implements OnInit {
   ngOnInit() {}
 
   async register() {
+
     this.auth.register(this.user).then(async(data: any) => {
         
-      this.router.navigate(['/login']);
+      const toast = await this.toast.create({
+        message: "Utilisateur enregisté !",
+        color: "success",
+        duration: 2000,
+      });
+      toast.present();
+      
+
+      this.router.navigate(['/login'])
         
     }).catch(async(err) => {
       
-        console.log(err)
+      console.log(err)
+      const toast = await this.toast.create({
+        message: "Vous avez mal renseigné les champs!",
+        color: "danger",
+        duration: 2000,
+      });
+      toast.present();
+      
+       console.log(err)
     })
   }
 

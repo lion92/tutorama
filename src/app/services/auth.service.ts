@@ -35,15 +35,13 @@ export class AuthService {
 
     return new Promise((resolve, rejects) => {
         this.http.post(this.url + '/login', { email: email, password: password }).subscribe((data: any) => {
-            //(!data.success) ? rejects(false): resolve(data);
+           
            console.log(data)
            if(!data){
             rejects(false)
            }else{
             resolve(data);
            }
-           //(!data.success) ? rejects(false): resolve(data);
-            
         });
     });
 }
@@ -53,7 +51,12 @@ export class AuthService {
     
     return new Promise((resolve, rejects) => {
         this.http.post(this.url + '/register', user).subscribe((data: any) => {
-            (!data.success) ? rejects(data.message): resolve(data);
+          console.log(data)
+          if(!data){
+           rejects(false)
+          }else{
+           resolve(data);
+          }
         });
     });
   }
@@ -69,8 +72,7 @@ export class AuthService {
           resolve(data);
           console.log(data);
         }
-       // (!data.success) ? rejects(data.message): resolve(data);
-
+      
       })
     })
   }

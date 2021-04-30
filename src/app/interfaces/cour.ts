@@ -9,5 +9,4 @@ export interface Cour {
     video: string;
     Nom: string;
     amount?: number;
-    activeClass?: boolean;
 }

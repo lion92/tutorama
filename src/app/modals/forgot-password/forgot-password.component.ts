@@ -31,7 +31,7 @@ export class ForgotPasswordComponent implements OnInit {
 
     this.auth.forgotPassword(this.emailer).then(async(user: any) => {
       //let data = JSON.parse(user.emailer);
-      console.log(this.emailer)
+    
       if(this.emailer !== ""){
         const toast = await this.toast.create({
           message: "Utilisez votre mot de passe provisoire reçu par mail pour vous connecter",

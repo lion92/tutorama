@@ -1,10 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-      </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+
 <ion-content>
 
   <ion-row class="logo">
@@ -30,7 +24,7 @@
             </ion-item>
             <ion-item>
               <ion-label position="floating">avatar</ion-label>
-              <ion-input type="text" [(ngModel)]="user.avatar"></ion-input>
+              <ion-input type="text" [(ngModel)]="user.avatar" placeholder="Veuillez entrer une url"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">age</ion-label>
@@ -38,7 +32,7 @@
             </ion-item>
             <ion-item>
               <ion-label position="floating">Tel</ion-label>
-              <ion-input type="text" [(ngModel)]="user.userTel"></ion-input>
+              <ion-input type="text" [(ngModel)]="user.numeroTel"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">N° rue</ion-label>
@@ -58,9 +52,12 @@
             </ion-item>
               
           </ion-col>
-          <ion-col size="12">
-              <ion-button (click)="register()" expand="full">Register</ion-button>
+        </ion-row>
+        <ion-row class="row-register">
+          <ion-col>
+
+            <ion-button (click)="register()" expand="full">Register</ion-button>
           </ion-col>
-      </ion-row>
+        </ion-row>
       <p> <a routerLink="/login">Vous êtes déjà inscrit ? Connectez-vous</a> </p>
   </ion-content>

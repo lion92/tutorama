@@ -1,22 +1,23 @@
-
+<ion-header>
+  <ion-toolbar>
+    <ion-row class="top-row">
+      <ion-col size="8">
+        <ion-title>Catalogue</ion-title>
+      </ion-col>
+      <ion-col size="2">
+        <a (click)="openCart()" #cart>
+          <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+        </a>
+      </ion-col>
+      <ion-col size="2">
+        <div class="cart-length">
+          {{ cartItemCount | async }}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <ion-row class="top-row">
-    <ion-col size="8">
-      <ion-title>Catalogue</ion-title>
-    </ion-col>
-    <ion-col size="2">
-      <a (click)="openCart()" #cart>
-        <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
-      </a>
-    </ion-col>
-    <ion-col size="2">
-      <div class="cart-length">
-        {{ cartItemCount | async }}
-      </div>
-    </ion-col>
-  </ion-row>
-  
-  
   <ion-row class="row-list">
     
     <h2>Java</h2>
@@ -31,7 +32,7 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3 [routerLink]="['/single-tuto/', courJava.IdCour]" routerDirection="forward">{{ courJava.contenu.substring(0, 25) }} ...</h3>
+            <h3>{{ courJava.contenu.substring(0, 25) }} ...</h3>
           </div>
 
             <ion-row class="auteur">
@@ -95,7 +96,7 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3 [routerLink]="['/single-tuto/', courPython.IdCour]" routerDirection="forward">{{ courPython.contenu.substring(0, 25) }} ...</h3>
+            <h3>{{ courPython.contenu.substring(0, 25) }} ...</h3>
           </div>
 
             <ion-row class="auteur">
@@ -156,7 +157,7 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3 [routerLink]="['/single-tuto/', courSQL.IdCour]" routerDirection="forward">{{ courSQL.contenu.substring(0, 25) }} ...</h3>
+            <h3 >{{ courSQL.contenu.substring(0, 25) }} ...</h3>
           </div>
 
             <ion-row class="auteur">
@@ -214,7 +215,7 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3 [routerLink]="['/single-tuto/', courPHP.IdCour]" routerDirection="forward">{{ courPHP.contenu.substring(0, 25) }} ...</h3>
+            <h3 >{{ courPHP.contenu.substring(0, 25) }} ...</h3>
           </div>
 
             <ion-row class="auteur">
@@ -245,8 +246,9 @@
           <ion-col size="12" class="add">
               
             
+						
             
-            <ion-button fill="clear" expand="full" (click)="addToCart(courPHP)">
+            <ion-button fill="clear" expand="full" (click)="addToCart(courPHP)" [disabled]="courPHP.amount > 0">
               Ajouter
               <ion-icon name="add-outline"></ion-icon>
             </ion-button>
@@ -272,7 +274,7 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3 [routerLink]="['/single-tuto/', courCSS.IdCour]" routerDirection="forward">{{ courCSS.contenu.substring(0, 25) }} ...</h3>
+            <h3 >{{ courCSS.contenu.substring(0, 25) }} ...</h3>
           </div>
 
             <ion-row class="auteur">
@@ -330,7 +332,7 @@
         </ion-card-header>
         <ion-card-content>
           <div>
-            <h3 [routerLink]="['/single-tuto/', courJS.IdCour]" routerDirection="forward">{{ courJS.contenu.substring(0, 25) }} ...</h3>
+            <h3 >{{ courJS.contenu.substring(0, 25) }} ...</h3>
           </div>
 
             <ion-row class="auteur">

@@ -33,9 +33,6 @@ export class LoginPage implements OnInit {
     this.tabBarElement = document.querySelector('#tabs ion-tab-bar');
    }
 
-  ngAfterViewInit(){
-    
-  }
 
   ngOnInit() {}
 
@@ -51,7 +48,7 @@ export class LoginPage implements OnInit {
 
   testEmail() {
     const regex = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g);
-    // this.isErrorMail = !regex.test(this.email);
+    
     this.isErrorMail = (regex.test(this.email.trim())) ? false : true;
   }
 
@@ -61,7 +58,7 @@ export class LoginPage implements OnInit {
         
         this.token = user.split('!')[1];
         this.idUser = user.split(" ")[1];
-        console.log(this.idUser + " je suis")
+        
         
         if (this.platform.is("desktop")) {
           localStorage.setItem('token', this.token)
@@ -74,7 +71,7 @@ export class LoginPage implements OnInit {
       }
 
         const toast = await this.toast.create({
-          message: this.email,
+          message: "Connecté !",
           color: "success",
           duration: 2000,
         });

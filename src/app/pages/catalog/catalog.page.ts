@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { ModalController, Platform, ToastController } from '@ionic/angular';
+import { LoadingController, ModalController, Platform, ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { CoursService } from 'src/app/services/cours.service';
 
@@ -23,7 +23,6 @@ export class CatalogPage implements OnInit {
   Cours: any;
   python = [];
   java: [];
-  c: [];
   sql: [];
   php: [];
   css: [];
@@ -42,18 +41,21 @@ export class CatalogPage implements OnInit {
     private modalCtrl: ModalController,
     private toast: ToastController,
     private platform: Platform,
-    private storage: NativeStorage
+    private storage: NativeStorage,
+    private loadingController: LoadingController
     ) {}
 
   async ngOnInit(){
+    this.presentLoading();
     this.products = await this.cartService.getProducts();
     this.cart = await this.cartService.getCart();
     this.cartItemCount = await this.cartService.getCartItemCount();
-
+    
     this.Cours = await JSON.parse(localStorage.getItem('cartItem'));
-    //console.log(Cours)
-
-
+    
+    
+    
+    // Récupère les cours par catégorie
     this.courService.getCourseByCat("Python").then(async(data: any) => {
       this.python = await data;
     }).catch(async(err) => {
@@ -62,13 +64,6 @@ export class CatalogPage implements OnInit {
 
     this.courService.getCourseByCat("Java").then(async(data: any) => {
       this.java = await data;
-    }).catch(async(err) => {
-      console.log(err)
-    }) 
-
-    this.courService.getCourseByCat("C#").then(async(data: any) => {
-      this.c = await data;
-      console.log(this.c)
     }).catch(async(err) => {
       console.log(err)
     }) 
@@ -98,30 +93,18 @@ export class CatalogPage implements OnInit {
     }) 
   }
 
+  
   async addToCart(product){
 
     
-
     if(product){
-      // product.activeClass = true;
-      this.cartService.addProduct(product);
       
+      this.cartService.addProduct(product);
+     
       let cartLength = document.querySelector('.cart-length');
       cartLength.classList.add('cart-grow');
+    
       
-     // for(let c of this.cartService.getCart()){
-      for (const item of this.Cours) {
-        if (item.IdCour === product.IdCour) {
-          product.activeClass = true;
-          item.activeClass = true;
-        }else{
-          
-          product.activeClass = false;
-          item.activeClass = true;
-        }
-      }
-      
-
       const toast = await this.toast.create({
         message: "Le cours a bien été ajouté !",
         color: "success",
@@ -150,6 +133,17 @@ export class CatalogPage implements OnInit {
     modal.present();
   }
 
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      duration: 1000,
+      translucent: true,
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+   
+  }
 
   
 }

@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ​​HttpClientModule​​ } from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { SplashScreenComponent } from "./splash-screen/splash-screen.component";
-import { Stripe } from '@ionic-native/stripe/ngx';
 import { PayPal } from '@ionic-native/paypal/ngx';
 import { CartPage } from './pages/cart/cart.page';
 
@@ -19,7 +18,7 @@ import { CartPage } from './pages/cart/cart.page';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ​​HttpClientModule​​],
   
-providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, NativeStorage, Stripe, PayPal, CartPage, NavParams],
+providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, NativeStorage, PayPal, CartPage, NavParams],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

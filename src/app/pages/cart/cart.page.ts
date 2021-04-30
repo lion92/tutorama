@@ -54,13 +54,12 @@ export class CartPage implements OnInit {
     if (this.platform.is("desktop")) {
       this.Cours = await JSON.parse(localStorage.getItem('cartItem'));
     } else {
-        this.Cours = JSON.parse(await this.storage.getItem('cartItem'));
-      
+      this.Cours = JSON.parse(await this.storage.getItem('cartItem'));
     }
 
    
     
-    if(this.Cours!== undefined){
+    if(this.Cours!== null){
 
       for(let courCart of this.Cours){
         this.idCourCart = await courCart.IdCour;
@@ -79,14 +78,14 @@ export class CartPage implements OnInit {
     const tp = this.contenu.findIndex(item => {
 			return item.IdCour == product.IdCour
 	  })
-    // product.activeClass = false;
+    
     this.contenu.splice(tp, 1)
-    // product.activeClass = 0
+   
   
   }
 
   getTotal(){
-    return this.cart.reduce((i, j) => i + j.prix * 1, 0).toString();
+    return this.contenu.reduce((i, j) => i + j.prix * 1, 0).toString();
   }
 
   close(){
@@ -94,7 +93,8 @@ export class CartPage implements OnInit {
   }
 
   async checkout() {
-
+    
+    // Ajoute le contenu du panier en base de données
     await this.addCartToBdd();
 
     this.close();
@@ -117,18 +117,7 @@ export class CartPage implements OnInit {
       const idUser = await this.storage.getItem('idUser');
       this.idUser = parseInt(idUser);
     }
-    // this.userService.getUserByEmail(email).then(async(data: any) => {
-      
-    //   this.users = await JSON.stringify(data);
-
-    //   for(let result of data){
-    //     this.idUser = await result.idUtilisateur;
-        
-    //   }
-    //   console.log(this.idUser)
-    // }).catch(async(err) => {
-    //   console.log(err)
-    // }) 
+  
 
 
     if (this.platform.is("desktop")) {
@@ -145,13 +134,7 @@ export class CartPage implements OnInit {
        idC = cour.IdCour
        
        this.cartService.addCart(this.idUser, idC).then(async(user: any) => {
-         
-         
-        
-         
-   
-         
-   
+
          
        }).catch(async(err) => {
          

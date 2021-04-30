@@ -19,10 +19,6 @@ const routes: Routes = [{
     loadChildren: () => import('./pages/paiement/paiement.module').then( m => m.PaiementPageModule)
   },
   {
-    path: 'stripe',
-    loadChildren: () => import('./pages/stripe/stripe.module').then( m => m.StripePageModule)
-  },
-  {
     path: 'paypal-mobile',
     loadChildren: () => import('./pages/paypal-mobile/paypal-mobile.module').then( m => m.PaypalMobilePageModule)
   },
