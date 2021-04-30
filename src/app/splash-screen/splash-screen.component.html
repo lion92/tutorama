@@ -1,0 +1,12 @@
+<div
+  class="app-splash-screen"
+  [ngStyle]="{ left: windowWidth }"
+  *ngIf="showSplash"
+>
+  <div class="app-splash-inner">
+    <div class="app-logo"></div>
+    <div class="app-label">Toujours Plus Fort,<br> Toujours Plus Grand !</div>
+    
+  </div>
+  <ion-spinner name="lines-small"></ion-spinner>
+</div>

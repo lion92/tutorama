@@ -1,13 +1,94 @@
-img{
-    max-width: 100%;
-    border: 0;
-    margin-top: 1rem;
-    margin-left: -8.5rem;
-}
 
-.ion-text-center{
-    font-size: 1.5rem;
-    margin-top: 10rem;
-    margin-bottom: 5rem;
-    height: 20vh;
+ion-toolbar{
+    --background: #011627!important;
+    --color: white;
+}
+ion-content{
+    --background: #011627;
+    .ion-text-end{
+        ion-button{
+
+            border: none;
+            ion-icon{
+                color: white;
+            }
+        }
+    }
+    img{
+        max-width: 100%;
+        border: 0;
+    }
+
+    ion-list{
+        padding-top: 0;
+        padding-bottom: 0;
+        ion-item{
+            --background: #011627;
+            padding-top: 0;
+            padding-bottom: 0;
+            ion-button{
+                --background: #011627;
+                border: none;
+                
+            }
+        }
+        .ion-align-self-center{
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            ion-button{
+                ion-icon{
+                    color: #011627!important;
+                }
+            }
+            
+        }
+        .col-close{
+            display: flex;
+            justify-content: flex-end;
+            
+            ion-button{
+                
+                ion-icon{
+                   
+                    color: #E04853; 
+                }
+            }
+        }
+        .title{
+            
+            ion-col{
+                font-size: 0.8rem;
+                color: white;
+            }
+            .ion-text-end{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        
+        .ion-text-center{
+            font-size: 1.5rem;
+            margin-top: 10rem;
+            margin-bottom: 5rem;
+            height: 20vh;
+        }
+        
+        .amount{
+            text-align: center;
+        }
+        .row-total{
+            margin-top: 3rem;
+            font-weight: bold;
+            color: white;
+        }
+    }
+
+    ion-button{
+        --background: #011627;
+        border: 1px solid #45A29E;
+        color: #45A29E;
+    }
+
 }

@@ -1,0 +1,28 @@
+ion-content{
+    
+    .form{
+        margin-top: 0!important;
+        ion-item{
+            font-size: 0.8rem;
+            
+        }
+    }
+    
+    p{
+        text-align: center;
+        a{
+            font-size: 0.8rem;
+        }
+    }
+    .row-register{
+        margin: auto;
+        margin-top: 1rem;
+        ion-button{
+            width:  90%;
+            border-radius: 3px;
+            margin: auto;
+            --background: #011627;
+            border: 1px solid #45A29E;
+        }
+    }
+}

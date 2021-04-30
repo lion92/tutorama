@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mes paiement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+	<ion-list *ngFor="let p of paiement">
+	
+		<ion-row>
+
+			<ion-item >
+			  <ion-avatar slot="start">
+				<img [src]="p.image" />
+			  </ion-avatar>
+			  <ion-label>{{p.contenu.substring(0, 10) }}...</ion-label>
+		
+			  <p>{{p.prix}}€</p>
+			</ion-item> 
+		</ion-row>
+		<ion-row>
+		</ion-row>
+		
+	  </ion-list> 
+		<ion-button expand="full" routerLink="/tabs/profile">Profil</ion-button>
+	</div>
+</ion-content>

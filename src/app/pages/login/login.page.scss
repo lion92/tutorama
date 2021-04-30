@@ -1,0 +1,66 @@
+ion-content{
+    --background: #011627;
+
+
+.logo{
+    margin-top: 6rem;
+    img{
+        max-width: 72%;
+        margin-left: 5.3rem;
+    }
+}
+.form{
+    margin-top: 3rem;
+    width: 87%;
+    
+    .goodEmail {
+        --border-color: green;
+        --highlight-background: green;
+    }
+    ion-item{
+        --background: #011627;
+        font-size: 0.8rem;
+        color: #C5C6C7;
+    }
+}
+.form.md{
+    margin-left: 1.4rem;
+}
+.mdp{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2.8rem;
+    margin-top: 0.5rem;
+    ion-text{
+        font-size: 0.7rem;
+        border-bottom: 1px solid white;
+        
+        span{
+            color: #C5C6C7;
+        }
+    }
+}
+.col-login{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    ion-button{
+        width: 80%;
+        border-radius: 3px;
+        --background: #011627;
+        border: 1px solid #45A29E;
+    }
+    
+}
+p{
+    text-align: center;
+    a{
+        font-size: 0.8rem;
+        color: #C5C6C7;
+
+    }
+}
+
+
+
+}
