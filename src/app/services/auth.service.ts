@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserRegister } from '../interfaces/user-register';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
- 
   url: string = 'https://tutoramaflorian.krissdeveloppeur.com';
 
-  constructor(private http: HttpClient,
-    private router: Router
-    
-    ) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private toast: ToastController
+  ) {}
 
   forgotPassword(email: string) {
     return new Promise((resolve, rejects) => {
@@ -33,11 +34,32 @@ export class AuthService {
     return new Promise((resolve, rejects) => {
       this.http
         .post(this.url + '/login', { email: email, password: password })
-        .subscribe((data: any) => {
+        .subscribe(async (data: any) => {
           console.log('///' + data);
-          if (data.includes('Utilisateur') && data.includes('connecté')) {
-            this.router.navigate(['/tabs/home'])
+          if(!(JSON.stringify(data).includes('Utilisateur') && JSON.stringify(data).includes('connecté'))){
+            const toast = await this.toast.create({
+              message:
+                'Mot de passe incorrect ou email incorrect',
+              duration: 4000,
+              color: 'danger',
+            });
+
+            await toast.present();
+          }
+          if (
+            !data ||
+            (JSON.stringify(data).includes('Utilisateur') && JSON.stringify(data).includes('connecté'))
+          ) {
+            this.router.navigate(['/tabs/home']);
           } else {
+            const toast = await this.toast.create({
+              message:
+                'Mot de passe incorrect ou email incorrect',
+              duration: 4000,
+              color: 'danger',
+            });
+
+            await toast.present();
             rejects(false);
           }
         });
@@ -62,14 +84,16 @@ export class AuthService {
       this.http
         .request('POST', this.url + '/deconnexion')
         .subscribe((data: any) => {
-          if (!data.success) {
-            this.router.navigate(['/tabs/login'])
-            //rejects(data.message);
-          } else {
-          //  resolve(data);
-            console.log(data);
-            this.router.navigate(['/tabs/login'])
-          }
+          try {
+            if (!data.success) {
+              this.router.navigate(['/tabs/login']);
+              //rejects(data.message);
+            } else {
+              //  resolve(data);
+              console.log(data);
+              this.router.navigate(['/tabs/login']);
+            }
+          } catch (Exception) {}
         });
     });
   }
