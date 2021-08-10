@@ -79,22 +79,5 @@ export class AuthService {
     });
   }
 
-  logout() {
-    return new Promise((resolve, rejects) => {
-      this.http
-        .request('POST', this.url + '/deconnexion')
-        .subscribe((data: any) => {
-          try {
-            if (!data.success) {
-              this.router.navigate(['/tabs/login']);
-              //rejects(data.message);
-            } else {
-              //  resolve(data);
-              console.log(data);
-              this.router.navigate(['/tabs/login']);
-            }
-          } catch (Exception) {}
-        });
-    });
-  }
+  
 }
