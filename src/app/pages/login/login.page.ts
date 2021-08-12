@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform, ModalController } from '@ionic/angular';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { SplashScreenComponent } from '../../splash-screen/splash-screen.component';
+import { SplashScreenComponent } from "../../splash-screen/splash-screen.component";
 import { AuthService } from '../../services/auth.service';
 import { ToastController } from '@ionic/angular';
 import { ForgotPasswordComponent } from '../../modals/forgot-password/forgot-password.component';
@@ -13,14 +13,14 @@ import { ForgotPasswordComponent } from '../../modals/forgot-password/forgot-pas
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  idUser: string = '';
+
+  idUser: string= '';
   email: string = '';
   password: string = '';
   token: string = '';
   avatar: string = '';
   tabBarElement: any;
   isErrorMail: boolean = true;
-  isErrorPassword2: boolean = true;
 
   constructor(
     private auth: AuthService,
@@ -31,7 +31,8 @@ export class LoginPage implements OnInit {
     private modal: ModalController
   ) {
     this.tabBarElement = document.querySelector('#tabs ion-tab-bar');
-  }
+   }
+
 
   ngOnInit() {}
 
@@ -39,58 +40,61 @@ export class LoginPage implements OnInit {
     const modal = await this.modal.create({
       component: ForgotPasswordComponent,
       componentProps: {
-        emailer: this.email,
-      },
+        'emailer': this.email
+    }
     });
     return await modal.present();
   }
 
   testEmail() {
-    const regex = new RegExp(
-      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
-    );
-    this.isErrorMail = regex.test(this.email.trim()) ? false : true;
-  }
-  testPassword() {
-    console.log(this.password);
-    console.log(this.password.trim().length <= 6 ? false : true);
-    this.isErrorPassword2 = this.password.trim().length >= 4 ? false : true;
+    const regex = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g);
+    
+    this.isErrorMail = (regex.test(this.email.trim())) ? false : true;
   }
 
-  async loginForm() {
-    this.auth
-      .login(this.email, this.password)
-      .then(async (user: any) => {
+  async loginForm(){
+    
+      this.auth.login(this.email, this.password).then(async(user: any) => {
+        
         this.token = user.split('!')[1];
-        this.idUser = user.split(' ')[1];
-
-        if (this.platform.is('desktop')) {
-          localStorage.setItem('token', this.token);
-          localStorage.setItem('user', this.email);
-          localStorage.setItem('idUser', this.idUser);
-        } else {
-          await this.storage.setItem('token', this.token);
-          await this.storage.setItem('user', this.email);
-          await this.storage.setItem('idUser', this.idUser);
-        }
+        this.idUser = user.split(" ")[1];
+        
+        
+        if (this.platform.is("desktop")) {
+          localStorage.setItem('token', this.token)
+          localStorage.setItem('user', this.email)
+          localStorage.setItem('idUser', this.idUser)
+      } else {
+          await this.storage.setItem('token', this.token)
+          await this.storage.setItem('user', this.email)
+          await this.storage.setItem('idUser', this.idUser)
+      }
 
         const toast = await this.toast.create({
-          message: 'Connecté !',
-          color: 'success',
+          message: "Connecté !",
+          color: "success",
           duration: 2000,
         });
         toast.present();
 
-        this.router.navigate(['/tabs/home']);
+        
+
+        this.router.navigate(['/tabs/home'])
+      }).catch(async(err) => {
+        
+          console.log(err)
+          const toast = await this.toast.create({
+            message: "Vous avez mal renseigné le champs email ou password !",
+            color: "danger",
+            duration: 2000,
+          });
+          toast.present();
+          
       })
-      .catch(async (err) => {
-        console.log(err);
-        const toast = await this.toast.create({
-          message: 'Vous avez mal renseigné le champs email ou password !',
-          color: 'danger',
-          duration: 2000,
-        });
-        toast.present();
-      });
   }
+
+
+
+  
+
 }
