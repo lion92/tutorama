@@ -12,7 +12,6 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
   email: string;
   avatar: string;
   user: string;
@@ -25,82 +24,68 @@ export class ProfilePage implements OnInit {
     private platform: Platform,
     private modal: ModalController,
     private userService: UserService
-    ) { }
+  ) {}
 
   async ngOnInit() {
-
-    
-    
-    if(this.platform.is("desktop")) {
+    if (this.platform.is('desktop')) {
       this.email = localStorage.getItem('user');
-      
-    }else{
+    } else {
       this.email = await this.storage.getItem('user');
     }
-    this.userService.getUserByEmail(this.email).then(async(data: any) => {
-      
-      this.user = await JSON.stringify(data);
-      
-      for(let result of data){
-        this.avatar = result.avatar;
-      }
-      
-    }).catch(async(err) => {
-      console.log(err)
-    }) 
+    this.userService
+      .getUserByEmail(this.email)
+      .then(async (data: any) => {
+        this.user = await JSON.stringify(data);
 
-    
-    
-    if(this.email == undefined || this.email == null){
+        for (let result of data) {
+          this.avatar = result.avatar;
+        }
+      })
+      .catch(async (err) => {
+        console.log(err);
+      });
+
+    if (this.email == undefined || this.email == null) {
       this.disabled = true;
-    }else{
+    } else {
       this.disabled = false;
     }
   }
 
-
-  async getProfile(){
-    
-    if (this.platform.is("desktop")) {
-      this.users = await localStorage.getItem('user')
+  async getProfile() {
+    if (this.platform.is('desktop')) {
+      this.users = await localStorage.getItem('user');
     } else {
-      this.users = await this.storage.getItem('user')
+      this.users = await this.storage.getItem('user');
     }
     return this.users;
   }
 
-  async logout(){
+  logout() {
+    if (this.platform.is('desktop')) {
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+    } else {
+      this.storage.remove('token');
+      this.storage.remove('user');
+    }
 
-    if (this.platform.is("desktop")) {
-      await localStorage.removeItem('user');
-      await localStorage.removeItem('token');
-  } else {
-      await this.storage.remove('token')
-      await this.storage.remove('user')
-     
+    this.router.navigate(['/login']);
   }
 
-    
-    this.router.navigateByUrl('login', { replaceUrl:true });
-  }
-
-  
   async faq() {
-      const modal = await this.modal.create({
-        component: FaqComponent,
-        componentProps: {
-        }
-      });
+    const modal = await this.modal.create({
+      component: FaqComponent,
+      componentProps: {},
+    });
     return await modal.present();
   }
 
   async info() {
-      const modal = await this.modal.create({
-        component: AboutComponent,
-        componentProps: {
-        }
-      });
+    const modal = await this.modal.create({
+      component: AboutComponent,
+      componentProps: {},
+    });
     return await modal.present();
   }
-
 }
